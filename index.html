@@ -1,0 +1,1008 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mockups Index - Voyager CRO Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --red:#D82435; --red-dark:#A01326; --hero:#9E1B2E;
+ --ink:#141414; --text:#222; --muted:#6f6f6f; --line:#e7e7e7; --bg:#fff; --soft:#f6f5f3;
+ --ok:#1f8a4c; --warn:#e8843a; --gold:#f5a623;
+ --font:'Jost',-apple-system,Segoe UI,Roboto,sans-serif;
+ --maxw:1240px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.5;font-size:16px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-weight:600;color:var(--ink);letter-spacing:.5px;line-height:1.12}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--red);color:#fff;border:none;
+ padding:14px 26px;font-family:var(--font);font-weight:600;font-size:14px;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;transition:.15s}
+.btn:hover{background:var(--red-dark)}
+.btn.outline{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.outline:hover{background:var(--ink);color:#fff}
+.btn.block{width:100%}
+.btn.lg{padding:17px 30px;font-size:15px}
+.btn.dark{background:var(--ink)}.btn.dark:hover{background:#000}
+.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-weight:600}
+.section{padding:56px 0}
+.section h2{font-size:30px;text-transform:uppercase;text-align:center;margin-bottom:6px}
+.section .sub{text-align:center;color:var(--muted);margin-bottom:30px;font-size:15px}
+.stars{color:var(--gold);letter-spacing:1px;font-size:13px}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:4px 9px;border-radius:2px}
+
+header.site{position:sticky;top:0;z-index:60}
+.ann{background:var(--red-dark);color:#fff;text-align:center;font-size:13px;letter-spacing:.6px;padding:9px 12px;font-weight:500}
+.ann a{text-decoration:underline;font-weight:600}
+.anbar{position:relative;background:#161616;color:#fff;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.anbar-vp{overflow:hidden;height:38px}
+.anbar-track{display:flex;align-items:center;height:100%;width:max-content;animation:anmarquee 30s linear infinite}
+.anbar-track:hover{animation-play-state:paused}
+.anbar-item{flex:0 0 auto;white-space:nowrap;font-weight:600}
+.anbar-sep{flex:0 0 auto;padding:0 36px;opacity:.5}
+@keyframes anmarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@container (max-width:760px){.anbar-vp{height:34px;padding:0 12px}.anbar{font-size:11px;letter-spacing:.5px}}
+.nav{background:var(--red);color:#fff}
+.nav .row{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;max-width:var(--maxw);margin:0 auto}
+.nav .links{display:flex;gap:26px;font-size:14px;letter-spacing:1px;text-transform:uppercase;font-weight:500;align-items:center}
+.nav .links a{padding:6px 0;border-bottom:2px solid transparent}
+.nav .links a:hover{border-color:#fff}
+.nav .logo img{height:34px}
+.nav .logo{border:2px solid #fff;padding:7px 12px}
+.nav .icons{display:flex;gap:20px;align-items:center;font-size:19px}
+.nav .icons span{cursor:pointer}
+.nav .icons .cart{position:relative}
+.nav .icons .cart .count{position:absolute;top:-8px;right:-12px;background:#fff;color:var(--red);font-size:11px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.burger{display:none;font-size:24px;cursor:pointer;line-height:1}
+.nav .navleft{display:flex;align-items:center;gap:22px}
+.nav .hsearch{cursor:pointer;font-size:19px;line-height:1}
+@container (max-width:760px){.nav .navleft{gap:14px}.nav .icons{gap:16px}.nav .icons .acct{display:none}}
+.mnav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;opacity:0;pointer-events:none;transition:opacity .25s}
+.mnav{position:fixed;top:0;bottom:0;left:0;width:84%;max-width:330px;background:#fff;z-index:501;transform:translateX(-110%);transition:transform .28s ease;display:flex;flex-direction:column;overflow-y:auto}
+html.mnav-open .mnav-overlay{opacity:1;pointer-events:auto}
+html.mnav-open .mnav{transform:none}
+html.mnav-open body.mobile .mnav{left:calc(50% - 210px)}
+.mnav-top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #ececec}
+.mnav-login{display:flex;align-items:center;gap:10px;color:var(--ink);font-size:15px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.mnav-x{background:none;border:none;font-size:30px;line-height:1;color:var(--ink);cursor:pointer;padding:0 2px}
+.mnav-list a{display:flex;align-items:center;justify-content:space-between;padding:17px 18px;color:var(--ink);font-size:16px;border-bottom:1px solid #ececec;text-transform:uppercase;letter-spacing:.3px}
+.mnav-list a span{color:#c9c9c9;font-size:24px;line-height:1}
+.mnav-brands{display:flex;flex-direction:column;gap:20px;padding:26px 20px}
+.mnav-brands img{height:32px;width:auto;object-fit:contain;align-self:flex-start}
+footer.site .about h4{display:none}
+
+.grid{display:grid;gap:22px}
+.grid.c4{grid-template-columns:repeat(4,1fr)}
+.grid.c3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid #cfcfcf;position:relative;display:flex;flex-direction:column;transition:.18s}
+.card:hover{box-shadow:0 10px 26px rgba(0,0,0,.09);transform:translateY(-3px)}
+.card .imgwrap{position:relative;aspect-ratio:1;overflow:hidden;background:var(--soft)}
+.card .imgwrap img{width:100%;height:100%;object-fit:cover}
+.card .badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:6px;z-index:2}
+.b-best{background:var(--red);color:#fff}
+.b-new{background:var(--ink);color:#fff}
+.b-sale{background:var(--warn);color:#fff}
+.card .body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:15px;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text);min-height:38px}
+.card .price{font-weight:700;color:var(--ink);font-size:16px}
+.swatches{display:flex;gap:7px;flex-wrap:wrap}
+.swatch{width:24px;height:24px;border-radius:50%;border:1px solid #ddd;cursor:pointer;outline-offset:2px;background-size:cover;background-position:center}
+.swatch.on{outline:2px solid var(--ink)}
+.swatch-more{display:inline-flex;align-items:center;height:20px;font-size:11px;font-weight:600;color:var(--muted);margin-left:2px}
+.rev{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.atc{margin-top:auto}
+
+footer.site{background:var(--red);color:#fff;padding:48px 0 24px;margin-top:40px}
+footer.site .cols{display:grid;grid-template-columns:1.5fr 1fr 1.1fr 1.1fr;gap:30px}
+footer.site .frow2{display:grid;grid-template-columns:1.5fr 1.1fr 1fr 1fr;gap:30px;margin-top:34px;border-top:1px solid rgba(255,255,255,.25);padding-top:30px}
+footer.site h4{color:#fff;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;font-weight:700}
+footer.site a{display:block;color:#fff;font-size:14px;padding:5px 0;opacity:.95}
+footer.site a:hover{text-decoration:underline}
+footer.site .about p,footer.site .news p{font-size:14px;opacity:.95;max-width:320px;line-height:1.6}
+footer.site .news-form{display:flex;gap:8px;margin-top:12px;max-width:330px}
+footer.site .news-form input{flex:1;padding:11px;border:none;font-family:var(--font);font-size:14px}
+footer.site .news-form button{background:#fff;color:var(--red);border:none;font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.5px;padding:0 16px;cursor:pointer}
+footer .copy{border-top:1px solid rgba(255,255,255,.25);margin-top:30px;padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:13px;color:#fff;opacity:.92}
+
+.cro{position:relative;outline:0 dashed transparent;border-radius:3px;transition:outline .15s,background .15s}
+body.anns .cro{outline:2px dashed var(--red)}
+.cro-num{display:none;position:absolute;top:-11px;left:-11px;z-index:40;background:var(--red);color:#fff;min-width:22px;height:22px;padding:0 5px;
+ border-radius:11px;font-size:12px;font-weight:700;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.3);cursor:help}
+body.anns .cro-num{display:inline-flex}
+.cro-num:hover .tip{display:block}
+.ann .cro-num{top:5px;left:8px}
+.tip{display:none;position:absolute;top:26px;left:0;width:248px;background:var(--ink);color:#fff;font-size:12px;font-weight:400;
+ line-height:1.45;letter-spacing:0;text-transform:none;padding:10px 12px;border-radius:6px;z-index:50;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.tip b{color:#ffb3bc}
+
+#bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#111;color:#fff;display:flex;align-items:center;gap:14px;
+ padding:10px 18px;font-size:13px;box-shadow:0 -2px 14px rgba(0,0,0,.3);flex-wrap:wrap}
+#bar .tag{background:var(--red);padding:4px 9px;border-radius:3px;font-weight:700;letter-spacing:.5px}
+#bar .seg{display:flex;border:1px solid #444;border-radius:5px;overflow:hidden}
+#bar .seg button{background:transparent;color:#bbb;border:none;padding:6px 12px;cursor:pointer;font-family:var(--font);font-size:13px}
+#bar .seg button.on{background:var(--red);color:#fff}
+#bar label{display:flex;align-items:center;gap:7px;cursor:pointer}
+#bar .spacer{flex:1}
+#bar a.home{color:#bbb;text-decoration:underline}
+body{padding-bottom:54px}
+#bar .barhide{background:transparent;border:1px solid #555;color:#ccc;border-radius:4px;cursor:pointer;font-family:var(--font);font-size:12px;padding:5px 10px;margin-left:6px}
+#bar .barhide:hover{background:#333;color:#fff}
+body.bar-hidden #bar{display:none}
+body.bar-hidden{padding-bottom:0}
+#barShow{position:fixed;bottom:12px;right:12px;z-index:210;display:none;background:var(--red);color:#fff;border:none;border-radius:22px;padding:9px 15px;font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:.4px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+#barShow:hover{background:var(--red-dark)}
+body.bar-hidden #barShow{display:block}
+#viewport{container-type:inline-size}
+body.mobile #viewport{max-width:420px;margin:0 auto;box-shadow:0 0 0 1px var(--line),0 18px 50px rgba(0,0,0,.18)}
+body.mobile{background:#fff}
+
+@container (max-width:1000px){
+ .grid.c4{grid-template-columns:repeat(3,1fr)}
+ footer.site .cols,footer.site .frow2{grid-template-columns:1fr 1fr}
+}
+@container (max-width:760px){
+ .nav .row{position:relative}
+ .nav .links{display:none}
+ .burger{display:block}
+ .grid.c4,.grid.c3{grid-template-columns:repeat(2,1fr)}
+ .section{padding:32px 0}
+ .section h2{font-size:24px}
+ .wrap{padding:0 14px}
+ footer.site{padding:0 0 20px;margin-top:30px}
+ footer.site .wrap{padding:0}
+ footer.site .cols,footer.site .frow2{display:block;gap:0;margin:0;border:none;padding:0}
+ footer.site .cols>div,footer.site .frow2>div{border-bottom:1px solid rgba(255,255,255,.25);padding:0}
+ footer.site .about h4{display:block}
+ footer.site .cols>div>h4,footer.site .frow2>div>h4{margin:0;padding:18px;font-size:16px;position:relative;cursor:pointer}
+ footer.site .cols>div>h4::after,footer.site .frow2>div>h4::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:22px;font-weight:400}
+ footer.site .cols>div.open>h4::after,footer.site .frow2>div.open>h4::after{content:"−"}
+ footer.site .cols>div>a,footer.site .frow2>div>a{display:none;padding:8px 18px}
+ footer.site .cols>div.open>a,footer.site .frow2>div.open>a{display:block}
+ footer.site .about p{display:none;padding:0 18px 18px}
+ footer.site .about.open p{display:block}
+ footer.site .about img{display:none}
+ footer.site .news h4{cursor:default}
+ footer.site .news h4::after{content:""}
+ footer.site .news p{display:block;padding:0 18px 12px}
+ footer.site .news-form{display:flex;flex-direction:column;gap:10px;margin:0;padding:0 18px 20px;max-width:none}
+ footer.site .news-form input{padding:15px}
+ footer.site .news-form button{padding:15px;width:100%}
+ footer.site .copy{padding:18px;flex-direction:column;align-items:flex-start;gap:8px}
+}
+@container (max-width:430px){
+ .grid.c4,.grid.c3{grid-template-columns:1fr 1fr;gap:12px}
+ .card h3{font-size:13.5px;min-height:34px}
+ .btn{padding:12px 16px;font-size:12px;letter-spacing:.6px}
+}
+/* ===== MEGA MENU (desktop) ===== */
+.nav{position:relative}
+.navitem{position:static;display:flex;align-items:center}
+.navitem>a{display:inline-flex;align-items:center;gap:5px}
+.navitem .mcaret{font-size:9px;transition:transform .2s;opacity:.85}
+.navitem:hover .mcaret{transform:rotate(180deg)}
+.mega{position:absolute;top:100%;left:0;right:0;transform:translateY(10px);background:#fff;color:var(--ink);border-radius:0 0 16px 16px;box-shadow:0 26px 54px rgba(0,0,0,.22);padding:24px 0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .16s ease,transform .16s ease;z-index:70;text-transform:none;letter-spacing:normal}
+.navitem:hover .mega,.navitem:focus-within .mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.mega-grid{display:grid;grid-template-columns:1fr 280px;gap:26px;max-width:1180px;margin:0 auto;padding:0 30px}
+.mega-h{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 12px}
+.mega-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.mega-tile{display:flex;align-items:center;gap:11px;padding:9px;border:1px solid var(--line);border-radius:12px;transition:.15s;background:#fff}
+.mega-tile:hover{border-color:var(--red);box-shadow:0 6px 16px rgba(0,0,0,.09);transform:translateY(-2px)}
+.mega-tile img{width:52px;height:52px;object-fit:cover;border-radius:9px;background:var(--soft);flex:none}
+.mega-tile .mt-t{font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.2}
+.mega-tile .mt-s{font-size:11.5px;color:var(--muted);margin-top:2px}
+.mega-sizes{margin-top:20px}
+.mega-chips{display:flex;flex-wrap:wrap;gap:8px}
+.mega-chip{border:1px solid var(--line);border-radius:20px;padding:7px 15px;font-size:12.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:.15s}
+.mega-chip:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.nav .links .mega a{border-bottom:none}
+.nav .links .mega a:hover{border-color:transparent}
+.nav .links a.mega-chip{padding:7px 15px}
+.nav .links a.mega-tile{padding:9px}
+.nav .links a.mega-bcard{padding:6px}
+.nav .links .mega-feat .mf-cta{padding:9px 15px}
+.mega-breeds{margin-top:20px}
+.mega-breedrow{display:flex;gap:16px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:none}
+.mega-breedrow::-webkit-scrollbar{display:none}
+.mega-breed{flex:0 0 auto;width:66px;text-align:center}
+.mega-breed .mb-c{display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;overflow:hidden;background:var(--soft);margin:0 auto 6px;border:2px solid transparent;transition:.15s}
+.mega-breed .mb-c img{width:100%;height:100%;object-fit:cover}
+.mega-breed:hover .mb-c{border-color:var(--red)}
+.mega-breed .mb-bn{font-size:11px;font-weight:600;color:var(--ink);line-height:1.2;display:block}
+.nav .links a.mega-breed{padding:0}
+.mega-breedgridw{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mega-breedgridw .mega-breed{width:auto}
+/* mobile drawer breeds */
+.mnav-breeds{margin-top:16px}
+.mnav-breedgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 6px}
+.mnav-breed{text-align:center}
+.mnav-breed .mb-c{display:flex;width:58px;height:58px;border-radius:50%;overflow:hidden;background:var(--soft);margin:0 auto 6px}
+.mnav-breed .mb-c img{width:100%;height:100%;object-fit:cover}
+.mnav-breed .mb-bn{font-size:10.5px;font-weight:600;color:var(--ink);line-height:1.2;display:block}
+.mega-best{margin-top:20px}
+.mega-bstrip{display:flex;gap:10px}
+.mega-bcard{flex:1;display:flex;gap:9px;align-items:center;border-radius:10px;padding:6px;transition:.15s;min-width:0}
+.mega-bcard:hover{background:var(--soft)}
+.mega-bcard img{width:46px;height:46px;object-fit:cover;border-radius:8px;flex:none}
+.mega-bcard .mb-n{font-size:12px;font-weight:600;color:var(--ink);line-height:1.2;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.mega-bcard .mb-p{font-size:12.5px;color:var(--red);font-weight:700;margin-top:2px}
+.mega-feat{border-radius:12px;overflow:hidden;position:relative;min-height:220px;background:var(--soft);display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.mega-feat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mega-feat .mf-in{position:relative;padding:18px;background:linear-gradient(transparent,rgba(0,0,0,.74))}
+.mega-feat .mf-tag{font-size:10.5px;text-transform:uppercase;letter-spacing:1px;font-weight:700;opacity:.92}
+.mega-feat .mf-h{font-size:18px;font-weight:800;line-height:1.18;margin:5px 0 11px}
+.mega-feat .mf-cta{display:inline-block;background:#fff;color:var(--ink);font-size:11.5px;font-weight:700;text-transform:uppercase;padding:9px 15px;border-radius:6px;letter-spacing:.5px}
+/* ===== MOBILE FOOTER TAB BAR ===== */
+.mtabbar{position:fixed;left:0;right:0;bottom:0;z-index:150;display:none}
+.mtabbar-inner{max-width:420px;margin:0 auto;background:#fff;border-top:1px solid var(--line);box-shadow:0 -3px 16px rgba(0,0,0,.12);display:flex;justify-content:space-around;align-items:flex-end;padding:7px 2px 9px}
+.mtab{flex:1;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 2px;color:#7c7c7c;font-family:var(--font);position:relative;text-decoration:none}
+.mtab svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.mtab .mtab-l{font-size:10.5px;font-weight:600;letter-spacing:.2px}
+.mtab.on,.mtab:hover{color:var(--red)}
+.mtab .mtb-badge{position:absolute;top:-3px;right:calc(50% - 22px);background:var(--red);color:#fff;font-size:9px;font-weight:700;min-width:16px;height:16px;padding:0 3px;border-radius:9px;display:none;align-items:center;justify-content:center;line-height:1}
+.mtab .mtb-badge.show{display:flex}
+.mtab.quiz{color:var(--red)}
+.mtab.quiz .qwrap{width:44px;height:44px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;margin-top:-20px;box-shadow:0 5px 14px rgba(163,27,56,.42);border:3px solid #fff}
+.mtab.quiz .qwrap svg{stroke:#fff;width:22px;height:22px}
+body.mobile .mtabbar{display:block}
+@media(max-width:760px){.mtabbar{display:block}}
+body.mobile #viewport{padding-bottom:70px}
+@media(max-width:760px){#viewport{padding-bottom:70px}}
+@container (max-width:760px){.mega{display:none}}
+/* ===== SEARCH OVERLAY ===== */
+.search-panel{max-width:640px;width:92%;padding:0;overflow:hidden}
+.search-hd{display:flex;align-items:center;gap:10px;padding:15px 16px;border-bottom:1px solid var(--line)}
+.search-hd svg{width:20px;height:20px;stroke:var(--muted);fill:none;stroke-width:2}
+.search-hd input{flex:1;border:none;font-size:16px;font-family:var(--font);outline:none;color:var(--ink)}
+.search-body{padding:16px 18px 22px}
+.search-body h5{font-size:11.5px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:4px 0 10px}
+.search-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.search-tags a{border:1px solid var(--line);border-radius:20px;padding:8px 14px;font-size:13px;color:var(--ink)}
+.search-tags a:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.search-quick{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.search-quick a{text-align:center;font-size:12px;color:var(--ink);font-weight:600}
+.search-quick img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;margin-bottom:6px;background:var(--soft)}
+@container (max-width:600px){.search-quick{grid-template-columns:repeat(2,1fr)}}
+/* ===== FIND MY FIT QUIZ ===== */
+.quiz-panel{max-width:500px;width:92%;padding:24px 26px 28px;position:relative}
+.quiz-step{display:none}.quiz-step.on{display:block}
+.quiz-panel h3{font-size:21px;margin-bottom:6px}
+.quiz-panel p.qsub{color:var(--muted);font-size:13.5px;margin-bottom:18px;text-transform:none;letter-spacing:normal}
+.quiz-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.quiz-opt{border:1.5px solid var(--line);border-radius:12px;padding:16px 12px;cursor:pointer;font-weight:600;font-size:14px;transition:.15s;background:#fff;text-align:center}
+.quiz-opt:hover{border-color:var(--red);background:#fff5f7}
+.quiz-opt .qico{font-size:28px;display:block;margin-bottom:7px}
+.quiz-progress{height:5px;background:var(--soft);border-radius:5px;margin-bottom:18px;overflow:hidden}
+.quiz-progress i{display:block;height:100%;background:var(--red);transition:width .3s;width:34%}
+.quiz-result .qsize{font-size:46px;font-weight:800;color:var(--red);margin:4px 0}
+/* ===== MOBILE DRAWER DRILL-DOWN VIEWS (mega -> mobile) ===== */
+.mnav{overflow:hidden}
+.mnav-views{position:relative;flex:1;overflow:hidden}
+.mnav-view{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;background:#fff;transform:translateX(100%);transition:transform .28s ease}
+.mnav-view.on{transform:translateX(0)}
+.mnav-view-root{transform:translateX(0)}
+.mnav-nav{width:100%;display:flex;align-items:center;justify-content:space-between;padding:17px 18px;background:none;border:none;border-bottom:1px solid #ececec;font-family:var(--font);font-size:16px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink);cursor:pointer}
+.mnav-nav span{color:#c9c9c9;font-size:24px;line-height:1}
+.mnav-back{display:flex;align-items:center;gap:7px;width:100%;padding:15px 18px;background:#fff;border:none;border-bottom:1px solid #ececec;font-family:var(--font);font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);cursor:pointer}
+.mnav-back span{font-size:24px;line-height:1;color:var(--ink);font-weight:400}
+.mnav-vhead{padding:16px 18px 2px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:700}
+.mnav-vbody{padding:10px 14px 22px}
+.mnav-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mnav-tile{display:flex;flex-direction:column;gap:6px;padding:8px;background:#fff;border:1px solid var(--line);border-radius:10px;text-transform:none;letter-spacing:normal;font-size:12.5px;font-weight:600;color:var(--ink)}
+.mnav-tile img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:7px;background:var(--soft)}
+.mnav-sizes{margin-top:14px}
+.mnav-slbl{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:700;display:block;margin-bottom:8px}
+.mnav-chips{display:flex;flex-wrap:wrap;gap:7px}
+.mnav-chip{border:1px solid var(--line);border-radius:18px;padding:6px 14px;font-size:12.5px;font-weight:600;color:var(--ink);background:#fff}
+.mnav-shopall{display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:var(--red);text-transform:none;letter-spacing:normal}
+
+.qa-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:400;display:none;align-items:center;justify-content:center;padding:20px}
+.qa-overlay.open{display:flex}
+.qa-panel{background:#fff;width:100%;max-width:440px;border-radius:10px;padding:24px;position:relative;max-height:88vh;overflow:auto;animation:qaPop .2s ease}
+@keyframes qaPop{from{transform:scale(.96);opacity:.5}to{transform:scale(1);opacity:1}}
+@keyframes qaSlide{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.qa-close{position:absolute;top:10px;right:14px;background:none;border:none;font-size:28px;line-height:1;cursor:pointer;color:#999}
+.qa-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;padding-right:22px}
+.qa-head img{width:84px;height:84px;object-fit:cover;border-radius:6px;background:var(--soft);flex:none}
+.qa-name{font-weight:600;font-size:16px;color:var(--ink);line-height:1.25}
+.qa-price{font-weight:700;font-size:17px;margin-top:4px;color:var(--ink)}
+.qa-stars{color:var(--gold);font-size:13px;margin-top:4px}
+.qa-opt{margin:14px 0}
+.qa-lbl{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#555;margin-bottom:8px;font-weight:600}
+.qa-colors{display:flex;gap:10px;flex-wrap:wrap}
+.qa-colors .sw{width:46px;height:46px;border-radius:8px;border:1px solid #ddd;cursor:pointer;background-size:cover;background-position:center}
+.qa-colors .sw.on{box-shadow:0 0 0 2px var(--ink);border-color:#fff}
+.qa-sizes{display:flex;gap:8px;flex-wrap:wrap}
+.qa-sizes button{border:1px solid var(--line);background:#fff;padding:10px 16px;cursor:pointer;font-family:var(--font);font-size:14px;min-width:48px}
+.qa-sizes button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.qa-add{margin-top:18px}
+.qa-view{display:block;text-align:center;margin-top:12px;font-size:13px;color:#555;text-decoration:underline}
+.qa-toast{position:fixed;left:50%;bottom:74px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:6px;font-size:14px;z-index:420;opacity:0;pointer-events:none;transition:opacity .3s}
+.qa-toast.show{opacity:1}
+/* mobile bottom sheet (real viewport) */
+@media(max-width:600px){
+ .qa-overlay{align-items:flex-end;padding:0}
+ .qa-panel{max-width:none;border-radius:16px 16px 0 0;padding:22px 18px 26px;animation:qaSlide .3s ease}
+}
+/* mobile bottom sheet (device-preview toggle) */
+body.mobile .qa-overlay{align-items:flex-end;padding:0}
+body.mobile .qa-panel{max-width:420px;margin:0 auto;border-radius:16px 16px 0 0;animation:qaSlide .3s ease}
+
+.mc-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.mc-overlay.open{opacity:1;visibility:visible}
+.mc-drawer{position:fixed;top:0;right:0;height:100%;width:420px;max-width:92vw;background:#fff;z-index:510;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease;box-shadow:-6px 0 30px rgba(0,0,0,.18)}
+.mc-overlay.open .mc-drawer{transform:translateX(0)}
+.mc-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.mc-head h3{font-size:18px;text-transform:none;letter-spacing:0;font-weight:700}
+.mc-head h3 span{color:#999;font-weight:400;font-size:14px}
+.mc-close{background:none;border:none;font-size:26px;cursor:pointer;color:#555;line-height:1}
+.mc-ship{padding:14px 20px;border-bottom:1px solid var(--line);font-size:13px}
+.mc-ship .msg b{color:var(--red)}
+.mc-ship .track{height:8px;background:#eee;border-radius:5px;overflow:hidden;margin-top:9px}
+.mc-ship .track i{display:block;height:100%;background:var(--red);transition:width .3s}
+.mc-ship.done .msg{color:var(--ok);font-weight:600}
+.mc-scroll{flex:1;overflow:auto;display:flex;flex-direction:column}
+.mc-body{padding:4px 20px}
+.mc-item{position:relative;padding:16px 0;border-bottom:1px solid var(--line);perspective:1100px}
+.mc-flip{position:relative;transition:transform .55s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d;min-height:104px}
+.mc-item.flipped .mc-flip{transform:rotateY(180deg)}
+.mc-front,.mc-back{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.mc-front{display:grid;grid-template-columns:72px 1fr auto;gap:12px}
+.mc-front img{width:72px;height:72px;object-fit:cover;border-radius:6px;background:var(--soft)}
+.mc-finfo{min-width:0}
+.mc-actions{display:flex;align-items:center;gap:14px;margin-top:8px;flex-wrap:wrap}
+.mc-actions .mc-qty{margin-top:0}
+.mc-save{color:#666;font-size:12px;text-decoration:underline;cursor:pointer}
+.mc-save:hover{color:var(--red)}
+.mc-fprice{text-align:right}
+.mc-back{position:absolute;top:0;left:0;width:100%;height:100%;transform:rotateY(180deg);background:#fff;display:flex;flex-direction:column;justify-content:center;gap:9px}
+.mc-back-hd{display:flex;justify-content:space-between;align-items:center;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:#999;font-weight:700}
+.mc-back-x{cursor:pointer;font-size:15px;color:#999}
+.mc-back-row{display:flex;align-items:center;gap:10px}
+.mc-back-lbl{font-size:12px;color:#666;width:44px}
+.mc-bsw{display:flex;gap:7px;flex-wrap:wrap}
+.mc-bswatch{width:26px;height:26px;border-radius:6px;border:1px solid #ddd;cursor:pointer;background-size:cover;background-position:center}
+.mc-bswatch.on{box-shadow:0 0 0 2px var(--ink)}
+.mc-back select{padding:6px 8px;border:1px solid var(--line);font-family:var(--font);font-size:12px}
+.mc-update{align-self:flex-start;background:var(--ink);color:#fff;border:none;padding:8px 18px;font-family:var(--font);font-size:12px;font-weight:600;text-transform:uppercase;cursor:pointer;border-radius:4px;margin-top:2px}
+.mc-update:hover{background:var(--red)}
+.mc-iname{font-weight:600;font-size:14px;color:var(--ink);line-height:1.25}
+.mc-ivar{font-size:12.5px;color:#666;margin:4px 0}
+.mc-change{color:var(--red);font-size:12px;text-decoration:underline;cursor:pointer}
+.mc-qty{display:inline-flex;border:1px solid var(--line);border-radius:4px;margin-top:8px}
+.mc-qty button{width:28px;height:28px;border:none;background:#fff;cursor:pointer;font-size:16px}
+.mc-qty span{width:34px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.mc-iprice{font-weight:700;font-size:14px;text-align:right;white-space:nowrap}
+.mc-trash{background:none;border:none;cursor:pointer;color:#aaa;font-size:16px;margin-bottom:10px;display:block;margin-left:auto}
+.mc-trash:hover{color:var(--red)}
+.mc-edit{margin-top:10px;display:none;align-items:center;gap:10px;flex-wrap:wrap}
+.mc-edit.open{display:flex}
+.mc-edit .sw{width:22px;height:22px;border-radius:50%;border:1px solid #ccc;cursor:pointer}
+.mc-edit .sw.on{box-shadow:0 0 0 2px var(--ink)}
+.mc-edit select{padding:6px 8px;border:1px solid var(--line);font-family:var(--font);font-size:12px}
+.mc-rec{padding:16px 20px;border-top:1px solid var(--line)}
+.mc-rec h4{font-size:15px;text-transform:none;letter-spacing:0;margin-bottom:12px;font-weight:600}
+.mc-rec-wrap{position:relative}
+.mc-rail{display:flex;gap:12px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none}
+.mc-rail::-webkit-scrollbar{display:none}
+.mc-rcard{flex:0 0 calc(100% - 26px);border:1px solid var(--line);border-radius:8px;padding:10px;display:flex;gap:10px;align-items:center}
+.mc-rcard img{width:54px;height:54px;object-fit:cover;border-radius:6px;flex:none}
+.mc-rcard .rn{font-size:12.5px;font-weight:500;line-height:1.25}
+.mc-rcard .rp{font-weight:700;font-size:13px;margin-top:3px}
+.mc-rcard button{margin-left:auto;background:var(--ink);color:#fff;border:none;font-size:11px;font-weight:600;padding:8px 12px;border-radius:4px;cursor:pointer;text-transform:uppercase}
+.mc-rcard button:hover{background:var(--red)}
+.mc-arrow{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:1px solid var(--line);width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 2px 6px rgba(0,0,0,.14);font-size:15px}
+.mc-arrow.l{left:-8px}.mc-arrow.r{right:-8px}
+.mc-coupon{padding:14px 20px 4px;display:flex;gap:8px}
+.mc-coupon input{flex:1;padding:10px;border:1px solid var(--line);font-family:var(--font);font-size:13px}
+.mc-coupon button{background:var(--ink);color:#fff;border:none;padding:0 16px;cursor:pointer;font-weight:600;text-transform:uppercase;font-size:12px}
+.mc-coupon-msg{padding:0 20px;font-size:12.5px;color:var(--ok);display:none}
+.mc-coupon-msg.show{display:block}
+.mc-foot{border-top:1px solid var(--line);padding:16px 20px}
+.mc-srow{display:flex;justify-content:space-between;font-size:13px;padding:3px 0}
+.mc-srow.disc{color:var(--ok)}
+.mc-subtotal{display:flex;justify-content:space-between;align-items:baseline;margin:6px 0 12px}
+.mc-subtotal .lbl{font-size:13px;color:#666;text-transform:uppercase;letter-spacing:.5px}
+.mc-subtotal .amt{font-size:24px;font-weight:700;color:var(--ink)}
+.mc-checkout{width:100%;background:var(--red);color:#fff;border:none;padding:16px;font-family:var(--font);font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+.mc-checkout:hover{background:var(--red-dark)}
+.mc-note{font-size:11.5px;color:#888;text-align:center;margin-top:10px}
+.mc-view{display:block;text-align:center;font-size:13px;margin-top:10px;text-decoration:underline;color:var(--ink)}
+@media(max-width:480px){.mc-drawer{width:100%;max-width:100%}}
+
+.pdp-sticky{position:fixed;left:0;right:0;bottom:54px;--tabh:0px;z-index:190;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 18px rgba(0,0,0,.1);transform:translateY(160%);transition:transform .3s ease}
+.pdp-sticky.show{transform:translateY(0)}
+.pdp-sticky .inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 22px}
+.pdp-sticky img{width:46px;height:46px;object-fit:cover;border-radius:6px;flex:none;background:var(--soft)}
+.pdp-sticky .ps-info{min-width:0}
+.pdp-sticky .ps-name{font-weight:600;font-size:14px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px}
+.pdp-sticky .ps-price{font-weight:700;font-size:15px;color:var(--ink)}
+.pdp-sticky .ps-price s{color:#999;font-weight:400;font-size:12px;margin-left:6px}
+.pdp-sticky .ps-info{min-width:0;display:flex;flex-direction:column;justify-content:center}
+.pdp-sticky .ps-rev{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px;line-height:1.2}
+.pdp-sticky .ps-rev .stars{color:var(--gold);letter-spacing:.5px}
+.pdp-sticky .ps-rc{color:#999}
+.pdp-sticky .ps-opts{margin-left:auto;display:flex;align-items:center;gap:10px}
+.pdp-sticky select{padding:10px 10px;border:1px solid var(--line);font-family:var(--font);font-size:13px;background:#fff;cursor:pointer}
+.pdp-sticky .btn{padding:13px 26px;white-space:nowrap}
+body.mobile .pdp-sticky{bottom:calc(54px + var(--tabh))}
+body.mobile .pdp-sticky .inner{max-width:420px}
+body.bar-hidden.mobile .pdp-sticky{bottom:var(--tabh)}
+body.mobile .pdp-sticky .ps-name{display:none}
+body.mobile .pdp-sticky .ps-opts select{display:none}
+body.mobile .pdp-sticky .ps-opts{flex:1}
+body.mobile .pdp-sticky .btn{flex:1}
+@media(max-width:760px){
+ .pdp-sticky{bottom:calc(54px + var(--tabh))}
+ body.bar-hidden .pdp-sticky{bottom:var(--tabh)}
+ .pdp-sticky .ps-name{display:none}
+ .pdp-sticky .inner{gap:10px;padding:10px 14px}
+ .pdp-sticky .ps-opts{gap:8px;flex:1}
+ .pdp-sticky .btn{padding:13px 14px;flex:1}
+ .pdp-sticky .ps-opts select{display:none}
+ .pdp-sticky .ps-opts{flex:1}
+ .pdp-sticky .btn{flex:1;padding:14px}
+}
+
+.shipbar{background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin-bottom:16px}
+.shipbar-msg{font-size:13.5px;margin-bottom:8px}
+.shipbar-msg b{color:var(--red)}
+.shipbar-track{height:8px;background:#eee;border-radius:5px;overflow:hidden}
+.shipbar-track i{display:block;height:100%;background:var(--red)}
+
+/* ===== PRODUCT STORIES ===== */
+.story-launch{position:absolute;right:14px;bottom:14px;z-index:4;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;padding:0}
+.story-launch .sl-ring{width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--hero));display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.28);animation:slPulse 2.4s ease-in-out infinite}
+.story-launch .sl-play{width:50px;height:50px;border-radius:50%;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;padding-left:2px}
+.story-launch .sl-label{background:var(--ink);color:#fff;font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px;letter-spacing:.3px}
+@keyframes slPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.story-launch .cro-num{top:-8px;left:-8px}
+.st-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:390;display:none;align-items:center;justify-content:center}
+.st-overlay.open{display:flex}
+.st-phone{position:relative;width:380px;max-width:94vw;height:86vh;max-height:760px;background:#000;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.st-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.st-bars{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:5px;z-index:6}
+.st-bar{flex:1;height:3px;background:rgba(255,255,255,.4);border-radius:3px;overflow:hidden}
+.st-bar i{display:block;height:100%;width:0;background:#fff}
+.st-head{position:absolute;top:22px;left:12px;right:12px;display:flex;align-items:center;gap:10px;z-index:7;color:#fff}
+.st-av{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex:none}
+.st-htext{flex:1;min-width:0}
+.st-hname{font-size:13px;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-hsub{font-size:11px;opacity:.85;text-shadow:0 1px 3px rgba(0,0,0,.55)}
+.st-close{background:none;border:none;color:#fff;font-size:28px;cursor:pointer;line-height:1;text-shadow:0 1px 3px rgba(0,0,0,.55);padding:0 2px}
+.st-mute{position:absolute;top:64px;right:14px;z-index:7;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.42);color:#fff;border:none;cursor:pointer;font-size:13px}
+.st-cap{position:absolute;left:16px;right:16px;bottom:92px;color:#fff;font-size:17px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.6);z-index:5;line-height:1.3}
+.st-nav{position:absolute;top:70px;bottom:80px;width:38%;z-index:4;cursor:pointer}
+.st-nav.prev{left:0}.st-nav.next{right:0}
+.st-foot{position:absolute;left:0;right:0;bottom:0;z-index:8;background:#fff;display:flex;align-items:center;gap:10px;padding:10px 12px}
+.st-foot .st-fimg{width:44px;height:44px;border-radius:8px;object-fit:cover;flex:none;background:var(--soft)}
+.st-finfo{flex:1;min-width:0}
+.st-fname{font-size:12.5px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-fprice{font-size:13px;font-weight:700;color:var(--ink)}
+.st-fprice s{color:#999;font-weight:400;font-size:11px;margin-left:5px}
+.st-foot .btn{padding:11px 14px;white-space:nowrap;font-size:13px}
+.st-foot .btn.ghost{background:#fff;color:var(--red);border:1.5px solid var(--red)}
+@media(max-width:760px){.st-phone{width:100vw;max-width:100vw;height:100vh;max-height:none;border-radius:0}}
+body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
+
+
+.wish-btn{position:absolute;top:10px;right:10px;z-index:3;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;color:#c2c2c2;box-shadow:0 1px 4px rgba(0,0,0,.16);transition:.15s;line-height:1;padding:0}
+.wish-btn:hover{color:var(--red);transform:scale(1.08)}
+.wish-btn.on{color:var(--red)}
+.nav .icons .wishlink{position:relative;cursor:pointer;font-size:19px}
+.nav .icons .wishlink .wcount{position:absolute;top:-8px;right:-12px;background:#fff;color:var(--red);font-size:11px;font-weight:700;width:18px;height:18px;border-radius:50%;display:none;align-items:center;justify-content:center}
+.mainimg .wish-btn{top:12px;left:12px;width:40px;height:40px;font-size:20px}
+.wl-head{padding:22px 0 4px}.wl-head h1{font-size:30px;text-transform:uppercase}
+.wl-head .sub{color:var(--muted);font-size:14px}
+.wl-empty{text-align:center;padding:60px 20px;color:#777}
+.wl-empty .ic{font-size:48px;color:#e7b9bf}
+.wl-empty h2{font-size:20px;text-transform:none;margin:14px 0 8px;font-weight:600}
+@container (max-width:760px){.wl-head h1{font-size:24px}}
+
+.sc-panel{max-width:540px}
+.sc-title{font-size:20px;text-transform:uppercase;margin-bottom:6px;color:var(--ink)}
+.sc-sub{font-size:13px;color:var(--muted);margin-bottom:14px}
+.sc-table{width:100%;border-collapse:collapse;font-size:14px}
+.sc-table th,.sc-table td{border:1px solid var(--line);padding:9px 10px;text-align:center}
+.sc-table th{background:var(--soft);text-transform:uppercase;font-size:12px;letter-spacing:.5px;color:var(--ink)}
+.sc-table tbody td:first-child,.sc-table th:first-child{font-weight:700;color:var(--ink)}
+.sc-table tbody tr:hover{background:#fff5f6}
+.sc-note{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+.sc-note b{color:var(--red)}
+</style></head>
+<body class="anns">
+<div id="viewport">
+
+<header class="site">
+ <div class="anbar cro" data-note="<b>Announcement bar (auto-rotating).</b> A slim promo strip that rotates the free-shipping threshold and returns reassurance every 2s lifts AOV and builds trust (Phase 1)."><span class="cro-num">17<span class="tip"></span></span>
+  <div class="anbar-vp"><div class="anbar-track" id="anTrack">
+   <span class="anbar-item">Free Shipping on Orders Above $30</span><span class="anbar-sep">&bull;</span>
+   <span class="anbar-item">We Offer 14-Day Returns</span><span class="anbar-sep">&bull;</span>
+   <span class="anbar-item">Free Shipping on Orders Above $30</span><span class="anbar-sep">&bull;</span>
+   <span class="anbar-item">We Offer 14-Day Returns</span><span class="anbar-sep">&bull;</span>
+  </div></div>
+ </div>
+ <div class="nav">
+  <div class="row">
+   <div class="navleft">
+     <span class="burger" onclick="document.documentElement.classList.add('mnav-open')">&#9776;</span>
+     <span class="hsearch" aria-label="Search" onclick="openSearch()">&#9906;</span>
+     <div class="links">
+       <div class="navitem has-mega"><a href="#">Dog <span class="mcaret">&#9662;</span></a><div class="mega"><div class="mega-grid"><div><div class="mega-h">Shop Dog Harnesses</div><div class="mega-tiles"><a class="mega-tile" href="collection.html"><img src="assets/a45778c52a6b0c.jpg" alt=""><div><div class="mt-t">Step-In Air</div><div class="mt-s">Lightweight, everyday</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/5d26b200acbfb0.jpg" alt=""><div><div class="mt-t">Step-In Plush</div><div class="mt-s">Cozy &amp; padded</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/0a7a959a1fea98.jpg" alt=""><div><div class="mt-t">Step-In Lock</div><div class="mt-s">Secure buckle close</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/442f102f16ebc4.jpg" alt=""><div><div class="mt-t">Step-In Flex</div><div class="mt-s">All-adventure fit</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/a34423a6d20f8e.jpg" alt=""><div><div class="mt-t">AeroLite</div><div class="mt-s">Ultra-breathable mesh</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/e1fe5495003a6b.jpg" alt=""><div><div class="mt-t">Harness + Leash Sets</div><div class="mt-s">Complete walk kit</div></div></a></div><div class="mega-sizes"><div class="mega-h">Shop by pet size</div><div class="mega-chips"><a class="mega-chip" href="collection.html">XXS</a><a class="mega-chip" href="collection.html">XS</a><a class="mega-chip" href="collection.html">S</a><a class="mega-chip" href="collection.html">M</a><a class="mega-chip" href="collection.html">L</a><a class="mega-chip" href="collection.html">XL</a></div></div><div class="mega-best"><div class="mega-h">Best sellers</div><div class="mega-bstrip"><a class="mega-bcard" href="product.html"><img src="assets/a45778c52a6b0c.jpg" alt=""><div><div class="mb-n">Step-In Air Harness with Matching Trim</div><div class="mb-p">$14.99</div></div></a><a class="mega-bcard" href="product.html"><img src="assets/442f102f16ebc4.jpg" alt=""><div><div class="mb-n">Step-In Flex Dog Harness</div><div class="mb-p">$15.99</div></div></a><a class="mega-bcard" href="product.html"><img src="assets/a34423a6d20f8e.jpg" alt=""><div><div class="mb-n">AeroLite Harness for Dogs</div><div class="mb-p">$14.99</div></div></a></div></div></div><a class="mega-feat" href="collection.html"><img src="assets/442f102f16ebc4.jpg" alt=""><div class="mf-in"><div class="mf-tag">New for adventure</div><div class="mf-h">Step-In Flex &mdash; built for every trail</div><span class="mf-cta">Shop New Arrivals</span></div></a></div></div></div><div class="navitem has-mega"><a href="#">Cat <span class="mcaret">&#9662;</span></a><div class="mega"><div class="mega-grid"><div><div class="mega-h">Shop Cat Harnesses</div><div class="mega-tiles"><a class="mega-tile" href="collection.html"><img src="assets/e70945679084c8.jpg" alt=""><div><div class="mt-t">Step-In Air</div><div class="mt-s">Feather-light fit</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/492d2348a5fb6f.jpg" alt=""><div><div class="mt-t">Escape-Proof</div><div class="mt-s">No wiggle-outs</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/1546765d0d147d.jpg" alt=""><div><div class="mt-t">Harness + Leash Sets</div><div class="mt-s">Walk-ready combo</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/0850dfebfe7e71.jpg" alt=""><div><div class="mt-t">Step-In Lock</div><div class="mt-s">Extra-secure hold</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/ee4f160fec13e7.jpg" alt=""><div><div class="mt-t">Adventure Harness</div><div class="mt-s">For curious explorers</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/90323181446973.jpg" alt=""><div><div class="mt-t">Reflective Collars</div><div class="mt-s">Night-time safety</div></div></a></div><div class="mega-sizes"><div class="mega-h">Shop by pet size</div><div class="mega-chips"><a class="mega-chip" href="collection.html">XXXS</a><a class="mega-chip" href="collection.html">XXS</a><a class="mega-chip" href="collection.html">XS</a><a class="mega-chip" href="collection.html">S</a></div></div><div class="mega-best"><div class="mega-h">Best sellers</div><div class="mega-bstrip"><a class="mega-bcard" href="product.html"><img src="assets/492d2348a5fb6f.jpg" alt=""><div><div class="mb-n">Escape Proof Cat Harness</div><div class="mb-p">$15.99</div></div></a><a class="mega-bcard" href="product.html"><img src="assets/0a7a959a1fea98.jpg" alt=""><div><div class="mb-n">Step-In Lock Harness with Air Mesh</div><div class="mb-p">$13.99</div></div></a><a class="mega-bcard" href="product.html"><img src="assets/20ef3f390bad0a.jpg" alt=""><div><div class="mb-n">Step-In Lock Pet Harness</div><div class="mb-p">$13.99</div></div></a></div></div></div><a class="mega-feat" href="collection.html"><img src="assets/492d2348a5fb6f.jpg" alt=""><div class="mf-in"><div class="mf-tag">Bestseller</div><div class="mf-h">Escape-proof comfort for curious cats</div><span class="mf-cta">Shop Cat Harnesses</span></div></a></div></div></div><div class="navitem has-mega"><a href="#">Best Pet Supplies <span class="mcaret">&#9662;</span></a><div class="mega"><div class="mega-grid"><div><div class="mega-h">Shop Best Pet Supplies</div><div class="mega-tiles"><a class="mega-tile" href="collection.html"><img src="assets/e282113fca0d94.jpg" alt=""><div><div class="mt-t">Indoor Pet Houses</div><div class="mt-s">Beds, tents &amp; dens</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/9172bc5a4a9f14.jpg" alt=""><div><div class="mt-t">Pet Hygiene</div><div class="mt-s">Wipes, waste bags &amp; more</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/2812cbc5e8b598.jpg" alt=""><div><div class="mt-t">Pet Toys</div><div class="mt-s">Plush, squeaky &amp; crinkle</div></div></a><a class="mega-tile" href="collection.html"><img src="assets/bffee267b34bdc.jpg" alt=""><div><div class="mt-t">Pet Travel</div><div class="mt-s">Leashes, seats &amp; carriers</div></div></a></div><div class="mega-best"><div class="mega-h">Best sellers</div><div class="mega-bstrip"><a class="mega-bcard" href="product.html"><img src="assets/9172bc5a4a9f14.jpg" alt=""><div><div class="mb-n">Grooming Pet Wipes</div><div class="mb-p">$9.99</div></div></a><a class="mega-bcard" href="product.html"><img src="assets/bffee267b34bdc.jpg" alt=""><div><div class="mb-n">Reflective Dog Leash</div><div class="mb-p">$8.99</div></div></a><a class="mega-bcard" href="product.html"><img src="assets/2812cbc5e8b598.jpg" alt=""><div><div class="mb-n">Crinkle Duck Dog Toy</div><div class="mb-p">$5.99</div></div></a></div></div></div><a class="mega-feat" href="collection.html"><img src="assets/e282113fca0d94.jpg" alt=""><div class="mf-in"><div class="mf-tag">Best Pet Supplies</div><div class="mf-h">Cozy homes, toys &amp; travel gear</div><span class="mf-cta">Shop Best Pet Supplies</span></div></a></div></div></div><div class="navitem has-mega"><a href="#">Shop by Breed <span class="mcaret">&#9662;</span></a><div class="mega"><div class="mega-grid"><div><div class="mega-h">Shop Dog Harnesses by Breed</div><div class="mega-breedgridw"><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/e6515286b11deb.jpg" alt=""></span><span class="mb-bn">Chihuahua</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/7d459fac9ba406.jpg" alt=""></span><span class="mb-bn">Corgi</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/6702d24ae76231.jpg" alt=""></span><span class="mb-bn">Dachshund</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/a2d268a0b1e3d3.jpg" alt=""></span><span class="mb-bn">English Bulldog</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/201cbef0da203e.jpg" alt=""></span><span class="mb-bn">French Bulldog</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/f33681fe91dd3e.jpg" alt=""></span><span class="mb-bn">German Shepherd</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/1b0b0a9df2edef.jpg" alt=""></span><span class="mb-bn">Golden Retriever</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/fce50423dd05ac.jpg" alt=""></span><span class="mb-bn">Husky</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/ac4f7b8266701b.jpg" alt=""></span><span class="mb-bn">Labrador</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/9b58be2dcbaf03.jpg" alt=""></span><span class="mb-bn">Pitbull</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/052b17adb95cc6.jpg" alt=""></span><span class="mb-bn">Pomeranian</span></a><a class="mega-breed" href="collection.html"><span class="mb-c"><img src="assets/b78e90805ae1ca.jpg" alt=""></span><span class="mb-bn">Pug</span></a></div></div><a class="mega-feat" href="#" onclick="openQuiz();return false;"><img src="assets/1b0b0a9df2edef.jpg" alt=""><div class="mf-in"><div class="mf-tag">Not sure of the fit?</div><div class="mf-h">Every harness comes in 6 sizes &mdash; XXS to XL</div><span class="mf-cta">Find my fit</span></div></a></div></div></div><a href="collection.html">Shop All</a><a href="#">More</a>
+     </div>
+   </div>
+   <a class="logo" href="index.html"><img src="assets/7b9c32c1f805d2.png" alt="VOYAGER"></a>
+   <div class="icons">
+     <span class="acct">&#9737;</span>
+     <span class="wishlink" onclick="location.href='wishlist.html'" aria-label="Wishlist">&#9829;<span class="wcount">0</span></span>
+     <span class="cart" onclick="location.href='cart.html'">&#128722;<span class="count">2</span></span>
+   </div>
+  </div>
+ </div>
+</header>
+
+
+<style>
+.ihero{background:linear-gradient(120deg,var(--red) 0%,var(--red-dark) 100%);color:#fff;padding:54px 0}
+.ihero .eyebrow{color:#ffd2d7}
+.ihero h1{color:#fff;font-size:40px;text-transform:uppercase;margin:10px 0 12px;max-width:760px}
+.ihero p{max-width:680px;font-size:16px;opacity:.95}
+.icards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.icard{border:1px solid var(--line);padding:26px;display:block;transition:.18s}
+.icard:hover{box-shadow:0 12px 30px rgba(0,0,0,.1);transform:translateY(-3px);border-color:var(--red)}
+.icard .ic{font-size:34px}
+.icard h3{font-size:20px;text-transform:uppercase;margin:10px 0 8px}
+.icard p{font-size:14px;color:#555;margin-bottom:14px}
+.icard .go{color:var(--red);font-weight:600;text-transform:uppercase;font-size:13px;letter-spacing:.5px}
+.howto{background:var(--soft);border-left:3px solid var(--red);padding:18px 22px;margin:26px 0;font-size:14.5px}
+.howto b{color:var(--red-dark)}
+.phaselist{columns:2;font-size:14px;color:#444;margin-top:10px}
+.phaselist li{padding:3px 0;margin-left:18px}
+@container (max-width:760px){.icards{grid-template-columns:1fr}.phaselist{columns:1}}
+</style>
+<section class="ihero"><div class="wrap">
+  <span class="eyebrow">Growisto × Voyager Harness · CRO Audit</span>
+  <h1>Conversion Mockups — Proposed Experience</h1>
+  <p>Interactive, branded mockups of the four key templates, each rebuilt with the CRO recommendations from the audit applied. Toggle <b>“Show CRO changes”</b> in the bottom bar to see every improvement annotated, and switch between <b>Desktop</b> and <b>Mobile</b>.</p>
+</div></section>
+<div class="wrap section">
+  <div class="howto">
+    <b>How to review:</b> Open any template below. Numbered red markers (●) flag each change — hover a marker to read what was changed and why. Use the bottom toolbar to hide annotations for a clean preview or to switch to the mobile layout (mobile drives ~68% of revenue).
+  </div>
+  <div class="icards">
+      <a class="icard" href="home.html">
+        <div class="ic">🏠</div>
+        <h3>Homepage</h3>
+        <p>Announcement bar, offer-led hero, USPs, bestsellers, Find-the-Right-Size tool, shoppable UGC video, shoppable reviews, recently viewed.</p>
+        <span class="go">Open mockup →</span>
+      </a>
+      <a class="icard" href="collection.html">
+        <div class="ic">🗂️</div>
+        <h3>Collection / PLP</h3>
+        <p>Working colour swatches, marketing tags, sticky filters, active-filter chips, star ratings, inline Add-to-Cart, redundant dropdown removed.</p>
+        <span class="go">Open mockup →</span>
+      </a>
+      <a class="icard" href="product.html">
+        <div class="ic">🛍️</div>
+        <h3>Product / PDP</h3>
+        <p>Key benefits, gallery arrows, scarcity + urgency, availability, charges, returns/guarantee, bundle, collapsible sections, FAQs, notify-me.</p>
+        <span class="go">Open mockup →</span>
+      </a>
+      <a class="icard" href="cart.html">
+        <div class="ic">🛒</div>
+        <h3>Cart</h3>
+        <p>Cart urgency, per-item scarcity, delivery date, visible coupon, save-for-later, trust icons, contact options, continue shopping.</p>
+        <span class="go">Open mockup →</span>
+      </a></div>
+
+  <h2 class="l" style="text-align:left;font-size:22px;margin:36px 0 4px">What's reflected in these mockups</h2>
+  <p class="muted" style="font-size:14px">Mapped to the audit roadmap phases:</p>
+  <ul class="phaselist">
+    <li>Phase 1 — More item views per visit (Home + PLP)</li>
+    <li>Phase 2 — Promote cart additions (Home + PLP + PDP)</li>
+    <li>Phase 3 — Reduce post-cart checkout friction (Cart)</li>
+    <li>Phase 0 — Theme update unlocks many of these natively</li>
+  </ul>
+  <p class="muted" style="font-size:13px;margin-top:20px">Note: Performance (Phase 4) and theme migration (Phase 0) are implementation workstreams and aren't visual mockups. The shared red header reflects the live brand; sub-brand collections (Gigabite / Catify / Best Pet Supplies) keep the same structure with their own accent colour.</p>
+</div>
+
+
+<footer class="site">
+ <div class="wrap">
+  <div class="cols">
+   <div><h4>Voyager Harness</h4><a href="#">Dog Harness</a><a href="#">Dog Leashes</a><a href="#">Small Dog Harness</a><a href="#">Dog Training Leash</a><a href="#">Dog Collar And Leash</a><a href="#">Dog Harness With Handle</a><a href="#">Cat Harness</a><a href="#">Escape Proof Cat Harness</a><a href="#">Reflective Cat Collar</a><a href="#">Adventure Cat Harness</a></div>
+   <div><h4>GigaBite</h4><a href="#">Beef Treats</a><a href="#">Bully Sticks For Dogs</a><a href="#">Pork Treats</a></div>
+   <div><h4>Best Pet Supplies</h4><a href="#">Furniture For Dogs &amp; Cats</a><a href="#">Hygiene Products For Pets</a><a href="#">Toys For Pets</a><a href="#">Travel Essentials For Pets</a></div>
+   <div><h4>Catify</h4><a href="#">Cat Scratcher</a><a href="#">Hygiene Products For Cats</a><a href="#">Toys For Cats</a><a href="#">Travel Essentials For Cats</a></div>
+  </div>
+  <div class="frow2">
+   <div class="about"><h4>About Voyager</h4><img src="assets/7b9c32c1f805d2.png" alt="VOYAGER" style="height:28px;margin-bottom:12px"><p>VOYAGER is dedicated to helping every pet find their fit. Gear up with our harnesses and head out to your next adventure.</p></div>
+   <div class="news"><h4>News &amp; Updates</h4><p>Sign up to get the latest on sales, new releases and more&hellip;</p><form class="news-form" onsubmit="return false"><input type="email" placeholder="Enter your email"><button>Sign Up</button></form></div>
+   <div><h4>Learn More</h4><a href="#">About Us</a><a href="#">Partnerships</a><a href="#">User Sitemap</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+   <div><h4>Support</h4><a href="#">FAQ</a><a href="#">Shipping Policy</a><a href="#">Returns &amp; Exchanges</a><a href="#">Contact Us</a></div>
+  </div>
+  <div class="copy"><span>&copy; 2026 Voyager by Best Pet Supplies, LLC &middot; Powered by Shopify</span><span class="pay">VISA &middot; Mastercard &middot; Amex &middot; PayPal &middot; G&nbsp;Pay</span></div>
+ </div>
+</footer>
+
+</div>
+
+<div id="qa-overlay" class="qa-overlay" onclick="if(event.target===this)closeQuick()" aria-hidden="true">
+  <div class="qa-panel" role="dialog" aria-modal="true">
+    <button class="qa-close" onclick="closeQuick()" aria-label="Close">&times;</button>
+    <div class="qa-head">
+      <img id="qa-img" src="" alt="">
+      <div>
+        <div id="qa-name" class="qa-name">Voyager Harness</div>
+        <div id="qa-price" class="qa-price">$14.99</div>
+        <div class="qa-stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:#888;font-weight:400;font-size:12px">(214)</span></div>
+      </div>
+    </div>
+    <div class="qa-opt"><div class="qa-lbl">Color</div><div id="qa-colors" class="qa-colors"></div></div>
+    <div class="qa-opt"><div class="qa-lbl">Size <a href="#" onclick="return openSizeChart()" style="float:right;text-transform:none;letter-spacing:0;color:var(--red);font-size:12px;text-decoration:underline">Size guide</a></div>
+      <div id="qa-sizes" class="qa-sizes"><button>XS</button><button>S</button><button class="on">M</button><button>L</button><button>XL</button></div></div>
+    <button class="btn block qa-add" onclick="confirmQuick()">Add to Cart</button>
+    <a href="product.html" class="qa-view">View full product details</a>
+  </div>
+</div>
+<div id="qa-toast" class="qa-toast">Added to cart &#10003;</div>
+<script>
+function qaText(el){ if(!el) return ''; return el.textContent.replace(/\s+/g,' ').replace(/\$[0-9.]+\s*$/,'').trim(); }
+function openQuick(btn){
+  var c = btn.closest('.card, .rprod, .shop');
+  var img='', name='Voyager Harness', price='', colors=[];
+  if(c){
+    var im=c.querySelector('img'); if(im) img=im.src;
+    name = qaText(c.querySelector('h3')) || qaText(c.querySelector('.rpname')) || qaText(c.querySelector('.n')) || name;
+    var pr=c.querySelector('.price'); if(pr) price=pr.textContent.trim();
+    var _sd=c.querySelector('.swatches'); var _raw=_sd?_sd.getAttribute('data-sw'):null;
+    if(_raw){ try{ JSON.parse(_raw).forEach(function(x){ colors.push([x[0],x[1]]); }); }catch(e){} }
+    if(!colors.length){ c.querySelectorAll('.swatches .swatch').forEach(function(sw){ var si=sw.getAttribute('data-img'); var sn=sw.getAttribute('data-name')||''; if(si) colors.push([sn,si]); }); }
+  }
+  if(!colors.length) colors=[['',img]];
+  window.__qaColors=colors;
+  document.getElementById('qa-img').src=(colors[0]&&colors[0][1])||img;
+  document.getElementById('qa-name').textContent=name;
+  document.getElementById('qa-price').textContent=price||'$14.99';
+  var cc=document.getElementById('qa-colors'); cc.innerHTML='';
+  colors.forEach(function(co,i){
+    var sp=document.createElement('span'); sp.className='sw'+(i===0?' on':''); sp.style.backgroundImage='url('+co[1]+')'; sp.setAttribute('data-name',co[0]); sp.setAttribute('data-img',co[1]); sp.setAttribute('title',co[0]);
+    sp.addEventListener('click',function(){ cc.querySelectorAll('.sw').forEach(function(x){x.classList.remove('on');}); sp.classList.add('on'); document.getElementById('qa-img').src=co[1]; });
+    cc.appendChild(sp);
+  });
+  document.querySelectorAll('#qa-sizes button').forEach(function(b,i){ b.classList.toggle('on', i===2); });
+  document.getElementById('qa-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeQuick(){ document.getElementById('qa-overlay').classList.remove('open'); document.body.style.overflow=''; }
+function confirmQuick(){
+  closeQuick();
+  document.querySelectorAll('.nav .icons .cart .count').forEach(function(el){ el.textContent=(parseInt(el.textContent||'0',10)+1); });
+  var t=document.getElementById('qa-toast'); if(t){ t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); },1800); }
+}
+document.addEventListener('click',function(e){ var b=e.target.closest && e.target.closest('#qa-sizes button'); if(b){ document.querySelectorAll('#qa-sizes button').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); } });
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeQuick(); });
+</script>
+
+
+<div id="mc-overlay" class="mc-overlay" onclick="if(event.target===this)closeCart()">
+  <aside class="mc-drawer" role="dialog" aria-label="Shopping cart">
+    <div class="mc-head"><h3>My Cart <span id="mc-count">2 items</span></h3><button class="mc-close" onclick="closeCart()" aria-label="Close">&times;</button></div>
+    <div id="mc-ship" class="mc-ship"><div class="msg" id="mc-ship-msg"></div><div class="track"><i id="mc-ship-fill"></i></div></div>
+    <div class="mc-scroll">
+    <div class="mc-body" id="mc-items"></div>
+    <div class="mc-rec">
+      <h4>You Might Like</h4>
+      <div class="mc-rec-wrap">
+        <button class="mc-arrow l" onclick="mcRail(-1)">&lsaquo;</button>
+        <div class="mc-rail" id="mc-rail">
+          <div class="mc-rcard"><img src="assets/eb23a5aa26d1bb.jpg" alt=""><div><div class="rn">Step-In Air Harness &amp; Leash Set</div><div class="rp">$17.99</div></div><button onclick="mcAddRec(0)">Add</button></div>
+          <div class="mc-rcard"><img src="assets/a34423a6d20f8e.jpg" alt=""><div><div class="rn">AeroLite Harness for Dogs</div><div class="rp">$14.99</div></div><button onclick="mcAddRec(1)">Add</button></div>
+          <div class="mc-rcard"><img src="assets/442f102f16ebc4.jpg" alt=""><div><div class="rn">Step-In Flex Dog Harness</div><div class="rp">$15.99</div></div><button onclick="mcAddRec(2)">Add</button></div>
+        </div>
+        <button class="mc-arrow r" onclick="mcRail(1)">&rsaquo;</button>
+      </div>
+    </div>
+    <div class="mc-coupon"><input id="mc-promo" placeholder="Promo code (try WELCOME20)"><button onclick="mcCoupon()">Apply</button></div>
+    <div class="mc-coupon-msg" id="mc-coupon-msg"></div>
+    </div>
+    <div class="mc-foot">
+      <div class="mc-srow disc" id="mc-disc-row" style="display:none"><span>Discount (WELCOME20)</span><span id="mc-disc">-$0.00</span></div>
+      <div class="mc-subtotal"><span class="lbl">Subtotal</span><span class="amt" id="mc-subamt">$0.00</span></div>
+      <button class="mc-checkout" onclick="alert('Proceeding to secure checkout (mockup).')">Checkout</button>
+      <div class="mc-note">Taxes &amp; shipping calculated at checkout &middot; Orders processed in USD</div>
+      <a class="mc-view" href="cart.html">View full cart &rarr;</a>
+    </div>
+  </aside>
+</div>
+<script>
+var FREE_SHIP=49, COUPON=null;
+var CART=[
+ {id:1,name:'Step-In Plush Suede Pet Harness',sw:[["Latte Suede", "assets/5d26b200acbfb0.jpg"], ["Chocolate Suede", "assets/ed031f159b588f.jpg"]],_sel:0,color:'Latte Suede',size:'M',price:13.99,qty:1,img:'assets/5d26b200acbfb0.jpg'},
+ {id:2,name:'Step-In Air Harness with Matching Trim',sw:[["Khaki", "assets/a45778c52a6b0c.jpg"], ["Lavender", "assets/6f696d8d15e3ba.jpg"], ["Moss Green", "assets/49b9ffeb2c3dc8.jpg"], ["Pink", "assets/de56869d9ef5c5.jpg"], ["Fuchsia", "assets/df83d7aa148518.jpg"], ["Red", "assets/dd534842909986.jpg"]],_sel:1,color:'Lavender',size:'S',price:14.99,qty:1,img:'assets/6f696d8d15e3ba.jpg'}
+];
+var REC=[
+ {name:'Step-In Air Harness & Leash Set',price:17.99,img:'assets/eb23a5aa26d1bb.jpg'},
+ {name:'AeroLite Harness for Dogs',price:14.99,img:'assets/a34423a6d20f8e.jpg'},
+ {name:'Step-In Flex Dog Harness',price:15.99,img:'assets/442f102f16ebc4.jpg'}
+];
+function mcMoney(n){return '$'+n.toFixed(2);}
+function mcCount(){var c=0;CART.forEach(function(i){c+=i.qty;});return c;}
+function mcSub(){var s=0;CART.forEach(function(i){s+=i.price*i.qty;});return s;}
+function renderCart(){
+  var count=mcCount(), sub=mcSub();
+  document.querySelectorAll('.nav .icons .cart .count').forEach(function(e){e.textContent=count;});
+  document.getElementById('mc-count').textContent=count+(count===1?' item':' items');
+  var ship=document.getElementById('mc-ship'), fill=document.getElementById('mc-ship-fill'), msg=document.getElementById('mc-ship-msg');
+  var remain=FREE_SHIP-sub;
+  if(remain>0){ship.classList.remove('done');msg.innerHTML="You're <b>"+mcMoney(remain)+"</b> away from FREE shipping";fill.style.width=Math.min(sub/FREE_SHIP*100,100)+'%';}
+  else{ship.classList.add('done');msg.innerHTML="✓ You've unlocked FREE shipping!";fill.style.width='100%';}
+  var body=document.getElementById('mc-items'); body.innerHTML='';
+  if(!CART.length){body.innerHTML='<p style="padding:34px 0;text-align:center;color:#888">Your cart is empty.</p>';}
+  CART.forEach(function(it){
+    var sw=(it.sw||[]).map(function(co,i){return '<span class="mc-bswatch'+(i===(it._sel||0)?' on':'')+'" style="background-image:url('+co[1]+')" title="'+co[0]+'" onclick="mcSetColor('+it.id+','+i+')"></span>';}).join('');
+    var opts=['XS','S','M','L','XL'].map(function(z){return '<option'+(z===it.size?' selected':'')+'>'+z+'</option>';}).join('');
+    body.insertAdjacentHTML('beforeend',
+      '<div class="mc-item" id="mc-li-'+it.id+'"><div class="mc-flip">'
+      +'<div class="mc-face mc-front">'
+      +'<img src="'+it.img+'" alt="">'
+      +'<div class="mc-finfo"><div class="mc-iname">'+it.name+'</div>'
+      +'<div class="mc-ivar">Color: '+it.color+' &middot; Size: '+it.size+'</div>'
+      +'<span class="mc-change" onclick="mcFlip('+it.id+')">Change</span>'
+      +'<div class="mc-actions"><div class="mc-qty"><button onclick="mcQty('+it.id+',-1)">&minus;</button><span>'+it.qty+'</span><button onclick="mcQty('+it.id+',1)">+</button></div>'
+      +'<a class="mc-save" onclick="mcSaveLater('+it.id+')">&#9825; Save for later</a></div></div>'
+      +'<div class="mc-fprice"><button class="mc-trash" onclick="mcRemove('+it.id+')" title="Remove">&#128465;</button><div class="mc-iprice">'+mcMoney(it.price*it.qty)+'</div></div>'
+      +'</div>'
+      +'<div class="mc-face mc-back">'
+      +'<div class="mc-back-hd"><span>Edit options</span><span class="mc-back-x" onclick="mcFlip('+it.id+')">&times;</span></div>'
+      +'<div class="mc-back-row"><span class="mc-back-lbl">Color</span><div class="mc-bsw">'+sw+'</div></div>'
+      +'<div class="mc-back-row"><span class="mc-back-lbl">Size</span><select onchange="mcSetSize('+it.id+',this.value)">'+opts+'</select></div>'
+      +'<button class="mc-update" onclick="mcFlip('+it.id+')">Update</button>'
+      +'</div>'
+      +'</div></div>');
+  });
+  var disc=COUPON?sub*0.2:0;
+  document.getElementById('mc-disc-row').style.display=COUPON?'flex':'none';
+  document.getElementById('mc-disc').textContent='-'+mcMoney(disc);
+  document.getElementById('mc-subamt').textContent=mcMoney(sub-disc);
+}
+function openCart(){renderCart();document.getElementById('mc-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeCart(){document.getElementById('mc-overlay').classList.remove('open');document.body.style.overflow='';}
+function mcQty(id,d){var it=CART.filter(function(x){return x.id===id;})[0];if(it){it.qty=Math.max(1,it.qty+d);renderCart();}}
+function mcRemove(id){CART=CART.filter(function(x){return x.id!==id;});renderCart();}
+function mcFlip(id){var li=document.getElementById('mc-li-'+id);if(li)li.classList.toggle('flipped');}
+function mcSaveLater(id){var it=CART.filter(function(x){return x.id===id;})[0];if(!it)return;if(window.wlAdd)window.wlAdd({name:it.name,price:it.price,img:it.img,colors:JSON.stringify(it.sw||[]),rating:'',reviews:''});CART=CART.filter(function(x){return x.id!==id;});renderCart();var t=document.getElementById('qa-toast');if(t){t.textContent='Saved to wishlist ♥';t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1800);}}
+function mcUpdItem(id){var it=CART.filter(function(x){return x.id===id;})[0];if(!it)return;var li=document.getElementById('mc-li-'+id);if(li){var iv=li.querySelector('.mc-ivar');if(iv)iv.textContent='Color: '+it.color+' · Size: '+it.size;var fim=li.querySelector('.mc-front img');if(fim)fim.src=it.img;}}
+function mcSetColor(id,idx){var it=CART.filter(function(x){return x.id===id;})[0];if(!it)return;it._sel=idx;if(it.sw&&it.sw[idx]){it.color=it.sw[idx][0];it.img=it.sw[idx][1];}var li=document.getElementById('mc-li-'+id);if(li){li.querySelectorAll('.mc-bswatch').forEach(function(sx,i){sx.classList.toggle('on',i===idx);});}mcUpdItem(id);}
+function mcSetSize(id,v){var it=CART.filter(function(x){return x.id===id;})[0];if(!it)return;it.size=v;mcUpdItem(id);}
+function mcCoupon(){var v=(document.getElementById('mc-promo').value||'').trim().toUpperCase();var m=document.getElementById('mc-coupon-msg');if(v==='WELCOME20'){COUPON=true;m.textContent='✓ WELCOME20 applied — 20% off';}else{COUPON=null;m.textContent='Enter code WELCOME20 to see the discount.';}m.classList.add('show');renderCart();}
+function mcRail(dir){var r=document.getElementById('mc-rail');r.scrollBy({left:dir*r.clientWidth*0.92,behavior:'smooth'});}
+function mcAddRec(i){var r=REC[i];CART.push({id:Date.now(),name:r.name,sw:[['Default',r.img]],_sel:0,color:'Default',size:'M',price:r.price,qty:1,img:r.img});renderCart();var b=document.getElementById('mc-items');b.scrollTop=b.scrollHeight;}
+function confirmQuick(){
+  var name=document.getElementById('qa-name').textContent;
+  var price=parseFloat(document.getElementById('qa-price').textContent.replace(/[^0-9.]/g,''))||14.99;
+  var img=document.getElementById('qa-img').src;
+  var se=document.querySelector('#qa-sizes button.on'); var size=se?se.textContent:'M';
+  var sel=document.querySelector('#qa-colors .sw.on');
+  var cName=(sel&&sel.getAttribute('data-name'))||'';
+  var cImg=(sel&&sel.getAttribute('data-img'))||document.getElementById('qa-img').src;
+  var sws=(window.__qaColors&&window.__qaColors.length)?window.__qaColors.slice():[[cName,cImg]];
+  var sidx=0; for(var k=0;k<sws.length;k++){ if(sws[k][1]===cImg){ sidx=k; break; } }
+  CART.push({id:Date.now(),name:name,sw:sws,_sel:sidx,color:cName||(sws[sidx]?sws[sidx][0]:''),size:size,price:price,qty:1,img:cImg});
+  if(window.wlRemove) window.wlRemove(name);
+  if(typeof closeQuick==='function') closeQuick();
+  openCart();
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCart();});
+function plpFixBar(){var b=document.getElementById('bar');var m=document.querySelector('.plp-mbar');if(b&&m){m.style.bottom=b.offsetHeight+'px';}}
+window.addEventListener('resize',plpFixBar);window.addEventListener('load',plpFixBar);setTimeout(plpFixBar,60);
+renderCart();
+</script>
+
+
+<script>
+(function(){
+function wlGet(){ try{ return JSON.parse(localStorage.getItem("voyager_wishlist")||"[]"); }catch(e){ return []; } }
+function wlSave(a){ try{ localStorage.setItem("voyager_wishlist", JSON.stringify(a)); }catch(e){} }
+window.wlHas=function(name){ return wlGet().some(function(x){ return x.name===name; }); };
+window.wlAdd=function(it){ var a=wlGet(); if(!a.some(function(x){return x.name===it.name;})){ a.push(it); wlSave(a); } wlSync(); };
+window.wlRemove=function(name){ wlSave(wlGet().filter(function(x){ return x.name!==name; })); wlSync(); };
+window.wlToggle=function(btn){ var n=btn.getAttribute("data-name"); if(wlHas(n)){ wlRemove(n); } else { wlAdd({name:n, price:parseFloat(btn.getAttribute("data-price"))||0, img:btn.getAttribute("data-img"), colors:btn.getAttribute("data-colors")||"[]", rating:btn.getAttribute("data-rating")||"", reviews:btn.getAttribute("data-reviews")||""}); } };
+function wlBadge(){ var n=wlGet().length; document.querySelectorAll(".wishlink .wcount").forEach(function(e){ e.textContent=n; e.style.display=n>0?"flex":"none"; }); }
+function jsStars(r){ r=Math.round(r||0); var s=""; for(var i=0;i<5;i++){ s+=(i<r?"★":"☆"); } return s; }
+function esc(t){ return (t||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function wlCard(it){
+  var colors=it.colors; if(typeof colors==="string"){ try{ colors=JSON.parse(colors||"[]"); }catch(e){ colors=[]; } }
+  if(!Array.isArray(colors)) colors=[]; colors=colors.map(function(c){return Array.isArray(c)?c[1]:c;});
+  var sw=colors.slice(0,5).map(function(c,i){ return "<span class='swatch"+(i===0?" on":"")+"' style='background-image:url("+c+")'></span>"; }).join(""); if(colors.length>5){ sw+="<span class='swatch-more'>+"+(colors.length-5)+"</span>"; }
+  var rev = it.rating ? "<div class='rev'><span class='stars'>"+jsStars(it.rating)+"</span> <span>"+it.rating+" ("+(it.reviews||0)+")</span></div>" : "";
+  return "<div class='card'>"
+    +"<div class='imgwrap'><a href='product.html'><img src='"+it.img+"' alt=''></a>"
+    +"<button class='wish-btn on' data-name='"+esc(it.name)+"' data-price='"+it.price+"' data-img='"+it.img+"' data-colors='"+(it.colors||"[]")+"' data-rating='"+(it.rating||"")+"' data-reviews='"+(it.reviews||"")+"' onclick='wlToggle(this)' aria-label='Remove from wishlist'>♥</button></div>"
+    +"<div class='body'><h3><a href='product.html'>"+esc(it.name)+"</a></h3>"+rev
+    +(sw?"<div class='swatches'>"+sw+"</div>":"")
+    +"<div class='price'>$"+Number(it.price).toFixed(2)+"</div>"
+    +"<div class='atc'><button class='btn block' onclick='openQuick(this)'>Add to Cart</button></div></div></div>";
+}
+window.wlRenderPage=function(){ var g=document.getElementById("wl-grid"); if(!g) return; var a=wlGet(); var em=document.getElementById("wl-empty"); if(!a.length){ g.innerHTML=""; g.style.display="none"; if(em) em.style.display="block"; } else { if(em) em.style.display="none"; g.style.display=""; g.innerHTML=a.map(wlCard).join(""); } };
+window.cartSaveForLater=function(el){ var it=el.closest(".citem"); if(!it) return; var nm=it.querySelector(".cname").textContent.trim(); var pr=parseFloat((it.querySelector(".cprice").textContent||"").replace(/[^0-9.]/g,""))||0; var im=it.querySelector("img").src; wlAdd({name:nm,price:pr,img:im,colors:"[]",rating:"",reviews:""}); it.remove(); var t=document.getElementById("qa-toast"); if(t){ t.textContent="Saved to wishlist ♥"; t.classList.add("show"); setTimeout(function(){ t.classList.remove("show"); },1800); } };
+function wlSync(){ var names=wlGet().map(function(x){return x.name;}); document.querySelectorAll(".wish-btn").forEach(function(b){ b.classList.toggle("on", names.indexOf(b.getAttribute("data-name"))>=0); }); wlBadge(); if(window.wlRenderPage) window.wlRenderPage(); }
+window.wlSync=wlSync;
+document.addEventListener("DOMContentLoaded", wlSync); wlSync();
+})();
+</script>
+
+
+<div class="mnav-overlay" onclick="mnavClose()"></div>
+<aside class="mnav" aria-label="Mobile menu">
+ <div class="mnav-top">
+   <a href="#" class="mnav-login"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c0-4 3.6-6 7.5-6s7.5 2 7.5 6"/></svg> Login</a>
+   <button class="mnav-x" onclick="mnavClose()" aria-label="Close menu">&times;</button>
+ </div>
+ <div class="mnav-views">
+   <div class="mnav-view mnav-view-root on">
+     <nav class="mnav-list">
+       <button class="mnav-nav" onclick="mnavPush('dog')">Dog<span>&rsaquo;</span></button>
+       <button class="mnav-nav" onclick="mnavPush('cat')">Cat<span>&rsaquo;</span></button>
+       <button class="mnav-nav" onclick="mnavPush('bps')">Best Pet Supplies<span>&rsaquo;</span></button>
+       <button class="mnav-nav" onclick="mnavPush('breed')">Shop by Breed<span>&rsaquo;</span></button>
+       <a href="collection.html">Shop All<span>&rsaquo;</span></a>
+       <a href="#">More<span>&rsaquo;</span></a>
+     </nav>
+     <div class="mnav-brands">
+       <img src="assets/2723d96b5cd9e8.png" alt="Best Pet Supplies">
+       <img src="assets/e54c04dabfbf28.png" alt="Catify">
+       <img src="assets/616df604642f66.png" alt="GigaBite">
+     </div>
+   </div>
+   <div class="mnav-view" id="mnav-view-dog"><button class="mnav-back" onclick="mnavPop()"><span>&lsaquo;</span> All categories</button><div class="mnav-vhead">Shop Dog Harnesses</div><div class="mnav-vbody"><div class="mnav-tiles"><a class="mnav-tile" href="collection.html"><img src="assets/a45778c52a6b0c.jpg" alt=""><span>Step-In Air</span></a><a class="mnav-tile" href="collection.html"><img src="assets/5d26b200acbfb0.jpg" alt=""><span>Step-In Plush</span></a><a class="mnav-tile" href="collection.html"><img src="assets/0a7a959a1fea98.jpg" alt=""><span>Step-In Lock</span></a><a class="mnav-tile" href="collection.html"><img src="assets/442f102f16ebc4.jpg" alt=""><span>Step-In Flex</span></a><a class="mnav-tile" href="collection.html"><img src="assets/a34423a6d20f8e.jpg" alt=""><span>AeroLite</span></a><a class="mnav-tile" href="collection.html"><img src="assets/e1fe5495003a6b.jpg" alt=""><span>Harness + Leash Sets</span></a></div><div class="mnav-sizes"><span class="mnav-slbl">Shop by size</span><div class="mnav-chips"><a class="mnav-chip" href="collection.html">XXS</a><a class="mnav-chip" href="collection.html">XS</a><a class="mnav-chip" href="collection.html">S</a><a class="mnav-chip" href="collection.html">M</a><a class="mnav-chip" href="collection.html">L</a><a class="mnav-chip" href="collection.html">XL</a></div></div><a class="mnav-shopall" href="collection.html">Shop all dog harnesses &rsaquo;</a></div></div><div class="mnav-view" id="mnav-view-cat"><button class="mnav-back" onclick="mnavPop()"><span>&lsaquo;</span> All categories</button><div class="mnav-vhead">Shop Cat Harnesses</div><div class="mnav-vbody"><div class="mnav-tiles"><a class="mnav-tile" href="collection.html"><img src="assets/e70945679084c8.jpg" alt=""><span>Step-In Air</span></a><a class="mnav-tile" href="collection.html"><img src="assets/492d2348a5fb6f.jpg" alt=""><span>Escape-Proof</span></a><a class="mnav-tile" href="collection.html"><img src="assets/1546765d0d147d.jpg" alt=""><span>Harness + Leash Sets</span></a><a class="mnav-tile" href="collection.html"><img src="assets/0850dfebfe7e71.jpg" alt=""><span>Step-In Lock</span></a><a class="mnav-tile" href="collection.html"><img src="assets/ee4f160fec13e7.jpg" alt=""><span>Adventure Harness</span></a><a class="mnav-tile" href="collection.html"><img src="assets/90323181446973.jpg" alt=""><span>Reflective Collars</span></a></div><div class="mnav-sizes"><span class="mnav-slbl">Shop by size</span><div class="mnav-chips"><a class="mnav-chip" href="collection.html">XXXS</a><a class="mnav-chip" href="collection.html">XXS</a><a class="mnav-chip" href="collection.html">XS</a><a class="mnav-chip" href="collection.html">S</a></div></div><a class="mnav-shopall" href="collection.html">Shop all cat harnesses &rsaquo;</a></div></div><div class="mnav-view" id="mnav-view-bps"><button class="mnav-back" onclick="mnavPop()"><span>&lsaquo;</span> All categories</button><div class="mnav-vhead">Shop Best Pet Supplies</div><div class="mnav-vbody"><div class="mnav-tiles"><a class="mnav-tile" href="collection.html"><img src="assets/e282113fca0d94.jpg" alt=""><span>Indoor Pet Houses</span></a><a class="mnav-tile" href="collection.html"><img src="assets/9172bc5a4a9f14.jpg" alt=""><span>Pet Hygiene</span></a><a class="mnav-tile" href="collection.html"><img src="assets/2812cbc5e8b598.jpg" alt=""><span>Pet Toys</span></a><a class="mnav-tile" href="collection.html"><img src="assets/bffee267b34bdc.jpg" alt=""><span>Pet Travel</span></a></div><a class="mnav-shopall" href="collection.html">Shop all Best Pet Supplies &rsaquo;</a></div></div><div class="mnav-view" id="mnav-view-breed"><button class="mnav-back" onclick="mnavPop()"><span>&lsaquo;</span> All categories</button><div class="mnav-vhead">Shop Dog Harnesses by Breed</div><div class="mnav-vbody"><div class="mnav-breedgrid"><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/e6515286b11deb.jpg" alt=""></span><span class="mb-bn">Chihuahua</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/7d459fac9ba406.jpg" alt=""></span><span class="mb-bn">Corgi</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/6702d24ae76231.jpg" alt=""></span><span class="mb-bn">Dachshund</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/a2d268a0b1e3d3.jpg" alt=""></span><span class="mb-bn">English Bulldog</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/201cbef0da203e.jpg" alt=""></span><span class="mb-bn">French Bulldog</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/f33681fe91dd3e.jpg" alt=""></span><span class="mb-bn">German Shepherd</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/1b0b0a9df2edef.jpg" alt=""></span><span class="mb-bn">Golden Retriever</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/fce50423dd05ac.jpg" alt=""></span><span class="mb-bn">Husky</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/ac4f7b8266701b.jpg" alt=""></span><span class="mb-bn">Labrador</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/9b58be2dcbaf03.jpg" alt=""></span><span class="mb-bn">Pitbull</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/052b17adb95cc6.jpg" alt=""></span><span class="mb-bn">Pomeranian</span></a><a class="mnav-breed" href="collection.html"><span class="mb-c"><img src="assets/b78e90805ae1ca.jpg" alt=""></span><span class="mb-bn">Pug</span></a></div><a class="mnav-shopall" href="collection.html">Shop all dog harnesses &rsaquo;</a></div></div>
+ </div>
+</aside>
+<script>
+function mnavPop(){document.querySelectorAll('.mnav-view:not(.mnav-view-root)').forEach(function(v){v.classList.remove('on');});}
+function mnavPush(pet){var v=document.getElementById('mnav-view-'+pet);if(v){v.scrollTop=0;v.classList.add('on');}}
+function mnavClose(){document.documentElement.classList.remove('mnav-open');setTimeout(mnavPop,300);}
+function openSearch(){var o=document.getElementById('search-overlay');if(o){o.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){var i=document.getElementById('search-input');if(i)i.focus();},90);}}
+function closeSearch(){var o=document.getElementById('search-overlay');if(o){o.classList.remove('open');document.body.style.overflow='';}}
+var QWEIGHTS={dog:[['Under 8 lbs','XS'],['8-15 lbs','S'],['15-25 lbs','M'],['25-40 lbs','L'],['40+ lbs','XL']],cat:[['Kitten / under 5 lbs','XXXS'],['5-8 lbs','XXS'],['8-11 lbs','XS'],['11+ lbs','S']]};
+var _qp='dog';
+function openQuiz(){var o=document.getElementById('quiz-overlay');if(o){o.classList.add('open');document.body.style.overflow='hidden';quizRestart();}}
+function closeQuiz(){var o=document.getElementById('quiz-overlay');if(o){o.classList.remove('open');document.body.style.overflow='';}}
+function quizShow(n){['qs1','qs2','qs3'].forEach(function(id,i){var e=document.getElementById(id);if(e)e.classList.toggle('on',i===n-1);});var bar=document.getElementById('quiz-bar');if(bar)bar.style.width=(n*33.4)+'%';}
+function quizRestart(){quizShow(1);}
+function quizPet(p){_qp=p;var pe=document.getElementById('quiz-pet');if(pe)pe.textContent=(p==='dog'?'dog':'cat');var sh=document.getElementById('quiz-shop');if(sh)sh.textContent=(p==='dog'?'Dog':'Cat');var wrap=document.getElementById('quiz-weights');if(wrap)wrap.innerHTML=QWEIGHTS[p].map(function(w){return '<div class="quiz-opt" data-sz="'+w[1]+'">'+w[0]+'</div>';}).join('');quizShow(2);}
+function quizSize(sz){var z=document.getElementById('quiz-size');if(z)z.textContent=sz;var m=document.getElementById('quiz-msg');if(m)m.textContent=(_qp==='dog'?'Best fit for your dog. ':'Best fit for your cat. ')+'We’ll filter to size '+sz+' on the next page.';quizShow(3);}
+function updTabBadges(){var w=0;try{w=JSON.parse(localStorage.getItem('voyager_wishlist')||'[]').length;}catch(e){}var wb=document.getElementById('mtb-wish');if(wb){wb.textContent=w;wb.classList.toggle('show',w>0);}var cc=document.querySelector('.nav .icons .cart .count');var cb=document.getElementById('mtb-cart');if(cb){var n=cc?(parseInt(cc.textContent,10)||0):0;cb.textContent=n;cb.classList.toggle('show',n>0);}}
+window.addEventListener('load',function(){updTabBadges();var pg=(location.pathname.split('/').pop()||'').toLowerCase();document.querySelectorAll('.mtab[data-page]').forEach(function(t){if(t.getAttribute('data-page')===pg)t.classList.add('on');});});
+setInterval(updTabBadges,1000);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSearch();closeQuiz();}});
+document.addEventListener('click',function(e){var q=e.target.closest&&e.target.closest('#quiz-weights .quiz-opt');if(q)quizSize(q.getAttribute('data-sz'));});
+window.addEventListener('scroll',function(){var a=document.querySelector('.scrolldown');if(a)a.classList.toggle('hid',window.scrollY>40);},{passive:true});
+function placeCue(){var c=document.querySelector('.scrolldown');if(!c)return;var bar=document.getElementById('bar');var hidden=document.body.classList.contains('bar-hidden');var h=(bar&&!hidden)?bar.offsetHeight:0;c.style.bottom=(h+14)+'px';}
+window.addEventListener('load',placeCue);window.addEventListener('resize',placeCue);
+var _bar=document.getElementById('bar');if(_bar)_bar.addEventListener('click',function(){setTimeout(placeCue,40);});
+var _bs=document.getElementById('barShow');if(_bs)_bs.addEventListener('click',function(){setTimeout(placeCue,40);});
+setTimeout(placeCue,60);
+(function(){var hs=document.querySelectorAll('footer.site .cols>div>h4, footer.site .frow2>div>h4');hs.forEach(function(h){if(h.parentElement.classList.contains('news'))return;h.addEventListener('click',function(){h.parentElement.classList.toggle('open');});});})();
+</script>
+
+
+<nav class="mtabbar" aria-label="Quick navigation">
+ <div class="mtabbar-inner">
+   <a class="mtab" href="collection.html" data-page="collection.html"><svg viewBox="0 0 24 24"><path d="M4 7h16l-1 13H5L4 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="mtab-l">Shop</span></a>
+   <button class="mtab" onclick="openSearch()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg><span class="mtab-l">Search</span></button>
+   <button class="mtab quiz" onclick="openQuiz()"><span class="qwrap"><svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 6v3M9 6v4M14 6v3M19 6v4"/><path d="M4 14h16v4H4z"/></svg></span><span class="mtab-l">Find My Fit</span></button>
+   <a class="mtab" href="wishlist.html" data-page="wishlist.html"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 7a3.5 3.5 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg><span class="mtb-badge" id="mtb-wish">0</span><span class="mtab-l">Wishlist</span></a>
+   <a class="mtab" href="cart.html" data-page="cart.html"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 3H2"/></svg><span class="mtb-badge show" id="mtb-cart">2</span><span class="mtab-l">Cart</span></a>
+ </div>
+</nav>
+
+
+<div id="search-overlay" class="qa-overlay" onclick="if(event.target===this)closeSearch()">
+ <div class="qa-panel search-panel" role="dialog" aria-modal="true" aria-label="Search">
+   <div class="search-hd">
+     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg>
+     <input id="search-input" type="text" placeholder="Search harnesses, leashes, sizes&hellip;" autocomplete="off">
+     <button class="qa-close" onclick="closeSearch()" aria-label="Close">&times;</button>
+   </div>
+   <div class="search-body">
+     <h5>Popular searches</h5>
+     <div class="search-tags">
+       <a href="collection.html">Step-In Air Harness</a><a href="collection.html">Escape-proof cat harness</a><a href="collection.html">Harness &amp; leash set</a><a href="collection.html">AeroLite</a><a href="collection.html">Small dog harness</a><a href="collection.html">Reflective leash</a>
+     </div>
+     <h5>Shop by pet</h5>
+     <div class="search-quick">
+       <a href="collection.html"><img src="assets/df83d7aa148518.jpg" alt="">Dog Harnesses</a>
+       <a href="collection.html"><img src="assets/492d2348a5fb6f.jpg" alt="">Cat Harnesses</a>
+       <a href="collection.html"><img src="assets/e1fe5495003a6b.jpg" alt="">Leash Sets</a>
+       <a href="collection.html"><img src="assets/a34423a6d20f8e.jpg" alt="">New Arrivals</a>
+     </div>
+   </div>
+ </div>
+</div>
+
+
+<div id="quiz-overlay" class="qa-overlay" onclick="if(event.target===this)closeQuiz()">
+ <div class="qa-panel quiz-panel" role="dialog" aria-modal="true" aria-label="Find my fit">
+   <button class="qa-close" onclick="closeQuiz()" aria-label="Close">&times;</button>
+   <div class="quiz-progress"><i id="quiz-bar"></i></div>
+   <div class="quiz-step on" id="qs1">
+     <h3>Find the perfect fit</h3>
+     <p class="qsub">Answer 2 quick questions and we&rsquo;ll match your pet to the right harness &amp; size.</p>
+     <div class="quiz-opts"><div class="quiz-opt" onclick="quizPet('dog')"><span class="qico">&#128021;</span>For my Dog</div><div class="quiz-opt" onclick="quizPet('cat')"><span class="qico">&#128008;</span>For my Cat</div></div>
+   </div>
+   <div class="quiz-step" id="qs2">
+     <h3>How big is your <span id="quiz-pet">pet</span>?</h3>
+     <p class="qsub">Pick the closest weight range.</p>
+     <div class="quiz-opts" id="quiz-weights"></div>
+   </div>
+   <div class="quiz-step" id="qs3">
+     <div class="quiz-result">
+       <p class="qsub">Recommended size</p>
+       <div class="qsize" id="quiz-size">M</div>
+       <p class="qsub" id="quiz-msg">Based on your answers.</p>
+       <a href="collection.html" class="btn block">Shop <span id="quiz-shop">Dog</span> Harnesses</a>
+       <button class="btn outline block" style="margin-top:10px" onclick="quizRestart()">Start over</button>
+     </div>
+   </div>
+ </div>
+</div>
+
+
+<div id="sc-overlay" class="qa-overlay" onclick="if(event.target===this)closeSizeChart()">
+  <div class="qa-panel sc-panel" role="dialog" aria-modal="true">
+    <button class="qa-close" onclick="closeSizeChart()" aria-label="Close">&times;</button>
+    <h3 class="sc-title">Pet Harness Size Chart</h3>
+    <p class="sc-sub">Measure your pet's neck &amp; chest, then choose the matching size below.</p>
+    <table class="sc-table">
+      <thead><tr><th>Size</th><th>Neck</th><th>Chest</th><th>Max Weight*</th></tr></thead>
+      <tbody><tr><td>XXXS</td><td>7"–8"</td><td>11"–12"</td><td>6 lbs</td></tr><tr><td>XXS</td><td>8.5"–9.5"</td><td>12"–13.5"</td><td>8 lbs</td></tr><tr><td>XS</td><td>10"–11"</td><td>13"–14.5"</td><td>9 lbs</td></tr><tr><td>S</td><td>11"–12"</td><td>14.5"–16"</td><td>14 lbs</td></tr><tr><td>M</td><td>12"–13.5"</td><td>16"–18"</td><td>18 lbs</td></tr><tr><td>L</td><td>13.5"–15.5"</td><td>18"–20.5"</td><td>23 lbs</td></tr><tr><td>XL</td><td>15.5"–18"</td><td>20.5"–23"</td><td>28 lbs</td></tr></tbody>
+    </table>
+    <p class="sc-note"><b>Always measure</b> your pet's chest and neck and refer to this chart for the best fit. <b>Do not exceed max weight.</b> Weights are for reference only.</p>
+  </div>
+</div>
+<script>
+function openSizeChart(){var o=document.getElementById('sc-overlay');if(o){o.classList.add('open');document.body.style.overflow='hidden';}return false;}
+function closeSizeChart(){var o=document.getElementById('sc-overlay');if(o){o.classList.remove('open');document.body.style.overflow='';}}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSizeChart();});
+</script>
+
+
+
+<div id="bar">
+ <span class="tag">GROWISTO &times; VOYAGER &middot; CRO MOCKUP</span>
+ <label><input type="checkbox" id="annTgl" checked> Show CRO changes</label>
+ <div class="seg"><button id="dDesk" class="on">Desktop</button><button id="dMob">Mobile</button></div>
+ <span class="spacer"></span>
+ <span style="color:#888"><a class="home" href="index.html">Index</a> &middot; <a class="home" href="home.html">Home</a> &middot; <a class="home" href="collection.html">Collection</a> &middot; <a class="home" href="product.html">Product</a> &middot; <a class="home" href="cart.html">Cart</a> &middot; <a class="home" href="wishlist.html">Wishlist</a></span>
+ <button class="barhide" id="barHide" title="Hide preview toolbar">Hide &times;</button>
+</div>
+<button id="barShow" title="Show preview toolbar">&#9650; Show toolbar</button>
+<script>
+const b=document.body;
+document.getElementById('barHide').addEventListener('click',()=>b.classList.add('bar-hidden'));
+document.getElementById('barShow').addEventListener('click',()=>b.classList.remove('bar-hidden'));
+function placeTabbar(){var t=document.querySelector('.mtabbar');if(!t)return;var bar=document.getElementById('bar');var hidden=b.classList.contains('bar-hidden');t.style.bottom=((bar&&!hidden)?bar.offsetHeight:0)+'px';var sh=(getComputedStyle(t).display!=='none')?(t.offsetHeight||0):0;document.documentElement.style.setProperty('--tabh',sh+'px');var ps=document.querySelector('.pdp-sticky');if(ps)ps.style.setProperty('--tabh',sh+'px');}
+window.addEventListener('load',placeTabbar);window.addEventListener('resize',placeTabbar);
+document.getElementById('barHide').addEventListener('click',()=>setTimeout(placeTabbar,30));
+document.getElementById('barShow').addEventListener('click',()=>setTimeout(placeTabbar,30));
+document.getElementById('annTgl').addEventListener('change',e=>b.classList.toggle('anns',e.target.checked));
+document.getElementById('dDesk').addEventListener('click',function(){b.classList.remove('mobile');this.classList.add('on');document.getElementById('dMob').classList.remove('on');setTimeout(placeTabbar,40);});
+document.getElementById('dMob').addEventListener('click',function(){b.classList.add('mobile');this.classList.add('on');document.getElementById('dDesk').classList.remove('on');setTimeout(placeTabbar,40);});
+setTimeout(placeTabbar,30);
+document.querySelectorAll('.cro').forEach((el)=>{
+  const n=el.querySelector(':scope > .cro-num') || el.querySelector('.cro-num');
+  if(!n)return; const tip=n.querySelector('.tip');
+  if(tip && el.dataset.note) tip.innerHTML=el.dataset.note;
+});
+document.addEventListener('click',e=>{
+  const s=e.target.closest('.swatch');
+  if(s && s.closest('.card')){s.parentElement.querySelectorAll('.swatch').forEach(x=>x.classList.remove('on'));s.classList.add('on');
+    const img=s.closest('.card').querySelector('.imgwrap img');
+    if(img&&s.dataset.img){img.src=s.dataset.img;}
+  }
+});
+</script>
+
+</body></html>
