@@ -33,7 +33,8 @@ h1,h2,h3,h4{font-weight:600;color:var(--ink);letter-spacing:.5px;line-height:1.1
 .muted{color:var(--muted)}
 .pill{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:4px 9px;border-radius:2px}
 
-header.site{position:sticky;top:0;z-index:60}
+header.site{position:sticky;top:var(--barh,52px);z-index:60}
+body.bar-hidden header.site{top:0}
 .ann{background:var(--red-dark);color:#fff;text-align:center;font-size:13px;letter-spacing:.6px;padding:9px 12px;font-weight:500}
 .ann a{text-decoration:underline;font-weight:600}
 .anbar{position:relative;background:#161616;color:#fff;font-size:13px;letter-spacing:1px;text-transform:uppercase}
@@ -45,20 +46,20 @@ header.site{position:sticky;top:0;z-index:60}
 @keyframes anmarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @container (max-width:760px){.anbar-vp{height:34px;padding:0 12px}.anbar{font-size:11px;letter-spacing:.5px}}
 .nav{background:var(--red);color:#fff}
-.nav .row{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;max-width:var(--maxw);margin:0 auto}
+.nav .row{display:flex;align-items:center;justify-content:flex-start;gap:24px;padding:16px 22px;max-width:var(--maxw);margin:0 auto}
 .nav .links{display:flex;gap:26px;font-size:14px;letter-spacing:1px;text-transform:uppercase;font-weight:500;align-items:center}
 .nav .links a{padding:6px 0;border-bottom:2px solid transparent}
 .nav .links a:hover{border-color:#fff}
 .nav .logo img{height:34px}
-.nav .logo{border:2px solid #fff;padding:7px 12px}
-.nav .icons{display:flex;gap:20px;align-items:center;font-size:19px}
+.nav .logo{border:2px solid #fff;padding:7px 12px;order:-1;margin-right:4px}
+.nav .icons{display:flex;gap:20px;align-items:center;font-size:19px;margin-left:auto}
 .nav .icons span{cursor:pointer}
 .nav .icons .cart{position:relative}
 .nav .icons .cart .count{position:absolute;top:-8px;right:-12px;background:#fff;color:var(--red);font-size:11px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .burger{display:none;font-size:24px;cursor:pointer;line-height:1}
 .nav .navleft{display:flex;align-items:center;gap:22px}
 .nav .hsearch{cursor:pointer;font-size:19px;line-height:1}
-@container (max-width:760px){.nav .navleft{gap:14px}.nav .icons{gap:16px}.nav .icons .acct{display:none}}
+@container (max-width:760px){.nav .row{justify-content:space-between;gap:10px}.nav .logo{order:0;margin-right:0}.nav .icons{margin-left:0}.nav .navleft{gap:14px}.nav .icons{gap:16px}.nav .icons .acct{display:none}}
 .mnav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;opacity:0;pointer-events:none;transition:opacity .25s}
 .mnav{position:fixed;top:0;bottom:0;left:0;width:84%;max-width:330px;background:#fff;z-index:501;transform:translateX(-110%);transition:transform .28s ease;display:flex;flex-direction:column;overflow-y:auto}
 html.mnav-open .mnav-overlay{opacity:1;pointer-events:auto}
@@ -117,8 +118,8 @@ body.anns .cro-num{display:inline-flex}
  line-height:1.45;letter-spacing:0;text-transform:none;padding:10px 12px;border-radius:6px;z-index:50;box-shadow:0 6px 18px rgba(0,0,0,.35)}
 .tip b{color:#ffb3bc}
 
-#bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#111;color:#fff;display:flex;align-items:center;gap:14px;
- padding:10px 18px;font-size:13px;box-shadow:0 -2px 14px rgba(0,0,0,.3);flex-wrap:wrap}
+#bar{position:fixed;top:0;left:0;right:0;z-index:200;background:#111;color:#fff;display:flex;align-items:center;gap:14px;
+ padding:10px 18px;font-size:13px;box-shadow:0 2px 14px rgba(0,0,0,.3);flex-wrap:wrap}
 #bar .tag{background:var(--red);padding:4px 9px;border-radius:3px;font-weight:700;letter-spacing:.5px}
 #bar .seg{display:flex;border:1px solid #444;border-radius:5px;overflow:hidden}
 #bar .seg button{background:transparent;color:#bbb;border:none;padding:6px 12px;cursor:pointer;font-family:var(--font);font-size:13px}
@@ -126,12 +127,12 @@ body.anns .cro-num{display:inline-flex}
 #bar label{display:flex;align-items:center;gap:7px;cursor:pointer}
 #bar .spacer{flex:1}
 #bar a.home{color:#bbb;text-decoration:underline}
-body{padding-bottom:54px}
+body{padding-top:var(--barh,52px)}
 #bar .barhide{background:transparent;border:1px solid #555;color:#ccc;border-radius:4px;cursor:pointer;font-family:var(--font);font-size:12px;padding:5px 10px;margin-left:6px}
 #bar .barhide:hover{background:#333;color:#fff}
 body.bar-hidden #bar{display:none}
-body.bar-hidden{padding-bottom:0}
-#barShow{position:fixed;bottom:12px;right:12px;z-index:210;display:none;background:var(--red);color:#fff;border:none;border-radius:22px;padding:9px 15px;font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:.4px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+body.bar-hidden{padding-top:0}
+#barShow{position:fixed;top:12px;right:12px;z-index:210;display:none;background:var(--red);color:#fff;border:none;border-radius:22px;padding:9px 15px;font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:.4px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35)}
 #barShow:hover{background:var(--red-dark)}
 body.bar-hidden #barShow{display:block}
 #viewport{container-type:inline-size}
@@ -394,10 +395,10 @@ body.mobile .qa-panel{max-width:420px;margin:0 auto;border-radius:16px 16px 0 0;
 .mc-rcard button:hover{background:var(--red)}
 .mc-arrow{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:1px solid var(--line);width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 2px 6px rgba(0,0,0,.14);font-size:15px}
 .mc-arrow.l{left:-8px}.mc-arrow.r{right:-8px}
-.mc-coupon{padding:14px 20px 4px;display:flex;gap:8px}
+.mc-coupon{padding:0;display:flex;gap:8px;margin-bottom:10px}
 .mc-coupon input{flex:1;padding:10px;border:1px solid var(--line);font-family:var(--font);font-size:13px}
 .mc-coupon button{background:var(--ink);color:#fff;border:none;padding:0 16px;cursor:pointer;font-weight:600;text-transform:uppercase;font-size:12px}
-.mc-coupon-msg{padding:0 20px;font-size:12.5px;color:var(--ok);display:none}
+.mc-coupon-msg{padding:0;font-size:12.5px;color:var(--ok);display:none;margin-bottom:8px}
 .mc-coupon-msg.show{display:block}
 .mc-foot{border-top:1px solid var(--line);padding:16px 20px}
 .mc-srow{display:flex;justify-content:space-between;font-size:13px;padding:3px 0}
@@ -405,13 +406,13 @@ body.mobile .qa-panel{max-width:420px;margin:0 auto;border-radius:16px 16px 0 0;
 .mc-subtotal{display:flex;justify-content:space-between;align-items:baseline;margin:6px 0 12px}
 .mc-subtotal .lbl{font-size:13px;color:#666;text-transform:uppercase;letter-spacing:.5px}
 .mc-subtotal .amt{font-size:24px;font-weight:700;color:var(--ink)}
-.mc-checkout{width:100%;background:var(--red);color:#fff;border:none;padding:16px;font-family:var(--font);font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+.mc-checkout{width:100%;background:var(--red);color:#fff;border:none;padding:16px;font-family:var(--font);font-weight:700;font-size:15px;letter-spacing:.5px;text-transform:uppercase;cursor:pointer}
 .mc-checkout:hover{background:var(--red-dark)}
 .mc-note{font-size:11.5px;color:#888;text-align:center;margin-top:10px}
 .mc-view{display:block;text-align:center;font-size:13px;margin-top:10px;text-decoration:underline;color:var(--ink)}
 @media(max-width:480px){.mc-drawer{width:100%;max-width:100%}}
 
-.pdp-sticky{position:fixed;left:0;right:0;bottom:54px;--tabh:0px;z-index:190;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 18px rgba(0,0,0,.1);transform:translateY(160%);transition:transform .3s ease}
+.pdp-sticky{position:fixed;left:0;right:0;bottom:0;--tabh:0px;z-index:190;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 18px rgba(0,0,0,.1);transform:translateY(160%);transition:transform .3s ease}
 .pdp-sticky.show{transform:translateY(0)}
 .pdp-sticky .inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 22px}
 .pdp-sticky img{width:46px;height:46px;object-fit:cover;border-radius:6px;flex:none;background:var(--soft)}
@@ -426,7 +427,7 @@ body.mobile .qa-panel{max-width:420px;margin:0 auto;border-radius:16px 16px 0 0;
 .pdp-sticky .ps-opts{margin-left:auto;display:flex;align-items:center;gap:10px}
 .pdp-sticky select{padding:10px 10px;border:1px solid var(--line);font-family:var(--font);font-size:13px;background:#fff;cursor:pointer}
 .pdp-sticky .btn{padding:13px 26px;white-space:nowrap}
-body.mobile .pdp-sticky{bottom:calc(54px + var(--tabh))}
+body.mobile .pdp-sticky{bottom:var(--tabh)}
 body.mobile .pdp-sticky .inner{max-width:420px}
 body.bar-hidden.mobile .pdp-sticky{bottom:var(--tabh)}
 body.mobile .pdp-sticky .ps-name{display:none}
@@ -434,7 +435,7 @@ body.mobile .pdp-sticky .ps-opts select{display:none}
 body.mobile .pdp-sticky .ps-opts{flex:1}
 body.mobile .pdp-sticky .btn{flex:1}
 @media(max-width:760px){
- .pdp-sticky{bottom:calc(54px + var(--tabh))}
+ .pdp-sticky{bottom:var(--tabh)}
  body.bar-hidden .pdp-sticky{bottom:var(--tabh)}
  .pdp-sticky .ps-name{display:none}
  .pdp-sticky .inner{gap:10px;padding:10px 14px}
@@ -458,9 +459,10 @@ body.mobile .pdp-sticky .btn{flex:1}
 .story-launch .sl-label{background:var(--ink);color:#fff;font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px;letter-spacing:.3px}
 @keyframes slPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 .story-launch .cro-num{top:-8px;left:-8px}
-.st-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:390;display:none;align-items:center;justify-content:center}
-.st-overlay.open{display:flex}
-.st-phone{position:relative;width:380px;max-width:94vw;height:86vh;max-height:760px;background:#000;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.st-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:390;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .25s ease}
+.st-overlay.open{opacity:1;visibility:visible}
+.st-phone{position:relative;width:380px;max-width:94vw;height:86vh;max-height:760px;background:#000;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,.5);transform:translateY(28px) scale(.98);transition:transform .32s cubic-bezier(.22,.61,.36,1)}
+.st-overlay.open .st-phone{transform:none}
 .st-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
 .st-bars{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:5px;z-index:6}
 .st-bar{flex:1;height:3px;background:rgba(255,255,255,.4);border-radius:3px;overflow:hidden}
@@ -483,9 +485,30 @@ body.mobile .pdp-sticky .btn{flex:1}
 .st-fprice s{color:#999;font-weight:400;font-size:11px;margin-left:5px}
 .st-foot .btn{padding:11px 14px;white-space:nowrap;font-size:13px}
 .st-foot .btn.ghost{background:#fff;color:var(--red);border:1.5px solid var(--red)}
-@media(max-width:760px){.st-phone{width:100vw;max-width:100vw;height:100vh;max-height:none;border-radius:0}}
-body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
+@media(max-width:760px){.st-overlay{align-items:stretch}.st-phone{width:100vw;max-width:100vw;height:100vh;max-height:none;border-radius:0;transform:translateY(100%)}.st-overlay.open .st-phone{transform:translateY(0)}}
+body.mobile .st-overlay{align-items:stretch}
+body.mobile .st-phone{width:100%;max-width:420px;height:100vh;max-height:none;border-radius:0;transform:translateY(100%)}
+body.mobile .st-overlay.open .st-phone{transform:translateY(0)}
+/* stories icon: pin bottom-right, compact on mobile */
+@media(max-width:760px){.story-launch{right:10px;bottom:10px;gap:5px}.story-launch .sl-ring{width:54px;height:54px}.story-launch .sl-play{width:44px;height:44px;font-size:15px}.story-launch .sl-label{font-size:10px;padding:2px 10px}}
+body.mobile .story-launch{right:10px;bottom:10px;gap:5px}
+body.mobile .story-launch .sl-ring{width:54px;height:54px}
+body.mobile .story-launch .sl-play{width:44px;height:44px;font-size:15px}
+body.mobile .story-launch .sl-label{font-size:10px;padding:2px 10px}
 
+
+/* ===== PASSWORD GATE ===== */
+.vgate{position:fixed;inset:0;z-index:100000;background:linear-gradient(160deg,var(--hero),var(--red));display:flex;align-items:center;justify-content:center;padding:22px;font-family:var(--font)}
+.vgate-card{background:#fff;border-radius:16px;padding:36px 30px;max-width:390px;width:100%;text-align:center;box-shadow:0 26px 64px rgba(0,0,0,.4)}
+.vgate-logo{height:40px;width:auto;margin:0 auto 20px;display:block}
+.vgate-card h2{font-size:22px;margin-bottom:8px;color:var(--ink);letter-spacing:.3px}
+.vgate-card p{font-size:14px;color:var(--muted);margin-bottom:22px;line-height:1.5}
+.vgate-card input{width:100%;padding:14px;border:1px solid var(--line);border-radius:9px;font-family:var(--font);font-size:15px;margin-bottom:12px;text-align:center;outline:none}
+.vgate-card input:focus{border-color:var(--red)}
+.vgate-card button{width:100%;padding:14px;background:var(--red);color:#fff;border:none;border-radius:9px;font-family:var(--font);font-size:14px;font-weight:700;letter-spacing:.6px;cursor:pointer;text-transform:uppercase}
+.vgate-card button:hover{background:var(--red-dark)}
+.vgate-err{color:var(--red);font-size:13px;margin-top:10px;min-height:16px}
+.vgate-foot{margin-top:18px;font-size:11px;color:#b9b9b9;letter-spacing:.4px}
 
 .wish-btn{position:absolute;top:10px;right:10px;z-index:3;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;color:#c2c2c2;box-shadow:0 1px 4px rgba(0,0,0,.16);transition:.15s;line-height:1;padding:0}
 .wish-btn:hover{color:var(--red);transform:scale(1.08)}
@@ -511,11 +534,14 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
 .sc-note{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.5}
 .sc-note b{color:var(--red)}
 </style></head>
-<body class="anns">
+<body>
+
+<div id="vgate" class="vgate" role="dialog" aria-modal="true" aria-label="Password protected preview"><div class="vgate-card"><img class="vgate-logo" src="assets/7b9c32c1f805d2.png" alt="VOYAGER" style="filter:none"><h2>Client Preview</h2><p>This Growisto &times; Voyager CRO preview is private. Enter the password to continue.</p><form onsubmit="return vgateSubmit(event)"><input id="vgate-pw" type="password" placeholder="Password" autocomplete="off" autofocus><button type="submit">Unlock preview</button></form><div id="vgate-err" class="vgate-err"></div><div class="vgate-foot">GROWISTO &times; VOYAGER HARNESS</div></div></div><script>(function(){try{if(localStorage.getItem('vgate_ok')==='1'){var g=document.getElementById('vgate');if(g)g.style.display='none';return;}}catch(e){}document.documentElement.style.overflow='hidden';})();function vgateSubmit(e){e.preventDefault();var v=(document.getElementById('vgate-pw').value||'').trim();if(v==='voyagerharness'){try{localStorage.setItem('vgate_ok','1');}catch(e){}var g=document.getElementById('vgate');if(g)g.style.display='none';document.documentElement.style.overflow='';}else{document.getElementById('vgate-err').textContent='Incorrect password. Please try again.';var i=document.getElementById('vgate-pw');i.value='';i.focus();}return false;}</script>
+
 <div id="viewport">
 
 <header class="site">
- <div class="anbar cro" data-note="<b>Announcement bar (auto-rotating).</b> A slim promo strip that rotates the free-shipping threshold and returns reassurance every 2s lifts AOV and builds trust (Phase 1)."><span class="cro-num">17<span class="tip"></span></span>
+ <div class="anbar cro" data-note="<b>Announcement bar (auto-rotating).</b> A slim promo strip that rotates the free-shipping threshold and returns reassurance every 2s lifts AOV and builds trust (Phase 1).">
   <div class="anbar-vp"><div class="anbar-track" id="anTrack">
    <span class="anbar-item">Free Shipping on Orders Above $30</span><span class="anbar-sep">&bull;</span>
    <span class="anbar-item">We Offer 14-Day Returns</span><span class="anbar-sep">&bull;</span>
@@ -536,7 +562,7 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
    <div class="icons">
      <span class="acct">&#9737;</span>
      <span class="wishlink" onclick="location.href='wishlist.html'" aria-label="Wishlist">&#9829;<span class="wcount">0</span></span>
-     <span class="cart" onclick="location.href='cart.html'">&#128722;<span class="count">2</span></span>
+     <span class="cart" onclick="openCart()">&#128722;<span class="count">2</span></span>
    </div>
   </div>
  </div>
@@ -546,9 +572,12 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
 <style>
 .crumb{font-size:13px;color:var(--muted);padding:16px 0}
 .pdp{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start}
-.gallery{display:grid;grid-template-columns:74px 1fr;gap:12px;position:sticky;top:120px}
-.thumbs{display:flex;flex-direction:column;gap:10px;max-height:540px;overflow:auto}
-.thumb{width:74px;height:74px;object-fit:cover;border:1px solid var(--line);cursor:pointer;opacity:.7}
+.gallery{display:grid;grid-template-columns:74px 1fr;gap:12px;position:sticky;top:120px;align-items:start}
+.thumbs{display:flex;flex-direction:column;gap:10px;max-height:540px;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scroll-snap-type:y proximity}
+.thumbs::-webkit-scrollbar{width:5px}
+.thumbs::-webkit-scrollbar-thumb{background:#cfcfcf;border-radius:5px}
+.thumb{scroll-snap-align:start}
+.thumb{width:74px;height:74px;flex:0 0 auto;object-fit:cover;border:1px solid var(--line);cursor:pointer;opacity:.7}
 .thumb.on,.thumb:hover{opacity:1;border-color:var(--ink)}
 .mainimg{position:relative;border:1px solid var(--line);background:var(--soft);aspect-ratio:1;overflow:hidden}
 .mainimg img{width:100%;height:100%;object-fit:cover}
@@ -645,10 +674,27 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
 @container (max-width:600px){.yo-cards{column-count:1}.yo-summary{padding:24px 20px}.yo-sort{margin-left:0;width:100%}.yo-headline{font-size:23px}}
 </style>
 
+<style>
+.pdp-nav{display:none;position:sticky;top:0;z-index:55;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 3px 10px rgba(0,0,0,.06)}
+.pdp-nav.show{display:block}
+.pdp-nav-track{max-width:var(--maxw);margin:0 auto;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;padding:0 22px}
+.pdp-nav-track::-webkit-scrollbar{display:none}
+.pdp-nav a{flex:0 0 auto;padding:15px 18px;font-size:13.5px;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;cursor:pointer;text-transform:uppercase;letter-spacing:.5px}
+.pdp-nav a:hover{color:var(--ink)}
+.pdp-nav a.on{color:var(--red);border-bottom-color:var(--red)}
+@container (max-width:760px){.pdp-nav-track{padding:0 10px}.pdp-nav a{padding:13px 13px;font-size:12px;letter-spacing:.3px}}
+</style>
+<nav class="pdp-nav" id="pdpNav" aria-label="Product sections"><div class="pdp-nav-track">
+ <a data-t="pdp-overview" onclick="pdpNavGo(event,'pdp-overview')">Overview</a>
+ <a data-t="pdp-details" onclick="pdpNavGo(event,'pdp-details')">Details</a>
+ <a data-t="pdp-faqs" onclick="pdpNavGo(event,'pdp-faqs')">FAQs</a>
+ <a data-t="reviews" onclick="pdpNavGo(event,'reviews')">Reviews</a>
+ <a data-t="related" onclick="pdpNavGo(event,'related')">You May Like</a>
+</div></nav>
 <div class="wrap">
  <div class="crumb">Home / Dog Harnesses / <b>Step-In Plush Suede Pet Harness</b></div>
- <div class="pdp">
-  <div class="gallery cro" data-note="<b>Improved gallery + navigation arrows.</b> Multiple high-res angles, lifestyle shots, thumbnails, zoom and prev/next arrows for easy browsing (Phase 2)."><span class="cro-num">20<span class="tip"></span></span>
+ <div class="pdp" id="pdp-overview">
+  <div class="gallery cro" data-note="<b>Improved gallery + navigation arrows.</b> Multiple high-res angles, lifestyle shots, thumbnails, zoom and prev/next arrows for easy browsing (Phase 2).">
     <div class="thumbs"><img src="assets/5d26b200acbfb0.jpg" class="thumb on" onclick="setMain(this,'assets/5d26b200acbfb0.jpg')" alt="view 1"><img src="assets/583a80cd053922.jpg" class="thumb" onclick="setMain(this,'assets/583a80cd053922.jpg')" alt="view 2"><img src="assets/95b5ff0f012249.jpg" class="thumb" onclick="setMain(this,'assets/95b5ff0f012249.jpg')" alt="view 3"><img src="assets/ed031f159b588f.jpg" class="thumb" onclick="setMain(this,'assets/ed031f159b588f.jpg')" alt="view 4"><img src="assets/b327964abcd08f.jpg" class="thumb" onclick="setMain(this,'assets/b327964abcd08f.jpg')" alt="view 5"><img src="assets/d1804205d05c8a.jpg" class="thumb" onclick="setMain(this,'assets/d1804205d05c8a.jpg')" alt="view 6"></div>
     <div class="mainimg">
       <button class="wish-btn" data-name="Step-In Plush Suede Pet Harness" data-price="13.99" data-img="assets/5d26b200acbfb0.jpg" data-rating="4.8" data-reviews="214" data-colors='["#c9a981","#5b4a3a"]' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button>
@@ -656,7 +702,7 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
       <span class="gnav prev" onclick="galMove(-1)">‹</span>
       <img id="mainimg" src="assets/5d26b200acbfb0.jpg" alt="Step-In Plush Suede Pet Harness">
       <span class="gnav next" onclick="galMove(1)">›</span>
-      <button class="story-launch cro" data-note="<b>Shoppable product Stories.</b> A tappable Stories ring on the product image opens autoplaying vertical reels with a persistent Add-to-Cart, bringing social-style discovery onto the PDP (Phase 1)." onclick="openStories()" aria-label="Watch product stories"><span class="cro-num">45<span class="tip"></span></span><span class="sl-ring"><span class="sl-play">&#9658;</span></span><span class="sl-label">Stories</span></button>
+      <button class="story-launch cro" data-note="<b>Shoppable product Stories.</b> A tappable Stories ring on the product image opens autoplaying vertical reels with a persistent Add-to-Cart, bringing social-style discovery onto the PDP (Phase 1)." onclick="openStories()" aria-label="Watch product stories"><span class="sl-ring"><span class="sl-play">&#9658;</span></span><span class="sl-label">Stories</span></button>
     </div>
   </div>
 
@@ -664,7 +710,7 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
     <div class="toprev"><span class="stars">★★★★★</span> 4.8 · <a href="#reviews" style="text-decoration:underline">214 reviews</a> · <span>1.2k+ sold</span></div>
     <h1>Step-In Plush Suede Pet Harness</h1>
 
-    <ul class="benefits cro" data-note="<b>Key benefits near the title.</b> A short scannable list of top features sits right under the title, above the long description (Phase 2)."><span class="cro-num">17<span class="tip"></span></span>
+    <ul class="benefits cro" data-note="<b>Key benefits near the title.</b> A short scannable list of top features sits right under the title, above the long description (Phase 2).">
       <li>Fuss-free step-in vest design — just step in, clip &amp; go</li>
       <li>Soft suede outer lined with cozy plush for warmth</li>
       <li>3 security features + 2 reflective safety bands</li>
@@ -672,9 +718,9 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
     </ul>
 
     <div class="priceblk"><span class="now">$13.99</span><span class="was">$17.99</span><span class="save">Save 22%</span></div>
-    <div class="charges cro" data-note="<b>Charges shown near CTA.</b> Taxes &amp; shipping stated up front so there are no surprises at checkout (Phase 2)."><span class="cro-num">39<span class="tip"></span></span> Tax included. <b>Free shipping</b> on orders over $49 · Est. delivery 3–5 business days.</div>
+    <div class="charges cro" data-note="<b>Charges shown near CTA.</b> Taxes &amp; shipping stated up front so there are no surprises at checkout (Phase 2)."> <b>Free shipping</b> on orders over $30</div>
 
-    <div class="avail cro" data-note="<b>Availability near CTA.</b> Clear in-stock status reassures the buyer right beside the button (Phase 2)."><span class="cro-num">40<span class="tip"></span></span><span class="dot"></span> In Stock — ready to ship</div>
+    <div class="avail cro" data-note="<b>Availability near CTA.</b> Clear in-stock status reassures the buyer right beside the button (Phase 2)."><span class="dot"></span> In Stock — ready to ship</div>
 
     <div class="opt">
       <div class="lbl">Color: <span id="colName">Latte Suede</span></div>
@@ -692,32 +738,32 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
       </div>
     </div>
 
-    <div class="notify cro" data-note="<b>Notify-me for out-of-stock.</b> When a size is sold out, capture the email and alert the user on restock (Phase 1)."><span class="cro-num">29<span class="tip"></span></span>
+    <div class="notify cro" data-note="<b>Notify-me for out-of-stock.</b> When a size is sold out, capture the email and alert the user on restock (Phase 1).">
       <b>XL is out of stock.</b> Get notified when it's back:
       <input type="email" placeholder="you@email.com"><button class="btn block">Notify Me</button>
     </div>
 
-    <div class="shipbar cro" data-note="<b>Free-shipping progress widget on PDP.</b> Showing how much more is needed to unlock free shipping, right above Add to Cart, is a proven AOV lever and removes shipping-cost uncertainty at the decision point (Phase 2)."><span class="cro-num">43<span class="tip"></span></span>
-      <div class="shipbar-msg">You're <b>$35.01</b> away from <b>FREE shipping</b> &mdash; add a matching leash &amp; save!</div>
-      <div class="shipbar-track"><i style="width:29%"></i></div>
+    <div class="shipbar cro" data-note="<b>Free-shipping progress widget on PDP.</b> Showing how much more is needed to unlock free shipping, right above Add to Cart, is a proven AOV lever and removes shipping-cost uncertainty at the decision point (Phase 2).">
+      <div class="shipbar-msg">You're <b>$16.01</b> away from <b>FREE shipping</b> &mdash; add a matching leash &amp; save!</div>
+      <div class="shipbar-track"><i style="width:47%"></i></div>
     </div>
 
     <div class="cta-row">
-      <button class="btn lg block" onclick="location.href='cart.html'">Add to Cart · $13.99</button>
-      <button class="btn lg dark block" onclick="location.href='cart.html'">Buy Now</button>
+      <button class="btn lg block" onclick="openCart()">Add to Cart · $13.99</button>
+      <button class="btn lg dark block" onclick="openCart()">Buy Now</button>
     </div>
 
-    <div class="trust cro" data-note="<b>Returns, refunds &amp; guarantee.</b> Reassurance badges near the CTA build purchase confidence (Phase 2)."><span class="cro-num">41<span class="tip"></span></span>
+    <div class="trust cro" data-note="<b>Returns, refunds &amp; guarantee.</b> Reassurance badges near the CTA build purchase confidence (Phase 2).">
       <div class="t"><span class="ic">↩️</span>14-Day Returns</div>
       <div class="t"><span class="ic">🛡️</span>Money-Back Guarantee</div>
       <div class="t"><span class="ic">🔒</span>Secure Checkout</div>
     </div>
 
-    <div class="ask cro" data-note="<b>Ask a question.</b> Visible support options (email + phone) let buyers clear doubts without leaving the page (Phase 2)."><span class="cro-num">35<span class="tip"></span></span>
+    <div class="ask cro" data-note="<b>Ask a question.</b> Visible support options (email + phone) let buyers clear doubts without leaving the page (Phase 2).">
       <a href="#">✉️ Ask a Question</a><a href="#">📞 718-558-8506</a>
     </div>
 
-    <div class="fbt cro" data-note="<b>Bundle / Frequently Bought Together.</b> Relevant add-ons with a clear bundle discount lift AOV (Phase 2)."><span class="cro-num">42<span class="tip"></span></span>
+    <div class="fbt cro" data-note="<b>Bundle / Frequently Bought Together.</b> Relevant add-ons with a clear bundle discount lift AOV (Phase 2).">
       <h3>Frequently Bought Together · Save 15%</h3>
       <div class="fbt-items"><div class="fbt-item"><input type="checkbox" checked><img src="assets/5d26b200acbfb0.jpg"><div><div class="n">Step-In Plush Suede Pet Harnes</div><div class="price">$13.99</div></div></div><div class="fbt-item"><input type="checkbox" checked><img src="assets/0a7a959a1fea98.jpg"><div><div class="n">Step-In Lock Harness with Air </div><div class="price">$13.99</div></div></div><div class="fbt-item"><input type="checkbox" checked><img src="assets/a45778c52a6b0c.jpg"><div><div class="n">Step-In Air Harness with Match</div><div class="price">$14.99</div></div></div></div>
       <div class="fbt-total"><div><b>Bundle price: $38.66</b> <span class="was" style="color:#999;text-decoration:line-through">$45.97</span></div><button class="btn">Add Bundle</button></div>
@@ -726,8 +772,8 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
  </div>
 
  <!-- collapsible content -->
- <div style="max-width:880px;margin:36px auto 0">
-   <div class="cro" data-note="<b>Collapsible content sections.</b> Description / Specs / Features / Care split into accordions (Description open by default) for easy scanning (Phase 2)."><span class="cro-num">45<span class="tip"></span></span>
+ <div id="pdp-details" style="max-width:880px;margin:36px auto 0">
+   <div class="cro" data-note="<b>Collapsible content sections.</b> Description / Specs / Features / Care split into accordions (Description open by default) for easy scanning (Phase 2).">
    <div class="acc open"><div class="head" onclick="this.parentElement.classList.toggle('open')">Description <span class="ar">▾</span></div>
      <div class="panel">The Step-In Plush is a fuss-free vest-style harness — just step in, clip and go. Made from stylish suede lined with soft plush, it keeps your pet warm and snug on brisk walks. Three security features and two reflective bands work together to protect your pet on every adventure.</div></div>
    <div class="acc"><div class="head" onclick="this.parentElement.classList.toggle('open')">Specifications <span class="ar">▾</span></div>
@@ -738,12 +784,12 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
      <div class="panel">Measure your pet's chest girth before ordering. Runs true to size. Hand wash cold, air dry.</div></div>
    </div>
 
-   <div class="faq section" style="padding:30px 0">
+   <div class="faq section" id="pdp-faqs" style="padding:30px 0">
      <h2 class="l" style="font-size:22px">Customer FAQs</h2>
-     <div class="cro" data-note="<b>Customer FAQs accordion.</b> Common sizing / material / shipping questions answered on the PDP to remove hesitation (Phase 2)." style="margin-top:14px"><span class="cro-num">46<span class="tip"></span></span>
+     <div class="cro" data-note="<b>Customer FAQs accordion.</b> Common sizing / material / shipping questions answered on the PDP to remove hesitation (Phase 2)." style="margin-top:14px">
      <div class="acc open"><div class="head" onclick="this.parentElement.classList.toggle('open')"><span class="q">How do I choose the right size?</span><span class="ar">▾</span></div><div class="panel">Measure your pet's chest girth and match it to our size chart. If between sizes, size up. Use the “Find my size” tool above.</div></div>
      <div class="acc"><div class="head" onclick="this.parentElement.classList.toggle('open')"><span class="q">Is the suede material machine washable?</span><span class="ar">▾</span></div><div class="panel">We recommend hand washing in cold water and air drying to preserve the suede and plush lining.</div></div>
-     <div class="acc"><div class="head" onclick="this.parentElement.classList.toggle('open')"><span class="q">How long does shipping take?</span><span class="ar">▾</span></div><div class="panel">Orders ship within 24 hours. Standard delivery is 3–5 business days; free over $49.</div></div>
+     <div class="acc"><div class="head" onclick="this.parentElement.classList.toggle('open')"><span class="q">How long does shipping take?</span><span class="ar">▾</span></div><div class="panel">Orders ship within 24 hours. Standard delivery is 3–5 business days; free over $30.</div></div>
      <div class="acc"><div class="head" onclick="this.parentElement.classList.toggle('open')"><span class="q">What is your return policy?</span><span class="ar">▾</span></div><div class="panel">14-day returns as per our refund policy if the fit isn't right.</div></div>
      </div>
    </div>
@@ -775,75 +821,75 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
    <h2 class="l" style="font-size:22px;text-align:left">You May Also Like</h2>
    <div class="grid c4" style="margin-top:16px">
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-best">BESTSELLER</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-best">BESTSELLER</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/d7583104f5ad9b.jpg" loading="lazy" alt="Step-In Plush Corduroy Pet Harness"></a><button class="wish-btn" data-name="Step-In Plush Corduroy Pet Harness" data-price="13.99" data-img="assets/d7583104f5ad9b.jpg" data-rating="4.6" data-reviews="23" data-colors='[[&quot;Fuchsia Corduroy&quot;, &quot;assets/93555d67095e84.jpg [&quot;Red Corduroy&quot;, &quot;assets/278b027a9aeab5.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Plush Corduroy Pet Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.6 (23)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Fuchsia Corduroy&quot;, &quot;assets/93555d67095e84.jpg [&quot;Red Corduroy&quot;, &quot;assets/278b027a9aeab5.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/d7583104f5ad9b.jpg)" data-img="assets/d7583104f5ad9b.jpg" data-name="Fuchsia Corduroy" title="Fuchsia Corduroy"></span><span class="swatch" style="background-image:url(assets/7cf9b877871009.jpg)" data-img="assets/7cf9b877871009.jpg" data-name="Red Corduroy" title="Red Corduroy"></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.6 (23)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Fuchsia Corduroy&quot;, &quot;assets/93555d67095e84.jpg [&quot;Red Corduroy&quot;, &quot;assets/278b027a9aeab5.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/d7583104f5ad9b.jpg)" data-img="assets/d7583104f5ad9b.jpg" data-name="Fuchsia Corduroy" title="Fuchsia Corduroy"></span><span class="swatch" style="background-image:url(assets/7cf9b877871009.jpg)" data-img="assets/7cf9b877871009.jpg" data-name="Red Corduroy" title="Red Corduroy"></span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-best">BESTSELLER</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-best">BESTSELLER</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/a45778c52a6b0c.jpg" loading="lazy" alt="Step-In Air Harness with Matching Trim"></a><button class="wish-btn" data-name="Step-In Air Harness with Matching Trim" data-price="14.99" data-img="assets/a45778c52a6b0c.jpg" data-rating="4.8" data-reviews="202" data-colors='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Air Harness with Matching Trim</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (202)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/a45778c52a6b0c.jpg)" data-img="assets/a45778c52a6b0c.jpg" data-name="Khaki" title="Khaki"></span><span class="swatch" style="background-image:url(assets/6f696d8d15e3ba.jpg)" data-img="assets/6f696d8d15e3ba.jpg" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/49b9ffeb2c3dc8.jpg)" data-img="assets/49b9ffeb2c3dc8.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/de56869d9ef5c5.jpg)" data-img="assets/de56869d9ef5c5.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/df83d7aa148518.jpg)" data-img="assets/df83d7aa148518.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (202)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/a45778c52a6b0c.jpg)" data-img="assets/a45778c52a6b0c.jpg" data-name="Khaki" title="Khaki"></span><span class="swatch" style="background-image:url(assets/6f696d8d15e3ba.jpg)" data-img="assets/6f696d8d15e3ba.jpg" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/49b9ffeb2c3dc8.jpg)" data-img="assets/49b9ffeb2c3dc8.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/de56869d9ef5c5.jpg)" data-img="assets/de56869d9ef5c5.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/df83d7aa148518.jpg)" data-img="assets/df83d7aa148518.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch-more">+3</span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/442f102f16ebc4.jpg" loading="lazy" alt="Step-In Flex Dog Harness"></a><button class="wish-btn" data-name="Step-In Flex Dog Harness" data-price="15.99" data-img="assets/442f102f16ebc4.jpg" data-rating="4.8" data-reviews="43" data-colors='[[&quot;Moss Green&quot;, &quot;assets/009210de8e4d54.jpg [&quot;Lavender&quot;, &quot;assets/27ac0bc4c2515a.png [&quot;Pink&quot;, &quot;assets/dba8e962292823.jpg [&quot;Fuchsia&quot;, &quot;assets/e1c6d00fc2308c.jpg [&quot;Orange&quot;, &quot;assets/107b286d149c50.jpg [&quot;Red&quot;, &quot;assets/f796cd890bc671.jpg [&quot;Purple&quot;, &quot;assets/e7d0b151df6e86.jpg [&quot;Baby Blue&quot;, &quot;assets/0b3c038d6d1c13.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Flex Dog Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (43)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Moss Green&quot;, &quot;assets/009210de8e4d54.jpg [&quot;Lavender&quot;, &quot;assets/27ac0bc4c2515a.png [&quot;Pink&quot;, &quot;assets/dba8e962292823.jpg [&quot;Fuchsia&quot;, &quot;assets/e1c6d00fc2308c.jpg [&quot;Orange&quot;, &quot;assets/107b286d149c50.jpg [&quot;Red&quot;, &quot;assets/f796cd890bc671.jpg [&quot;Purple&quot;, &quot;assets/e7d0b151df6e86.jpg [&quot;Baby Blue&quot;, &quot;assets/0b3c038d6d1c13.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/442f102f16ebc4.jpg)" data-img="assets/442f102f16ebc4.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/ac4ca64056c5c7.png)" data-img="assets/ac4ca64056c5c7.png" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/fa965fff2619a3.jpg)" data-img="assets/fa965fff2619a3.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/ee3fe81da5c6e0.jpg)" data-img="assets/ee3fe81da5c6e0.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/26188b2d42d536.jpg)" data-img="assets/26188b2d42d536.jpg" data-name="Orange" title="Orange"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (43)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Moss Green&quot;, &quot;assets/009210de8e4d54.jpg [&quot;Lavender&quot;, &quot;assets/27ac0bc4c2515a.png [&quot;Pink&quot;, &quot;assets/dba8e962292823.jpg [&quot;Fuchsia&quot;, &quot;assets/e1c6d00fc2308c.jpg [&quot;Orange&quot;, &quot;assets/107b286d149c50.jpg [&quot;Red&quot;, &quot;assets/f796cd890bc671.jpg [&quot;Purple&quot;, &quot;assets/e7d0b151df6e86.jpg [&quot;Baby Blue&quot;, &quot;assets/0b3c038d6d1c13.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/442f102f16ebc4.jpg)" data-img="assets/442f102f16ebc4.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/ac4ca64056c5c7.png)" data-img="assets/ac4ca64056c5c7.png" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/fa965fff2619a3.jpg)" data-img="assets/fa965fff2619a3.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/ee3fe81da5c6e0.jpg)" data-img="assets/ee3fe81da5c6e0.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/26188b2d42d536.jpg)" data-img="assets/26188b2d42d536.jpg" data-name="Orange" title="Orange"></span><span class="swatch-more">+3</span></div>
      <div class="price">$15.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-best">BESTSELLER</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-best">BESTSELLER</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/a34423a6d20f8e.jpg" loading="lazy" alt="AeroLite Harness for Dogs"></a><button class="wish-btn" data-name="AeroLite Harness for Dogs" data-price="14.99" data-img="assets/a34423a6d20f8e.jpg" data-rating="5.0" data-reviews="9" data-colors='[[&quot;Beige&quot;, &quot;assets/6def9bfb7bfbe5.jpg [&quot;Black&quot;, &quot;assets/bcb5e7d866b6da.jpg [&quot;Blue&quot;, &quot;assets/a7a0560ff287bf.jpg [&quot;Fuchsia&quot;, &quot;assets/c6a180e142bc35.jpg [&quot;Pink&quot;, &quot;assets/76e03a9d01a9c7.jpg [&quot;Purple&quot;, &quot;assets/18cea63bb10643.jpg [&quot;Red&quot;, &quot;assets/a9ad17756627aa.jpg [&quot;Turquoise&quot;, &quot;assets/55f02d972398cc.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">AeroLite Harness for Dogs</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>5.0 (9)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Beige&quot;, &quot;assets/6def9bfb7bfbe5.jpg [&quot;Black&quot;, &quot;assets/bcb5e7d866b6da.jpg [&quot;Blue&quot;, &quot;assets/a7a0560ff287bf.jpg [&quot;Fuchsia&quot;, &quot;assets/c6a180e142bc35.jpg [&quot;Pink&quot;, &quot;assets/76e03a9d01a9c7.jpg [&quot;Purple&quot;, &quot;assets/18cea63bb10643.jpg [&quot;Red&quot;, &quot;assets/a9ad17756627aa.jpg [&quot;Turquoise&quot;, &quot;assets/55f02d972398cc.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/a34423a6d20f8e.jpg)" data-img="assets/a34423a6d20f8e.jpg" data-name="Beige" title="Beige"></span><span class="swatch" style="background-image:url(assets/7ca6f187cf9833.jpg)" data-img="assets/7ca6f187cf9833.jpg" data-name="Black" title="Black"></span><span class="swatch" style="background-image:url(assets/cd6b73ccf02acc.jpg)" data-img="assets/cd6b73ccf02acc.jpg" data-name="Blue" title="Blue"></span><span class="swatch" style="background-image:url(assets/c97897a254b372.jpg)" data-img="assets/c97897a254b372.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/7a79d3cfae35f9.jpg)" data-img="assets/7a79d3cfae35f9.jpg" data-name="Pink" title="Pink"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>5.0 (9)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Beige&quot;, &quot;assets/6def9bfb7bfbe5.jpg [&quot;Black&quot;, &quot;assets/bcb5e7d866b6da.jpg [&quot;Blue&quot;, &quot;assets/a7a0560ff287bf.jpg [&quot;Fuchsia&quot;, &quot;assets/c6a180e142bc35.jpg [&quot;Pink&quot;, &quot;assets/76e03a9d01a9c7.jpg [&quot;Purple&quot;, &quot;assets/18cea63bb10643.jpg [&quot;Red&quot;, &quot;assets/a9ad17756627aa.jpg [&quot;Turquoise&quot;, &quot;assets/55f02d972398cc.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/a34423a6d20f8e.jpg)" data-img="assets/a34423a6d20f8e.jpg" data-name="Beige" title="Beige"></span><span class="swatch" style="background-image:url(assets/7ca6f187cf9833.jpg)" data-img="assets/7ca6f187cf9833.jpg" data-name="Black" title="Black"></span><span class="swatch" style="background-image:url(assets/cd6b73ccf02acc.jpg)" data-img="assets/cd6b73ccf02acc.jpg" data-name="Blue" title="Blue"></span><span class="swatch" style="background-image:url(assets/c97897a254b372.jpg)" data-img="assets/c97897a254b372.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/7a79d3cfae35f9.jpg)" data-img="assets/7a79d3cfae35f9.jpg" data-name="Pink" title="Pink"></span><span class="swatch-more">+3</span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div></div>
  </section>
 
  <section class="section" id="recently-viewed" style="padding-top:10px">
-   <div class="cro" data-note="<b>Recently viewed.</b> Shows products the shopper recently looked at so they can quickly resume browsing and rediscover items (Phase 2)."><span class="cro-num">15<span class="tip"></span></span>
+   <div class="cro" data-note="<b>Recently viewed.</b> Shows products the shopper recently looked at so they can quickly resume browsing and rediscover items (Phase 2).">
    <h2 class="l" style="font-size:22px;text-align:left">Recently Viewed</h2>
    <div class="grid c4" style="margin-top:16px">
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/7d705a1f631a4e.jpg" loading="lazy" alt="Step-In Plush Quilted Pet Harness"></a><button class="wish-btn" data-name="Step-In Plush Quilted Pet Harness" data-price="13.99" data-img="assets/7d705a1f631a4e.jpg" data-rating="4.7" data-reviews="34" data-colors='[[&quot;Red Rose Plush&quot;, &quot;assets/0ae9deec80bfbb.jpg [&quot;Red Quilt&quot;, &quot;assets/2a0b1cc8b81b56.jpg [&quot;Turquoise Quilt&quot;, &quot;assets/a2c7492dd0e61b.jpg [&quot;Beige Quilt&quot;, &quot;assets/ccbe038070bfa0.jpg [&quot;Black Quilt&quot;, &quot;assets/b25728aa123b70.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Plush Quilted Pet Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.7 (34)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Red Rose Plush&quot;, &quot;assets/0ae9deec80bfbb.jpg [&quot;Red Quilt&quot;, &quot;assets/2a0b1cc8b81b56.jpg [&quot;Turquoise Quilt&quot;, &quot;assets/a2c7492dd0e61b.jpg [&quot;Beige Quilt&quot;, &quot;assets/ccbe038070bfa0.jpg [&quot;Black Quilt&quot;, &quot;assets/b25728aa123b70.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/7d705a1f631a4e.jpg)" data-img="assets/7d705a1f631a4e.jpg" data-name="Red Rose Plush" title="Red Rose Plush"></span><span class="swatch" style="background-image:url(assets/71c7fb0d22514c.jpg)" data-img="assets/71c7fb0d22514c.jpg" data-name="Red Quilt" title="Red Quilt"></span><span class="swatch" style="background-image:url(assets/032dca48727d0b.jpg)" data-img="assets/032dca48727d0b.jpg" data-name="Turquoise Quilt" title="Turquoise Quilt"></span><span class="swatch" style="background-image:url(assets/b6cfc9aefac31a.jpg)" data-img="assets/b6cfc9aefac31a.jpg" data-name="Beige Quilt" title="Beige Quilt"></span><span class="swatch" style="background-image:url(assets/b338ac90efd175.jpg)" data-img="assets/b338ac90efd175.jpg" data-name="Black Quilt" title="Black Quilt"></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.7 (34)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Red Rose Plush&quot;, &quot;assets/0ae9deec80bfbb.jpg [&quot;Red Quilt&quot;, &quot;assets/2a0b1cc8b81b56.jpg [&quot;Turquoise Quilt&quot;, &quot;assets/a2c7492dd0e61b.jpg [&quot;Beige Quilt&quot;, &quot;assets/ccbe038070bfa0.jpg [&quot;Black Quilt&quot;, &quot;assets/b25728aa123b70.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/7d705a1f631a4e.jpg)" data-img="assets/7d705a1f631a4e.jpg" data-name="Red Rose Plush" title="Red Rose Plush"></span><span class="swatch" style="background-image:url(assets/71c7fb0d22514c.jpg)" data-img="assets/71c7fb0d22514c.jpg" data-name="Red Quilt" title="Red Quilt"></span><span class="swatch" style="background-image:url(assets/032dca48727d0b.jpg)" data-img="assets/032dca48727d0b.jpg" data-name="Turquoise Quilt" title="Turquoise Quilt"></span><span class="swatch" style="background-image:url(assets/b6cfc9aefac31a.jpg)" data-img="assets/b6cfc9aefac31a.jpg" data-name="Beige Quilt" title="Beige Quilt"></span><span class="swatch" style="background-image:url(assets/b338ac90efd175.jpg)" data-img="assets/b338ac90efd175.jpg" data-name="Black Quilt" title="Black Quilt"></span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/3daec91299229d.jpg" loading="lazy" alt="Step-In Air Black with Color Trim"></a><button class="wish-btn" data-name="Step-In Air Black with Color Trim" data-price="14.99" data-img="assets/3daec91299229d.jpg" data-rating="4.8" data-reviews="10" data-colors='[[&quot;Orange Trim&quot;, &quot;assets/96d98e72aa8a0e.jpg [&quot;Fuchsia Trim&quot;, &quot;assets/d7daae96d654f4.jpg [&quot;Red Trim&quot;, &quot;assets/4fe599d0dfe1d5.jpg [&quot;Blue Trim&quot;, &quot;assets/a0e22a776042d7.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Air Black with Color Trim</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (10)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Orange Trim&quot;, &quot;assets/96d98e72aa8a0e.jpg [&quot;Fuchsia Trim&quot;, &quot;assets/d7daae96d654f4.jpg [&quot;Red Trim&quot;, &quot;assets/4fe599d0dfe1d5.jpg [&quot;Blue Trim&quot;, &quot;assets/a0e22a776042d7.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/3daec91299229d.jpg)" data-img="assets/3daec91299229d.jpg" data-name="Orange Trim" title="Orange Trim"></span><span class="swatch" style="background-image:url(assets/1d17fe167952fa.jpg)" data-img="assets/1d17fe167952fa.jpg" data-name="Fuchsia Trim" title="Fuchsia Trim"></span><span class="swatch" style="background-image:url(assets/015bfee3f51da6.jpg)" data-img="assets/015bfee3f51da6.jpg" data-name="Red Trim" title="Red Trim"></span><span class="swatch" style="background-image:url(assets/12a2b9ed26e1c1.jpg)" data-img="assets/12a2b9ed26e1c1.jpg" data-name="Blue Trim" title="Blue Trim"></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (10)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Orange Trim&quot;, &quot;assets/96d98e72aa8a0e.jpg [&quot;Fuchsia Trim&quot;, &quot;assets/d7daae96d654f4.jpg [&quot;Red Trim&quot;, &quot;assets/4fe599d0dfe1d5.jpg [&quot;Blue Trim&quot;, &quot;assets/a0e22a776042d7.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/3daec91299229d.jpg)" data-img="assets/3daec91299229d.jpg" data-name="Orange Trim" title="Orange Trim"></span><span class="swatch" style="background-image:url(assets/1d17fe167952fa.jpg)" data-img="assets/1d17fe167952fa.jpg" data-name="Fuchsia Trim" title="Fuchsia Trim"></span><span class="swatch" style="background-image:url(assets/015bfee3f51da6.jpg)" data-img="assets/015bfee3f51da6.jpg" data-name="Red Trim" title="Red Trim"></span><span class="swatch" style="background-image:url(assets/12a2b9ed26e1c1.jpg)" data-img="assets/12a2b9ed26e1c1.jpg" data-name="Blue Trim" title="Blue Trim"></span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
@@ -851,21 +897,21 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
    <div class="imgwrap"><a href="product.html"><img src="assets/0a7a959a1fea98.jpg" loading="lazy" alt="Step-In Lock Harness with Air Mesh"></a><button class="wish-btn" data-name="Step-In Lock Harness with Air Mesh" data-price="13.99" data-img="assets/0a7a959a1fea98.jpg" data-rating="5.0" data-reviews="18" data-colors='[[&quot;Pink&quot;, &quot;assets/e7b25f2384b327.jpg [&quot;Fuchsia&quot;, &quot;assets/2666dd784b6b3f.jpg [&quot;Orange&quot;, &quot;assets/1303cd9d8a69ba.jpg [&quot;Red&quot;, &quot;assets/a28fbf133a7ce3.jpg [&quot;Purple&quot;, &quot;assets/3aeb695683dffe.jpg [&quot;Lime Green&quot;, &quot;assets/8a60941bb35373.jpg [&quot;Baby Blue&quot;, &quot;assets/6ee04941ab1468.jpg [&quot;Royal Blue&quot;, &quot;assets/a6d45e2d4b29bb.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Lock Harness with Air Mesh</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>5.0 (18)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/e7b25f2384b327.jpg [&quot;Fuchsia&quot;, &quot;assets/2666dd784b6b3f.jpg [&quot;Orange&quot;, &quot;assets/1303cd9d8a69ba.jpg [&quot;Red&quot;, &quot;assets/a28fbf133a7ce3.jpg [&quot;Purple&quot;, &quot;assets/3aeb695683dffe.jpg [&quot;Lime Green&quot;, &quot;assets/8a60941bb35373.jpg [&quot;Baby Blue&quot;, &quot;assets/6ee04941ab1468.jpg [&quot;Royal Blue&quot;, &quot;assets/a6d45e2d4b29bb.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/0a7a959a1fea98.jpg)" data-img="assets/0a7a959a1fea98.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/4e3f57f5f815cd.jpg)" data-img="assets/4e3f57f5f815cd.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/96a91b4913d143.jpg)" data-img="assets/96a91b4913d143.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/78fc41233b7c3c.jpg)" data-img="assets/78fc41233b7c3c.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/a17207b03cc7e7.jpg)" data-img="assets/a17207b03cc7e7.jpg" data-name="Purple" title="Purple"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>5.0 (18)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/e7b25f2384b327.jpg [&quot;Fuchsia&quot;, &quot;assets/2666dd784b6b3f.jpg [&quot;Orange&quot;, &quot;assets/1303cd9d8a69ba.jpg [&quot;Red&quot;, &quot;assets/a28fbf133a7ce3.jpg [&quot;Purple&quot;, &quot;assets/3aeb695683dffe.jpg [&quot;Lime Green&quot;, &quot;assets/8a60941bb35373.jpg [&quot;Baby Blue&quot;, &quot;assets/6ee04941ab1468.jpg [&quot;Royal Blue&quot;, &quot;assets/a6d45e2d4b29bb.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/0a7a959a1fea98.jpg)" data-img="assets/0a7a959a1fea98.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/4e3f57f5f815cd.jpg)" data-img="assets/4e3f57f5f815cd.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/96a91b4913d143.jpg)" data-img="assets/96a91b4913d143.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/78fc41233b7c3c.jpg)" data-img="assets/78fc41233b7c3c.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/a17207b03cc7e7.jpg)" data-img="assets/a17207b03cc7e7.jpg" data-name="Purple" title="Purple"></span><span class="swatch-more">+3</span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-best">BESTSELLER</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-best">BESTSELLER</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/5d26b200acbfb0.jpg" loading="lazy" alt="Step-In Plush Suede Pet Harness"></a><button class="wish-btn" data-name="Step-In Plush Suede Pet Harness" data-price="13.99" data-img="assets/5d26b200acbfb0.jpg" data-rating="4.4" data-reviews="25" data-colors='[[&quot;Latte Suede&quot;, &quot;assets/c8426425a0ecaf.jpg [&quot;Chocolate Suede&quot;, &quot;assets/deec77e98b7a0a.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Plush Suede Pet Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★☆</span> <span>4.4 (25)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Latte Suede&quot;, &quot;assets/c8426425a0ecaf.jpg [&quot;Chocolate Suede&quot;, &quot;assets/deec77e98b7a0a.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/5d26b200acbfb0.jpg)" data-img="assets/5d26b200acbfb0.jpg" data-name="Latte Suede" title="Latte Suede"></span><span class="swatch" style="background-image:url(assets/ed031f159b588f.jpg)" data-img="assets/ed031f159b588f.jpg" data-name="Chocolate Suede" title="Chocolate Suede"></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★☆</span> <span>4.4 (25)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Latte Suede&quot;, &quot;assets/c8426425a0ecaf.jpg [&quot;Chocolate Suede&quot;, &quot;assets/deec77e98b7a0a.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/5d26b200acbfb0.jpg)" data-img="assets/5d26b200acbfb0.jpg" data-name="Latte Suede" title="Latte Suede"></span><span class="swatch" style="background-image:url(assets/ed031f159b588f.jpg)" data-img="assets/ed031f159b588f.jpg" data-name="Chocolate Suede" title="Chocolate Suede"></span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div></div>
    </div>
@@ -879,6 +925,22 @@ function galMove(d){gi=(gi+d+GAL.length)%GAL.length;document.getElementById('mai
 function pick(el,id,val){el.parentElement.querySelectorAll('.colbtn').forEach(x=>x.classList.remove('on'));el.classList.add('on');document.getElementById(id).textContent=val;}
 function pdpColor(el,name,img){el.parentElement.querySelectorAll('.colbtn').forEach(x=>x.classList.remove('on'));el.classList.add('on');var cn=document.getElementById('colName');if(cn)cn.textContent=name;var mi=document.getElementById('mainimg');if(mi&&img)mi.src=img;}
 document.querySelectorAll('.sizebtn:not(.oos)').forEach(b=>b.addEventListener('click',function(){document.querySelectorAll('.sizebtn').forEach(x=>x.classList.remove('on'));this.classList.add('on');document.querySelector('.notify').classList.remove('show');}));
+function sizeThumbs(){var m=document.querySelector('.mainimg'),t=document.querySelector('.thumbs');if(m&&t){t.style.maxHeight=m.clientHeight+'px';}}
+window.addEventListener('load',sizeThumbs);window.addEventListener('resize',sizeThumbs);
+var _mi=document.getElementById('mainimg');if(_mi)_mi.addEventListener('load',sizeThumbs);
+['dMob','dDesk'].forEach(function(id){var e=document.getElementById(id);if(e)e.addEventListener('click',function(){setTimeout(sizeThumbs,60);});});
+setTimeout(sizeThumbs,80);setTimeout(sizeThumbs,300);
+var PDP_SECS=[['pdp-overview','Overview'],['pdp-details','Details'],['pdp-faqs','FAQs'],['reviews','Reviews'],['related','You May Like']];
+var _pdpActive=null;
+function pdpHeadBottom(){var h=document.querySelector('header.site');var barh=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--barh'))||0;return (h?h.offsetHeight:0)+barh;}
+function positionPdpNav(){var nav=document.getElementById('pdpNav');if(nav)nav.style.top=pdpHeadBottom()+'px';}
+function pdpCenter(a){var tr=document.querySelector('.pdp-nav-track');if(!a||!tr)return;tr.scrollTo({left:a.offsetLeft-tr.clientWidth/2+a.offsetWidth/2,behavior:'smooth'});}
+function pdpNavGo(e,id){if(e)e.preventDefault();var el=document.getElementById(id);if(!el)return;var nav=document.getElementById('pdpNav');var off=pdpHeadBottom()+(nav&&nav.offsetHeight?nav.offsetHeight:46)+14;window.scrollTo({top:window.scrollY+el.getBoundingClientRect().top-off,behavior:'smooth'});}
+function pdpNavScroll(){var nav=document.getElementById('pdpNav');if(!nav)return;var hb=pdpHeadBottom();var show=(window.scrollY||document.scrollingElement.scrollTop)>=window.innerHeight*0.75;nav.classList.toggle('show',show);if(!show){_pdpActive=null;return;}var line=hb+nav.offsetHeight+26;var act=PDP_SECS[0][0];PDP_SECS.forEach(function(sc){var el=document.getElementById(sc[0]);if(el&&el.getBoundingClientRect().top<=line)act=sc[0];});nav.querySelectorAll('a').forEach(function(l){l.classList.toggle('on',l.getAttribute('data-t')===act);});if(act!==_pdpActive){_pdpActive=act;var a=nav.querySelector('a[data-t="'+act+'"]');if(a)pdpCenter(a);}}
+window.addEventListener('scroll',pdpNavScroll,{passive:true});
+window.addEventListener('resize',function(){positionPdpNav();pdpNavScroll();});
+window.addEventListener('load',function(){positionPdpNav();pdpNavScroll();});
+setTimeout(function(){positionPdpNav();pdpNavScroll();},120);
 </script>
 
 
@@ -978,20 +1040,17 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeQuick
         <button class="mc-arrow r" onclick="mcRail(1)">&rsaquo;</button>
       </div>
     </div>
-    <div class="mc-coupon"><input id="mc-promo" placeholder="Promo code (try WELCOME20)"><button onclick="mcCoupon()">Apply</button></div>
-    <div class="mc-coupon-msg" id="mc-coupon-msg"></div>
     </div>
     <div class="mc-foot">
-      <div class="mc-srow disc" id="mc-disc-row" style="display:none"><span>Discount (WELCOME20)</span><span id="mc-disc">-$0.00</span></div>
-      <div class="mc-subtotal"><span class="lbl">Subtotal</span><span class="amt" id="mc-subamt">$0.00</span></div>
-      <button class="mc-checkout" onclick="alert('Proceeding to secure checkout (mockup).')">Checkout</button>
+      <div class="mc-coupon"><input id="mc-promo" placeholder="Promo code (try WELCOME20)"><button onclick="mcCoupon()">Apply</button></div>
+      <div class="mc-coupon-msg" id="mc-coupon-msg"></div>
+      <button class="mc-checkout" id="mc-checkout" onclick="alert('Proceeding to secure checkout (mockup).')">Checkout</button>
       <div class="mc-note">Taxes &amp; shipping calculated at checkout &middot; Orders processed in USD</div>
-      <a class="mc-view" href="cart.html">View full cart &rarr;</a>
     </div>
   </aside>
 </div>
 <script>
-var FREE_SHIP=49, COUPON=null;
+var FREE_SHIP=30, COUPON=null;
 var CART=[
  {id:1,name:'Step-In Plush Suede Pet Harness',sw:[["Latte Suede", "assets/5d26b200acbfb0.jpg"], ["Chocolate Suede", "assets/ed031f159b588f.jpg"]],_sel:0,color:'Latte Suede',size:'M',price:13.99,qty:1,img:'assets/5d26b200acbfb0.jpg'},
  {id:2,name:'Step-In Air Harness with Matching Trim',sw:[["Khaki", "assets/a45778c52a6b0c.jpg"], ["Lavender", "assets/6f696d8d15e3ba.jpg"], ["Moss Green", "assets/49b9ffeb2c3dc8.jpg"], ["Pink", "assets/de56869d9ef5c5.jpg"], ["Fuchsia", "assets/df83d7aa148518.jpg"], ["Red", "assets/dd534842909986.jpg"]],_sel:1,color:'Lavender',size:'S',price:14.99,qty:1,img:'assets/6f696d8d15e3ba.jpg'}
@@ -1026,7 +1085,7 @@ function renderCart(){
       +'<span class="mc-change" onclick="mcFlip('+it.id+')">Change</span>'
       +'<div class="mc-actions"><div class="mc-qty"><button onclick="mcQty('+it.id+',-1)">&minus;</button><span>'+it.qty+'</span><button onclick="mcQty('+it.id+',1)">+</button></div>'
       +'<a class="mc-save" onclick="mcSaveLater('+it.id+')">&#9825; Save for later</a></div></div>'
-      +'<div class="mc-fprice"><button class="mc-trash" onclick="mcRemove('+it.id+')" title="Remove">&#128465;</button><div class="mc-iprice">'+mcMoney(it.price*it.qty)+'</div></div>'
+      +'<div class="mc-fprice"><button class="mc-trash" onclick="mcRemove('+it.id+')" title="Remove">&#128465;</button></div>'
       +'</div>'
       +'<div class="mc-face mc-back">'
       +'<div class="mc-back-hd"><span>Edit options</span><span class="mc-back-x" onclick="mcFlip('+it.id+')">&times;</span></div>'
@@ -1037,9 +1096,7 @@ function renderCart(){
       +'</div></div>');
   });
   var disc=COUPON?sub*0.2:0;
-  document.getElementById('mc-disc-row').style.display=COUPON?'flex':'none';
-  document.getElementById('mc-disc').textContent='-'+mcMoney(disc);
-  document.getElementById('mc-subamt').textContent=mcMoney(sub-disc);
+  var ck=document.getElementById('mc-checkout'); if(ck) ck.textContent='Checkout @ '+mcMoney(sub-disc);
 }
 function openCart(){renderCart();document.getElementById('mc-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeCart(){document.getElementById('mc-overlay').classList.remove('open');document.body.style.overflow='';}
@@ -1069,7 +1126,7 @@ function confirmQuick(){
   openCart();
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCart();});
-function plpFixBar(){var b=document.getElementById('bar');var m=document.querySelector('.plp-mbar');if(b&&m){m.style.bottom=b.offsetHeight+'px';}}
+function plpFixBar(){var m=document.querySelector('.plp-mbar');if(m){m.style.bottom='0px';}}
 window.addEventListener('resize',plpFixBar);window.addEventListener('load',plpFixBar);setTimeout(plpFixBar,60);
 renderCart();
 </script>
@@ -1153,7 +1210,7 @@ setInterval(updTabBadges,1000);
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSearch();closeQuiz();}});
 document.addEventListener('click',function(e){var q=e.target.closest&&e.target.closest('#quiz-weights .quiz-opt');if(q)quizSize(q.getAttribute('data-sz'));});
 window.addEventListener('scroll',function(){var a=document.querySelector('.scrolldown');if(a)a.classList.toggle('hid',window.scrollY>40);},{passive:true});
-function placeCue(){var c=document.querySelector('.scrolldown');if(!c)return;var bar=document.getElementById('bar');var hidden=document.body.classList.contains('bar-hidden');var h=(bar&&!hidden)?bar.offsetHeight:0;c.style.bottom=(h+14)+'px';}
+function placeCue(){var c=document.querySelector('.scrolldown');if(!c)return;c.style.bottom='16px';}
 window.addEventListener('load',placeCue);window.addEventListener('resize',placeCue);
 var _bar=document.getElementById('bar');if(_bar)_bar.addEventListener('click',function(){setTimeout(placeCue,40);});
 var _bs=document.getElementById('barShow');if(_bs)_bs.addEventListener('click',function(){setTimeout(placeCue,40);});
@@ -1168,7 +1225,7 @@ setTimeout(placeCue,60);
    <button class="mtab" onclick="openSearch()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg><span class="mtab-l">Search</span></button>
    <button class="mtab quiz" onclick="openQuiz()"><span class="qwrap"><svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 6v3M9 6v4M14 6v3M19 6v4"/><path d="M4 14h16v4H4z"/></svg></span><span class="mtab-l">Find My Fit</span></button>
    <a class="mtab" href="wishlist.html" data-page="wishlist.html"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 7a3.5 3.5 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg><span class="mtb-badge" id="mtb-wish">0</span><span class="mtab-l">Wishlist</span></a>
-   <a class="mtab" href="cart.html" data-page="cart.html"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 3H2"/></svg><span class="mtb-badge show" id="mtb-cart">2</span><span class="mtab-l">Cart</span></a>
+   <button class="mtab" onclick="openCart()"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 3H2"/></svg><span class="mtb-badge show" id="mtb-cart">2</span><span class="mtab-l">Cart</span></button>
  </div>
 </nav>
 
@@ -1293,7 +1350,7 @@ function openQuickPDP(){
       <img class="st-fimg" src="assets/5d26b200acbfb0.jpg" alt="">
       <div class="st-finfo"><div class="st-fname">Step-In Plush Suede Pet Harness</div><div class="st-fprice">$13.99 <s>$17.99</s></div></div>
       <button class="btn ghost" onclick="openQuickPDP()">Add to cart</button>
-      <button class="btn" onclick="location.href='cart.html'">Buy now</button>
+      <button class="btn" onclick="openCart()">Buy now</button>
     </div>
   </div>
 </div>
@@ -1324,10 +1381,9 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeStories
 
 <div id="bar">
  <span class="tag">GROWISTO &times; VOYAGER &middot; CRO MOCKUP</span>
- <label><input type="checkbox" id="annTgl" checked> Show CRO changes</label>
  <div class="seg"><button id="dDesk" class="on">Desktop</button><button id="dMob">Mobile</button></div>
  <span class="spacer"></span>
- <span style="color:#888"><a class="home" href="index.html">Index</a> &middot; <a class="home" href="home.html">Home</a> &middot; <a class="home" href="collection.html">Collection</a> &middot; <a class="home" href="product.html">Product</a> &middot; <a class="home" href="cart.html">Cart</a> &middot; <a class="home" href="wishlist.html">Wishlist</a></span>
+ <span style="color:#888"><a class="home" href="index.html">Index</a> &middot; <a class="home" href="home.html">Home</a> &middot; <a class="home" href="collection.html">Collection</a> &middot; <a class="home" href="product.html">Product</a> &middot; <a class="home" href="wishlist.html">Wishlist</a></span>
  <button class="barhide" id="barHide" title="Hide preview toolbar">Hide &times;</button>
 </div>
 <button id="barShow" title="Show preview toolbar">&#9650; Show toolbar</button>
@@ -1335,11 +1391,17 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeStories
 const b=document.body;
 document.getElementById('barHide').addEventListener('click',()=>b.classList.add('bar-hidden'));
 document.getElementById('barShow').addEventListener('click',()=>b.classList.remove('bar-hidden'));
-function placeTabbar(){var t=document.querySelector('.mtabbar');if(!t)return;var bar=document.getElementById('bar');var hidden=b.classList.contains('bar-hidden');t.style.bottom=((bar&&!hidden)?bar.offsetHeight:0)+'px';var sh=(getComputedStyle(t).display!=='none')?(t.offsetHeight||0):0;document.documentElement.style.setProperty('--tabh',sh+'px');var ps=document.querySelector('.pdp-sticky');if(ps)ps.style.setProperty('--tabh',sh+'px');}
+function placeBar(){var bar=document.getElementById('bar');var hidden=b.classList.contains('bar-hidden');var h=(bar&&!hidden)?bar.offsetHeight:0;document.documentElement.style.setProperty('--barh',h+'px');}
+window.addEventListener('load',placeBar);window.addEventListener('resize',placeBar);
+document.getElementById('barHide').addEventListener('click',()=>setTimeout(placeBar,30));
+document.getElementById('barShow').addEventListener('click',()=>setTimeout(placeBar,30));
+document.getElementById('dDesk').addEventListener('click',()=>setTimeout(placeBar,40));
+document.getElementById('dMob').addEventListener('click',()=>setTimeout(placeBar,40));
+setTimeout(placeBar,30);
+function placeTabbar(){var t=document.querySelector('.mtabbar');if(!t)return;var bar=document.getElementById('bar');var hidden=b.classList.contains('bar-hidden');t.style.bottom='0px';var sh=(getComputedStyle(t).display!=='none')?(t.offsetHeight||0):0;document.documentElement.style.setProperty('--tabh',sh+'px');var ps=document.querySelector('.pdp-sticky');if(ps)ps.style.setProperty('--tabh',sh+'px');}
 window.addEventListener('load',placeTabbar);window.addEventListener('resize',placeTabbar);
 document.getElementById('barHide').addEventListener('click',()=>setTimeout(placeTabbar,30));
 document.getElementById('barShow').addEventListener('click',()=>setTimeout(placeTabbar,30));
-document.getElementById('annTgl').addEventListener('change',e=>b.classList.toggle('anns',e.target.checked));
 document.getElementById('dDesk').addEventListener('click',function(){b.classList.remove('mobile');this.classList.add('on');document.getElementById('dMob').classList.remove('on');setTimeout(placeTabbar,40);});
 document.getElementById('dMob').addEventListener('click',function(){b.classList.add('mobile');this.classList.add('on');document.getElementById('dDesk').classList.remove('on');setTimeout(placeTabbar,40);});
 setTimeout(placeTabbar,30);

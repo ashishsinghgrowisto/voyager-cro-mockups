@@ -33,7 +33,8 @@ h1,h2,h3,h4{font-weight:600;color:var(--ink);letter-spacing:.5px;line-height:1.1
 .muted{color:var(--muted)}
 .pill{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:4px 9px;border-radius:2px}
 
-header.site{position:sticky;top:0;z-index:60}
+header.site{position:sticky;top:var(--barh,52px);z-index:60}
+body.bar-hidden header.site{top:0}
 .ann{background:var(--red-dark);color:#fff;text-align:center;font-size:13px;letter-spacing:.6px;padding:9px 12px;font-weight:500}
 .ann a{text-decoration:underline;font-weight:600}
 .anbar{position:relative;background:#161616;color:#fff;font-size:13px;letter-spacing:1px;text-transform:uppercase}
@@ -45,20 +46,20 @@ header.site{position:sticky;top:0;z-index:60}
 @keyframes anmarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @container (max-width:760px){.anbar-vp{height:34px;padding:0 12px}.anbar{font-size:11px;letter-spacing:.5px}}
 .nav{background:var(--red);color:#fff}
-.nav .row{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;max-width:var(--maxw);margin:0 auto}
+.nav .row{display:flex;align-items:center;justify-content:flex-start;gap:24px;padding:16px 22px;max-width:var(--maxw);margin:0 auto}
 .nav .links{display:flex;gap:26px;font-size:14px;letter-spacing:1px;text-transform:uppercase;font-weight:500;align-items:center}
 .nav .links a{padding:6px 0;border-bottom:2px solid transparent}
 .nav .links a:hover{border-color:#fff}
 .nav .logo img{height:34px}
-.nav .logo{border:2px solid #fff;padding:7px 12px}
-.nav .icons{display:flex;gap:20px;align-items:center;font-size:19px}
+.nav .logo{border:2px solid #fff;padding:7px 12px;order:-1;margin-right:4px}
+.nav .icons{display:flex;gap:20px;align-items:center;font-size:19px;margin-left:auto}
 .nav .icons span{cursor:pointer}
 .nav .icons .cart{position:relative}
 .nav .icons .cart .count{position:absolute;top:-8px;right:-12px;background:#fff;color:var(--red);font-size:11px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .burger{display:none;font-size:24px;cursor:pointer;line-height:1}
 .nav .navleft{display:flex;align-items:center;gap:22px}
 .nav .hsearch{cursor:pointer;font-size:19px;line-height:1}
-@container (max-width:760px){.nav .navleft{gap:14px}.nav .icons{gap:16px}.nav .icons .acct{display:none}}
+@container (max-width:760px){.nav .row{justify-content:space-between;gap:10px}.nav .logo{order:0;margin-right:0}.nav .icons{margin-left:0}.nav .navleft{gap:14px}.nav .icons{gap:16px}.nav .icons .acct{display:none}}
 .mnav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;opacity:0;pointer-events:none;transition:opacity .25s}
 .mnav{position:fixed;top:0;bottom:0;left:0;width:84%;max-width:330px;background:#fff;z-index:501;transform:translateX(-110%);transition:transform .28s ease;display:flex;flex-direction:column;overflow-y:auto}
 html.mnav-open .mnav-overlay{opacity:1;pointer-events:auto}
@@ -117,8 +118,8 @@ body.anns .cro-num{display:inline-flex}
  line-height:1.45;letter-spacing:0;text-transform:none;padding:10px 12px;border-radius:6px;z-index:50;box-shadow:0 6px 18px rgba(0,0,0,.35)}
 .tip b{color:#ffb3bc}
 
-#bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#111;color:#fff;display:flex;align-items:center;gap:14px;
- padding:10px 18px;font-size:13px;box-shadow:0 -2px 14px rgba(0,0,0,.3);flex-wrap:wrap}
+#bar{position:fixed;top:0;left:0;right:0;z-index:200;background:#111;color:#fff;display:flex;align-items:center;gap:14px;
+ padding:10px 18px;font-size:13px;box-shadow:0 2px 14px rgba(0,0,0,.3);flex-wrap:wrap}
 #bar .tag{background:var(--red);padding:4px 9px;border-radius:3px;font-weight:700;letter-spacing:.5px}
 #bar .seg{display:flex;border:1px solid #444;border-radius:5px;overflow:hidden}
 #bar .seg button{background:transparent;color:#bbb;border:none;padding:6px 12px;cursor:pointer;font-family:var(--font);font-size:13px}
@@ -126,12 +127,12 @@ body.anns .cro-num{display:inline-flex}
 #bar label{display:flex;align-items:center;gap:7px;cursor:pointer}
 #bar .spacer{flex:1}
 #bar a.home{color:#bbb;text-decoration:underline}
-body{padding-bottom:54px}
+body{padding-top:var(--barh,52px)}
 #bar .barhide{background:transparent;border:1px solid #555;color:#ccc;border-radius:4px;cursor:pointer;font-family:var(--font);font-size:12px;padding:5px 10px;margin-left:6px}
 #bar .barhide:hover{background:#333;color:#fff}
 body.bar-hidden #bar{display:none}
-body.bar-hidden{padding-bottom:0}
-#barShow{position:fixed;bottom:12px;right:12px;z-index:210;display:none;background:var(--red);color:#fff;border:none;border-radius:22px;padding:9px 15px;font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:.4px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+body.bar-hidden{padding-top:0}
+#barShow{position:fixed;top:12px;right:12px;z-index:210;display:none;background:var(--red);color:#fff;border:none;border-radius:22px;padding:9px 15px;font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:.4px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35)}
 #barShow:hover{background:var(--red-dark)}
 body.bar-hidden #barShow{display:block}
 #viewport{container-type:inline-size}
@@ -394,10 +395,10 @@ body.mobile .qa-panel{max-width:420px;margin:0 auto;border-radius:16px 16px 0 0;
 .mc-rcard button:hover{background:var(--red)}
 .mc-arrow{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:1px solid var(--line);width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 2px 6px rgba(0,0,0,.14);font-size:15px}
 .mc-arrow.l{left:-8px}.mc-arrow.r{right:-8px}
-.mc-coupon{padding:14px 20px 4px;display:flex;gap:8px}
+.mc-coupon{padding:0;display:flex;gap:8px;margin-bottom:10px}
 .mc-coupon input{flex:1;padding:10px;border:1px solid var(--line);font-family:var(--font);font-size:13px}
 .mc-coupon button{background:var(--ink);color:#fff;border:none;padding:0 16px;cursor:pointer;font-weight:600;text-transform:uppercase;font-size:12px}
-.mc-coupon-msg{padding:0 20px;font-size:12.5px;color:var(--ok);display:none}
+.mc-coupon-msg{padding:0;font-size:12.5px;color:var(--ok);display:none;margin-bottom:8px}
 .mc-coupon-msg.show{display:block}
 .mc-foot{border-top:1px solid var(--line);padding:16px 20px}
 .mc-srow{display:flex;justify-content:space-between;font-size:13px;padding:3px 0}
@@ -405,13 +406,13 @@ body.mobile .qa-panel{max-width:420px;margin:0 auto;border-radius:16px 16px 0 0;
 .mc-subtotal{display:flex;justify-content:space-between;align-items:baseline;margin:6px 0 12px}
 .mc-subtotal .lbl{font-size:13px;color:#666;text-transform:uppercase;letter-spacing:.5px}
 .mc-subtotal .amt{font-size:24px;font-weight:700;color:var(--ink)}
-.mc-checkout{width:100%;background:var(--red);color:#fff;border:none;padding:16px;font-family:var(--font);font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+.mc-checkout{width:100%;background:var(--red);color:#fff;border:none;padding:16px;font-family:var(--font);font-weight:700;font-size:15px;letter-spacing:.5px;text-transform:uppercase;cursor:pointer}
 .mc-checkout:hover{background:var(--red-dark)}
 .mc-note{font-size:11.5px;color:#888;text-align:center;margin-top:10px}
 .mc-view{display:block;text-align:center;font-size:13px;margin-top:10px;text-decoration:underline;color:var(--ink)}
 @media(max-width:480px){.mc-drawer{width:100%;max-width:100%}}
 
-.pdp-sticky{position:fixed;left:0;right:0;bottom:54px;--tabh:0px;z-index:190;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 18px rgba(0,0,0,.1);transform:translateY(160%);transition:transform .3s ease}
+.pdp-sticky{position:fixed;left:0;right:0;bottom:0;--tabh:0px;z-index:190;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 18px rgba(0,0,0,.1);transform:translateY(160%);transition:transform .3s ease}
 .pdp-sticky.show{transform:translateY(0)}
 .pdp-sticky .inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 22px}
 .pdp-sticky img{width:46px;height:46px;object-fit:cover;border-radius:6px;flex:none;background:var(--soft)}
@@ -426,7 +427,7 @@ body.mobile .qa-panel{max-width:420px;margin:0 auto;border-radius:16px 16px 0 0;
 .pdp-sticky .ps-opts{margin-left:auto;display:flex;align-items:center;gap:10px}
 .pdp-sticky select{padding:10px 10px;border:1px solid var(--line);font-family:var(--font);font-size:13px;background:#fff;cursor:pointer}
 .pdp-sticky .btn{padding:13px 26px;white-space:nowrap}
-body.mobile .pdp-sticky{bottom:calc(54px + var(--tabh))}
+body.mobile .pdp-sticky{bottom:var(--tabh)}
 body.mobile .pdp-sticky .inner{max-width:420px}
 body.bar-hidden.mobile .pdp-sticky{bottom:var(--tabh)}
 body.mobile .pdp-sticky .ps-name{display:none}
@@ -434,7 +435,7 @@ body.mobile .pdp-sticky .ps-opts select{display:none}
 body.mobile .pdp-sticky .ps-opts{flex:1}
 body.mobile .pdp-sticky .btn{flex:1}
 @media(max-width:760px){
- .pdp-sticky{bottom:calc(54px + var(--tabh))}
+ .pdp-sticky{bottom:var(--tabh)}
  body.bar-hidden .pdp-sticky{bottom:var(--tabh)}
  .pdp-sticky .ps-name{display:none}
  .pdp-sticky .inner{gap:10px;padding:10px 14px}
@@ -458,9 +459,10 @@ body.mobile .pdp-sticky .btn{flex:1}
 .story-launch .sl-label{background:var(--ink);color:#fff;font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px;letter-spacing:.3px}
 @keyframes slPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 .story-launch .cro-num{top:-8px;left:-8px}
-.st-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:390;display:none;align-items:center;justify-content:center}
-.st-overlay.open{display:flex}
-.st-phone{position:relative;width:380px;max-width:94vw;height:86vh;max-height:760px;background:#000;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.st-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:390;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .25s ease}
+.st-overlay.open{opacity:1;visibility:visible}
+.st-phone{position:relative;width:380px;max-width:94vw;height:86vh;max-height:760px;background:#000;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,.5);transform:translateY(28px) scale(.98);transition:transform .32s cubic-bezier(.22,.61,.36,1)}
+.st-overlay.open .st-phone{transform:none}
 .st-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
 .st-bars{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:5px;z-index:6}
 .st-bar{flex:1;height:3px;background:rgba(255,255,255,.4);border-radius:3px;overflow:hidden}
@@ -483,9 +485,30 @@ body.mobile .pdp-sticky .btn{flex:1}
 .st-fprice s{color:#999;font-weight:400;font-size:11px;margin-left:5px}
 .st-foot .btn{padding:11px 14px;white-space:nowrap;font-size:13px}
 .st-foot .btn.ghost{background:#fff;color:var(--red);border:1.5px solid var(--red)}
-@media(max-width:760px){.st-phone{width:100vw;max-width:100vw;height:100vh;max-height:none;border-radius:0}}
-body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
+@media(max-width:760px){.st-overlay{align-items:stretch}.st-phone{width:100vw;max-width:100vw;height:100vh;max-height:none;border-radius:0;transform:translateY(100%)}.st-overlay.open .st-phone{transform:translateY(0)}}
+body.mobile .st-overlay{align-items:stretch}
+body.mobile .st-phone{width:100%;max-width:420px;height:100vh;max-height:none;border-radius:0;transform:translateY(100%)}
+body.mobile .st-overlay.open .st-phone{transform:translateY(0)}
+/* stories icon: pin bottom-right, compact on mobile */
+@media(max-width:760px){.story-launch{right:10px;bottom:10px;gap:5px}.story-launch .sl-ring{width:54px;height:54px}.story-launch .sl-play{width:44px;height:44px;font-size:15px}.story-launch .sl-label{font-size:10px;padding:2px 10px}}
+body.mobile .story-launch{right:10px;bottom:10px;gap:5px}
+body.mobile .story-launch .sl-ring{width:54px;height:54px}
+body.mobile .story-launch .sl-play{width:44px;height:44px;font-size:15px}
+body.mobile .story-launch .sl-label{font-size:10px;padding:2px 10px}
 
+
+/* ===== PASSWORD GATE ===== */
+.vgate{position:fixed;inset:0;z-index:100000;background:linear-gradient(160deg,var(--hero),var(--red));display:flex;align-items:center;justify-content:center;padding:22px;font-family:var(--font)}
+.vgate-card{background:#fff;border-radius:16px;padding:36px 30px;max-width:390px;width:100%;text-align:center;box-shadow:0 26px 64px rgba(0,0,0,.4)}
+.vgate-logo{height:40px;width:auto;margin:0 auto 20px;display:block}
+.vgate-card h2{font-size:22px;margin-bottom:8px;color:var(--ink);letter-spacing:.3px}
+.vgate-card p{font-size:14px;color:var(--muted);margin-bottom:22px;line-height:1.5}
+.vgate-card input{width:100%;padding:14px;border:1px solid var(--line);border-radius:9px;font-family:var(--font);font-size:15px;margin-bottom:12px;text-align:center;outline:none}
+.vgate-card input:focus{border-color:var(--red)}
+.vgate-card button{width:100%;padding:14px;background:var(--red);color:#fff;border:none;border-radius:9px;font-family:var(--font);font-size:14px;font-weight:700;letter-spacing:.6px;cursor:pointer;text-transform:uppercase}
+.vgate-card button:hover{background:var(--red-dark)}
+.vgate-err{color:var(--red);font-size:13px;margin-top:10px;min-height:16px}
+.vgate-foot{margin-top:18px;font-size:11px;color:#b9b9b9;letter-spacing:.4px}
 
 .wish-btn{position:absolute;top:10px;right:10px;z-index:3;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;color:#c2c2c2;box-shadow:0 1px 4px rgba(0,0,0,.16);transition:.15s;line-height:1;padding:0}
 .wish-btn:hover{color:var(--red);transform:scale(1.08)}
@@ -511,11 +534,14 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
 .sc-note{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.5}
 .sc-note b{color:var(--red)}
 </style></head>
-<body class="anns">
+<body>
+
+<div id="vgate" class="vgate" role="dialog" aria-modal="true" aria-label="Password protected preview"><div class="vgate-card"><img class="vgate-logo" src="assets/7b9c32c1f805d2.png" alt="VOYAGER" style="filter:none"><h2>Client Preview</h2><p>This Growisto &times; Voyager CRO preview is private. Enter the password to continue.</p><form onsubmit="return vgateSubmit(event)"><input id="vgate-pw" type="password" placeholder="Password" autocomplete="off" autofocus><button type="submit">Unlock preview</button></form><div id="vgate-err" class="vgate-err"></div><div class="vgate-foot">GROWISTO &times; VOYAGER HARNESS</div></div></div><script>(function(){try{if(localStorage.getItem('vgate_ok')==='1'){var g=document.getElementById('vgate');if(g)g.style.display='none';return;}}catch(e){}document.documentElement.style.overflow='hidden';})();function vgateSubmit(e){e.preventDefault();var v=(document.getElementById('vgate-pw').value||'').trim();if(v==='voyagerharness'){try{localStorage.setItem('vgate_ok','1');}catch(e){}var g=document.getElementById('vgate');if(g)g.style.display='none';document.documentElement.style.overflow='';}else{document.getElementById('vgate-err').textContent='Incorrect password. Please try again.';var i=document.getElementById('vgate-pw');i.value='';i.focus();}return false;}</script>
+
 <div id="viewport">
 
 <header class="site">
- <div class="anbar cro" data-note="<b>Announcement bar (auto-rotating).</b> A slim promo strip that rotates the free-shipping threshold and returns reassurance every 2s lifts AOV and builds trust (Phase 1)."><span class="cro-num">17<span class="tip"></span></span>
+ <div class="anbar cro" data-note="<b>Announcement bar (auto-rotating).</b> A slim promo strip that rotates the free-shipping threshold and returns reassurance every 2s lifts AOV and builds trust (Phase 1).">
   <div class="anbar-vp"><div class="anbar-track" id="anTrack">
    <span class="anbar-item">Free Shipping on Orders Above $30</span><span class="anbar-sep">&bull;</span>
    <span class="anbar-item">We Offer 14-Day Returns</span><span class="anbar-sep">&bull;</span>
@@ -536,7 +562,7 @@ body.mobile .st-phone{width:100%;max-width:420px;height:86vh;border-radius:18px}
    <div class="icons">
      <span class="acct">&#9737;</span>
      <span class="wishlink" onclick="location.href='wishlist.html'" aria-label="Wishlist">&#9829;<span class="wcount">0</span></span>
-     <span class="cart" onclick="location.href='cart.html'">&#128722;<span class="count">2</span></span>
+     <span class="cart" onclick="openCart()">&#128722;<span class="count">2</span></span>
    </div>
   </div>
  </div>
@@ -714,23 +740,7 @@ body.bar-hidden .scrolldown{bottom:18px}
   </a>
  </section>
 
-<section class="voyager-banner">
- <div class="voyager-content">
-  <div class="text-area">
-   <p>We Are</p>
-   <div class="separator"></div>
-   <a href="#"><img class="voyager-logo" src="assets/dec5da9a887250.png" alt="Voyager"></a>
-  </div>
-  <img class="dog-image" src="assets/07a17f6322be12.png" alt="Voyager pug in harness">
- </div>
-</section>
 
-<section class="animal-cards-section">
- <div class="cards-container">
-  <div class="card"><a href="collection.html"><img src="assets/28822854249295.png" alt="Shop For Dogs"></a></div>
-  <div class="card"><a href="collection.html"><img src="assets/2a25226ea642b5.png" alt="Shop For Cats"></a></div>
- </div>
-</section>
 
 <style>
 .corner{padding:56px 0}
@@ -770,7 +780,7 @@ body.bar-hidden .scrolldown{bottom:18px}
  .corner-head{flex-wrap:wrap;gap:12px;margin-bottom:16px}
  .corner-id h2{font-size:22px}
  .corner-ic{width:54px;height:54px;border-radius:12px}
- .corner-grid{display:grid;grid-auto-flow:column;grid-template-rows:repeat(2,auto);grid-auto-columns:calc((100% - 20px)/3);gap:12px 10px;scroll-snap-type:x mandatory}
+ .corner-grid{display:grid;grid-auto-flow:column;grid-template-rows:repeat(1,auto);grid-auto-columns:calc((100% - 16px)/2.4);gap:12px;scroll-snap-type:x mandatory}
  .corner-grid .cn-card{scroll-snap-align:start}
  .corner-wrap .bs-arrow{display:flex;width:32px;height:32px;font-size:17px;top:40%}
  .corner-wrap .bs-arrow.l{left:-9px}
@@ -781,7 +791,7 @@ body.bar-hidden .scrolldown{bottom:18px}
 </style>
 <section class="corner dogc">
  <div class="wrap">
-  <div class="cro" data-note="<b>Dog Corner category strip.</b> A dedicated dog section with coupon code and visual tiles for every dog category (harnesses, leashes, sets, treats, toys, beds) lets dog parents self-segment instantly and exposes the full catalogue (Phase 1)."><span class="cro-num">56<span class="tip"></span></span>
+  <div class="cro" data-note="<b>Dog Corner category strip.</b> A dedicated dog section with coupon code and visual tiles for every dog category (harnesses, leashes, sets, treats, toys, beds) lets dog parents self-segment instantly and exposes the full catalogue (Phase 1).">
   <div class="corner-head">
    <div class="corner-id">
     <div class="corner-ic"><img src="assets/28822854249295.png" alt="Dog"></div>
@@ -806,7 +816,7 @@ body.bar-hidden .scrolldown{bottom:18px}
 
 <section class="corner catc">
  <div class="wrap">
-  <div class="cro" data-note="<b>Cat Corner category strip.</b> A matching cat section with its own coupon and cat-specific categories (harnesses, sets, catnip toys, collars, hygiene, beds) gives cat parents an equal entry point &mdash; historically under-served on the homepage (Phase 1)."><span class="cro-num">57<span class="tip"></span></span>
+  <div class="cro" data-note="<b>Cat Corner category strip.</b> A matching cat section with its own coupon and cat-specific categories (harnesses, sets, catnip toys, collars, hygiene, beds) gives cat parents an equal entry point &mdash; historically under-served on the homepage (Phase 1).">
   <div class="corner-head">
    <div class="corner-id">
     <div class="corner-ic"><img src="assets/2a25226ea642b5.png" alt="Cat"></div>
@@ -836,92 +846,92 @@ body.bar-hidden .scrolldown{bottom:18px}
   <div class="bs-tabs"><button class="bs-tab on" onclick="naTab(this,'dogs')">For Dogs</button><button class="bs-tab" onclick="naTab(this,'cats')">For Cats</button></div>
   <div class="bs-wrap" id="na-dogs-wrap"><button class="bs-arrow l" onclick="bsScroll('na-dogs',-1)">&lsaquo;</button><div class="bs-slider" id="na-dogs">
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/66862d6221c747.jpg" loading="lazy" alt="Step-In Air Vest Harness (Khaki)"></a><button class="wish-btn" data-name="Step-In Air Vest Harness (Khaki)" data-price="14.99" data-img="assets/66862d6221c747.jpg" data-rating="4.8" data-reviews="12" data-colors='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Air Vest Harness (Khaki)</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (12)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/a45778c52a6b0c.jpg)" data-img="assets/a45778c52a6b0c.jpg" data-name="Khaki" title="Khaki"></span><span class="swatch" style="background-image:url(assets/6f696d8d15e3ba.jpg)" data-img="assets/6f696d8d15e3ba.jpg" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/49b9ffeb2c3dc8.jpg)" data-img="assets/49b9ffeb2c3dc8.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/de56869d9ef5c5.jpg)" data-img="assets/de56869d9ef5c5.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/df83d7aa148518.jpg)" data-img="assets/df83d7aa148518.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (12)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/a45778c52a6b0c.jpg)" data-img="assets/a45778c52a6b0c.jpg" data-name="Khaki" title="Khaki"></span><span class="swatch" style="background-image:url(assets/6f696d8d15e3ba.jpg)" data-img="assets/6f696d8d15e3ba.jpg" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/49b9ffeb2c3dc8.jpg)" data-img="assets/49b9ffeb2c3dc8.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/de56869d9ef5c5.jpg)" data-img="assets/de56869d9ef5c5.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/df83d7aa148518.jpg)" data-img="assets/df83d7aa148518.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch-more">+3</span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/442f102f16ebc4.jpg" loading="lazy" alt="Step-In Flex Dog Harness"></a><button class="wish-btn" data-name="Step-In Flex Dog Harness" data-price="15.99" data-img="assets/442f102f16ebc4.jpg" data-rating="4.8" data-reviews="43" data-colors='[[&quot;Moss Green&quot;, &quot;assets/009210de8e4d54.jpg [&quot;Lavender&quot;, &quot;assets/27ac0bc4c2515a.png [&quot;Pink&quot;, &quot;assets/dba8e962292823.jpg [&quot;Fuchsia&quot;, &quot;assets/e1c6d00fc2308c.jpg [&quot;Orange&quot;, &quot;assets/107b286d149c50.jpg [&quot;Red&quot;, &quot;assets/f796cd890bc671.jpg [&quot;Purple&quot;, &quot;assets/e7d0b151df6e86.jpg [&quot;Baby Blue&quot;, &quot;assets/0b3c038d6d1c13.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Flex Dog Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (43)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Moss Green&quot;, &quot;assets/009210de8e4d54.jpg [&quot;Lavender&quot;, &quot;assets/27ac0bc4c2515a.png [&quot;Pink&quot;, &quot;assets/dba8e962292823.jpg [&quot;Fuchsia&quot;, &quot;assets/e1c6d00fc2308c.jpg [&quot;Orange&quot;, &quot;assets/107b286d149c50.jpg [&quot;Red&quot;, &quot;assets/f796cd890bc671.jpg [&quot;Purple&quot;, &quot;assets/e7d0b151df6e86.jpg [&quot;Baby Blue&quot;, &quot;assets/0b3c038d6d1c13.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/442f102f16ebc4.jpg)" data-img="assets/442f102f16ebc4.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/ac4ca64056c5c7.png)" data-img="assets/ac4ca64056c5c7.png" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/fa965fff2619a3.jpg)" data-img="assets/fa965fff2619a3.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/ee3fe81da5c6e0.jpg)" data-img="assets/ee3fe81da5c6e0.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/26188b2d42d536.jpg)" data-img="assets/26188b2d42d536.jpg" data-name="Orange" title="Orange"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (43)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Moss Green&quot;, &quot;assets/009210de8e4d54.jpg [&quot;Lavender&quot;, &quot;assets/27ac0bc4c2515a.png [&quot;Pink&quot;, &quot;assets/dba8e962292823.jpg [&quot;Fuchsia&quot;, &quot;assets/e1c6d00fc2308c.jpg [&quot;Orange&quot;, &quot;assets/107b286d149c50.jpg [&quot;Red&quot;, &quot;assets/f796cd890bc671.jpg [&quot;Purple&quot;, &quot;assets/e7d0b151df6e86.jpg [&quot;Baby Blue&quot;, &quot;assets/0b3c038d6d1c13.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/442f102f16ebc4.jpg)" data-img="assets/442f102f16ebc4.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/ac4ca64056c5c7.png)" data-img="assets/ac4ca64056c5c7.png" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/fa965fff2619a3.jpg)" data-img="assets/fa965fff2619a3.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/ee3fe81da5c6e0.jpg)" data-img="assets/ee3fe81da5c6e0.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/26188b2d42d536.jpg)" data-img="assets/26188b2d42d536.jpg" data-name="Orange" title="Orange"></span><span class="swatch-more">+3</span></div>
      <div class="price">$15.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/821b13e1f15740.jpg" loading="lazy" alt="Dog Toy Enrichment Bundle - 4 Piece Set"></a><button class="wish-btn" data-name="Dog Toy Enrichment Bundle - 4 Piece Set" data-price="19.99" data-img="assets/821b13e1f15740.jpg" data-rating="4.9" data-reviews="21" data-colors='[]' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Dog Toy Enrichment Bundle - 4 Piece Set</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.9 (21)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/821b13e1f15740.jpg&quot;]]' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/821b13e1f15740.jpg)" data-img="assets/821b13e1f15740.jpg" data-name="" title=""></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.9 (21)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/821b13e1f15740.jpg&quot;]]' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/821b13e1f15740.jpg)" data-img="assets/821b13e1f15740.jpg" data-name="" title=""></span></div>
      <div class="price">$19.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/d77a6d705896da.jpg" loading="lazy" alt="GigaBite Whole &amp; Slivers Pig Ears Dog Treats"></a><button class="wish-btn" data-name="GigaBite Whole &amp; Slivers Pig Ears Dog Treats" data-price="29.99" data-img="assets/d77a6d705896da.jpg" data-rating="4.7" data-reviews="15" data-colors='[]' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">GigaBite Whole &amp; Slivers Pig Ears Dog Treats</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.7 (15)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/b50b45f526d446.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/d77a6d705896da.jpg)" data-img="assets/d77a6d705896da.jpg" data-name="" title=""></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.7 (15)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/b50b45f526d446.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/d77a6d705896da.jpg)" data-img="assets/d77a6d705896da.jpg" data-name="" title=""></span></div>
      <div class="price">$29.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div></div><button class="bs-arrow r" onclick="bsScroll('na-dogs',1)">&rsaquo;</button></div>
   <div class="bs-wrap" id="na-cats-wrap" style="display:none"><button class="bs-arrow l" onclick="bsScroll('na-cats',-1)">&lsaquo;</button><div class="bs-slider" id="na-cats">
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/e262868f4be075.jpg" loading="lazy" alt="Catify Catnip Filled Cat Toy - Sushi Rolls"></a><button class="wish-btn" data-name="Catify Catnip Filled Cat Toy - Sushi Rolls" data-price="11.99" data-img="assets/e262868f4be075.jpg" data-rating="4.8" data-reviews="9" data-colors='[]' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Catify Catnip Filled Cat Toy - Sushi Rolls</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (9)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/e262868f4be075.jpg&quot;]]' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/e262868f4be075.jpg)" data-img="assets/e262868f4be075.jpg" data-name="" title=""></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (9)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/e262868f4be075.jpg&quot;]]' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/e262868f4be075.jpg)" data-img="assets/e262868f4be075.jpg" data-name="" title=""></span></div>
      <div class="price">$11.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/29b0b99034d1aa.jpg" loading="lazy" alt="Catify Catnip Filled Cat Toy - Fluffy Fish Set"></a><button class="wish-btn" data-name="Catify Catnip Filled Cat Toy - Fluffy Fish Set" data-price="11.99" data-img="assets/29b0b99034d1aa.jpg" data-rating="4.9" data-reviews="11" data-colors='[]' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Catify Catnip Filled Cat Toy - Fluffy Fish Set</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.9 (11)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/29b0b99034d1aa.jpg&quot;]]' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/29b0b99034d1aa.jpg)" data-img="assets/29b0b99034d1aa.jpg" data-name="" title=""></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.9 (11)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/29b0b99034d1aa.jpg&quot;]]' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/29b0b99034d1aa.jpg)" data-img="assets/29b0b99034d1aa.jpg" data-name="" title=""></span></div>
      <div class="price">$11.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/2f05a5ca408033.jpg" loading="lazy" alt="Catify Interactive Cat Toy with Catnip - Squeaking Mice"></a><button class="wish-btn" data-name="Catify Interactive Cat Toy with Catnip - Squeaking Mice" data-price="11.99" data-img="assets/2f05a5ca408033.jpg" data-rating="4.7" data-reviews="8" data-colors='[]' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Catify Interactive Cat Toy with Catnip - Squeaking Mice</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.7 (8)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/2f05a5ca408033.jpg&quot;]]' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/2f05a5ca408033.jpg)" data-img="assets/2f05a5ca408033.jpg" data-name="" title=""></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.7 (8)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/2f05a5ca408033.jpg&quot;]]' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/2f05a5ca408033.jpg)" data-img="assets/2f05a5ca408033.jpg" data-name="" title=""></span></div>
      <div class="price">$11.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/819f221b20db9f.jpg" loading="lazy" alt="Voyager Escape Proof Cat Harness and Leash with Matching Trim"></a><button class="wish-btn" data-name="Voyager Escape Proof Cat Harness and Leash with Matching Trim" data-price="15.99" data-img="assets/819f221b20db9f.jpg" data-rating="4.8" data-reviews="17" data-colors='[]' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Voyager Escape Proof Cat Harness and Leash with Matching Trim</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (17)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/819f221b20db9f.jpg&quot;]]' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/819f221b20db9f.jpg)" data-img="assets/819f221b20db9f.jpg" data-name="" title=""></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (17)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;&quot;, &quot;assets/819f221b20db9f.jpg&quot;]]' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/819f221b20db9f.jpg)" data-img="assets/819f221b20db9f.jpg" data-name="" title=""></span></div>
      <div class="price">$15.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div></div><button class="bs-arrow r" onclick="bsScroll('na-cats',1)">&rsaquo;</button></div>
   <script>function naTab(el,w){var d=document.getElementById('na-dogs-wrap'),c=document.getElementById('na-cats-wrap');el.parentElement.querySelectorAll('.bs-tab').forEach(function(b){b.classList.remove('on');});el.classList.add('on');if(w==='cats'){d.style.display='none';c.style.display='';}else{c.style.display='none';d.style.display='';}}</script>
@@ -963,7 +973,7 @@ body.bar-hidden .scrolldown{bottom:18px}
 </style>
 <section class="section">
  <div class="wrap">
-  <div class="cro" data-note="<b>Shop By Brand &mdash; Variation B.</b> Alternative brand block layout: a 2&times;2 grid where the brand name and a one-line descriptor sit below each tile as live text, so they stay readable at any size instead of relying on small text baked into the images."><span class="cro-num">58<span class="tip"></span></span>
+  <div class="cro" data-note="<b>Shop By Brand &mdash; Variation B.</b> Alternative brand block layout: a 2&times;2 grid where the brand name and a one-line descriptor sit below each tile as live text, so they stay readable at any size instead of relying on small text baked into the images.">
   <h2>Shop By Brand <span style="font-size:15px;font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0">(Variation B)</span></h2>
   <p class="sub">2&times;2 grid &mdash; names &amp; descriptions below the tiles for better readability</p>
   <div class="brandgrid2">
@@ -979,42 +989,42 @@ body.bar-hidden .scrolldown{bottom:18px}
 
 <section class="section">
  <div class="wrap">
-  <div class="cro" data-note="<b>Bestseller section on homepage.</b> Surfacing top sellers with price, rating & Add-to-Cart drives more item views per visit (Phase 1)."><span class="cro-num">6<span class="tip"></span></span>
+  <div class="cro" data-note="<b>Bestseller section on homepage.</b> Surfacing top sellers with price, rating & Add-to-Cart drives more item views per visit (Phase 1).">
    <h2>Bestsellers</h2>
    <p class="sub">Our most-loved step-in harnesses for dogs &amp; cats</p>
    <div class="bs-tabs"><button class="bs-tab on" onclick="bsTab(this,'dogs')">For Dogs</button><button class="bs-tab" onclick="bsTab(this,'cats')">For Cats</button></div>
    <div class="bs-wrap" id="bs-dogs-wrap"><button class="bs-arrow l" onclick="bsScroll('bs-dogs',-1)">&lsaquo;</button><div class="bs-slider" id="bs-dogs">
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-best">BESTSELLER</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-best">BESTSELLER</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/5d26b200acbfb0.jpg" loading="lazy" alt="Step-In Plush Suede Pet Harness"></a><button class="wish-btn" data-name="Step-In Plush Suede Pet Harness" data-price="13.99" data-img="assets/5d26b200acbfb0.jpg" data-rating="4.4" data-reviews="25" data-colors='[[&quot;Latte Suede&quot;, &quot;assets/c8426425a0ecaf.jpg [&quot;Chocolate Suede&quot;, &quot;assets/deec77e98b7a0a.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Plush Suede Pet Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★☆</span> <span>4.4 (25)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Latte Suede&quot;, &quot;assets/c8426425a0ecaf.jpg [&quot;Chocolate Suede&quot;, &quot;assets/deec77e98b7a0a.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/5d26b200acbfb0.jpg)" data-img="assets/5d26b200acbfb0.jpg" data-name="Latte Suede" title="Latte Suede"></span><span class="swatch" style="background-image:url(assets/ed031f159b588f.jpg)" data-img="assets/ed031f159b588f.jpg" data-name="Chocolate Suede" title="Chocolate Suede"></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★☆</span> <span>4.4 (25)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Latte Suede&quot;, &quot;assets/c8426425a0ecaf.jpg [&quot;Chocolate Suede&quot;, &quot;assets/deec77e98b7a0a.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/5d26b200acbfb0.jpg)" data-img="assets/5d26b200acbfb0.jpg" data-name="Latte Suede" title="Latte Suede"></span><span class="swatch" style="background-image:url(assets/ed031f159b588f.jpg)" data-img="assets/ed031f159b588f.jpg" data-name="Chocolate Suede" title="Chocolate Suede"></span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-best">BESTSELLER</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-best">BESTSELLER</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/d7583104f5ad9b.jpg" loading="lazy" alt="Step-In Plush Corduroy Pet Harness"></a><button class="wish-btn" data-name="Step-In Plush Corduroy Pet Harness" data-price="13.99" data-img="assets/d7583104f5ad9b.jpg" data-rating="4.6" data-reviews="23" data-colors='[[&quot;Fuchsia Corduroy&quot;, &quot;assets/93555d67095e84.jpg [&quot;Red Corduroy&quot;, &quot;assets/278b027a9aeab5.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Plush Corduroy Pet Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.6 (23)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Fuchsia Corduroy&quot;, &quot;assets/93555d67095e84.jpg [&quot;Red Corduroy&quot;, &quot;assets/278b027a9aeab5.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/d7583104f5ad9b.jpg)" data-img="assets/d7583104f5ad9b.jpg" data-name="Fuchsia Corduroy" title="Fuchsia Corduroy"></span><span class="swatch" style="background-image:url(assets/7cf9b877871009.jpg)" data-img="assets/7cf9b877871009.jpg" data-name="Red Corduroy" title="Red Corduroy"></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.6 (23)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Fuchsia Corduroy&quot;, &quot;assets/93555d67095e84.jpg [&quot;Red Corduroy&quot;, &quot;assets/278b027a9aeab5.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/d7583104f5ad9b.jpg)" data-img="assets/d7583104f5ad9b.jpg" data-name="Fuchsia Corduroy" title="Fuchsia Corduroy"></span><span class="swatch" style="background-image:url(assets/7cf9b877871009.jpg)" data-img="assets/7cf9b877871009.jpg" data-name="Red Corduroy" title="Red Corduroy"></span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/7d705a1f631a4e.jpg" loading="lazy" alt="Step-In Plush Quilted Pet Harness"></a><button class="wish-btn" data-name="Step-In Plush Quilted Pet Harness" data-price="13.99" data-img="assets/7d705a1f631a4e.jpg" data-rating="4.7" data-reviews="34" data-colors='[[&quot;Red Rose Plush&quot;, &quot;assets/0ae9deec80bfbb.jpg [&quot;Red Quilt&quot;, &quot;assets/2a0b1cc8b81b56.jpg [&quot;Turquoise Quilt&quot;, &quot;assets/a2c7492dd0e61b.jpg [&quot;Beige Quilt&quot;, &quot;assets/ccbe038070bfa0.jpg [&quot;Black Quilt&quot;, &quot;assets/b25728aa123b70.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Plush Quilted Pet Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.7 (34)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Red Rose Plush&quot;, &quot;assets/0ae9deec80bfbb.jpg [&quot;Red Quilt&quot;, &quot;assets/2a0b1cc8b81b56.jpg [&quot;Turquoise Quilt&quot;, &quot;assets/a2c7492dd0e61b.jpg [&quot;Beige Quilt&quot;, &quot;assets/ccbe038070bfa0.jpg [&quot;Black Quilt&quot;, &quot;assets/b25728aa123b70.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/7d705a1f631a4e.jpg)" data-img="assets/7d705a1f631a4e.jpg" data-name="Red Rose Plush" title="Red Rose Plush"></span><span class="swatch" style="background-image:url(assets/71c7fb0d22514c.jpg)" data-img="assets/71c7fb0d22514c.jpg" data-name="Red Quilt" title="Red Quilt"></span><span class="swatch" style="background-image:url(assets/032dca48727d0b.jpg)" data-img="assets/032dca48727d0b.jpg" data-name="Turquoise Quilt" title="Turquoise Quilt"></span><span class="swatch" style="background-image:url(assets/b6cfc9aefac31a.jpg)" data-img="assets/b6cfc9aefac31a.jpg" data-name="Beige Quilt" title="Beige Quilt"></span><span class="swatch" style="background-image:url(assets/b338ac90efd175.jpg)" data-img="assets/b338ac90efd175.jpg" data-name="Black Quilt" title="Black Quilt"></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.7 (34)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Red Rose Plush&quot;, &quot;assets/0ae9deec80bfbb.jpg [&quot;Red Quilt&quot;, &quot;assets/2a0b1cc8b81b56.jpg [&quot;Turquoise Quilt&quot;, &quot;assets/a2c7492dd0e61b.jpg [&quot;Beige Quilt&quot;, &quot;assets/ccbe038070bfa0.jpg [&quot;Black Quilt&quot;, &quot;assets/b25728aa123b70.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/7d705a1f631a4e.jpg)" data-img="assets/7d705a1f631a4e.jpg" data-name="Red Rose Plush" title="Red Rose Plush"></span><span class="swatch" style="background-image:url(assets/71c7fb0d22514c.jpg)" data-img="assets/71c7fb0d22514c.jpg" data-name="Red Quilt" title="Red Quilt"></span><span class="swatch" style="background-image:url(assets/032dca48727d0b.jpg)" data-img="assets/032dca48727d0b.jpg" data-name="Turquoise Quilt" title="Turquoise Quilt"></span><span class="swatch" style="background-image:url(assets/b6cfc9aefac31a.jpg)" data-img="assets/b6cfc9aefac31a.jpg" data-name="Beige Quilt" title="Beige Quilt"></span><span class="swatch" style="background-image:url(assets/b338ac90efd175.jpg)" data-img="assets/b338ac90efd175.jpg" data-name="Black Quilt" title="Black Quilt"></span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
@@ -1022,21 +1032,21 @@ body.bar-hidden .scrolldown{bottom:18px}
    <div class="imgwrap"><a href="product.html"><img src="assets/6268e24d392440.jpg" loading="lazy" alt="Step-In Plush Faux Leather Harness"></a><button class="wish-btn" data-name="Step-In Plush Faux Leather Harness" data-price="13.99" data-img="assets/6268e24d392440.jpg" data-rating="4.3" data-reviews="6" data-colors='[[&quot;Royal Blue Faux Leather&quot;, &quot;assets/278bf616f9b3b5.jpg [&quot;Purple Faux Leather&quot;, &quot;assets/734c33d83de2aa.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Plush Faux Leather Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★☆</span> <span>4.3 (6)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Royal Blue Faux Leather&quot;, &quot;assets/278bf616f9b3b5.jpg [&quot;Purple Faux Leather&quot;, &quot;assets/734c33d83de2aa.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/6268e24d392440.jpg)" data-img="assets/6268e24d392440.jpg" data-name="Royal Blue Faux Leather" title="Royal Blue Faux Leather"></span><span class="swatch" style="background-image:url(assets/5b1c5d1aedc171.jpg)" data-img="assets/5b1c5d1aedc171.jpg" data-name="Purple Faux Leather" title="Purple Faux Leather"></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★☆</span> <span>4.3 (6)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Royal Blue Faux Leather&quot;, &quot;assets/278bf616f9b3b5.jpg [&quot;Purple Faux Leather&quot;, &quot;assets/734c33d83de2aa.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/6268e24d392440.jpg)" data-img="assets/6268e24d392440.jpg" data-name="Royal Blue Faux Leather" title="Royal Blue Faux Leather"></span><span class="swatch" style="background-image:url(assets/5b1c5d1aedc171.jpg)" data-img="assets/5b1c5d1aedc171.jpg" data-name="Purple Faux Leather" title="Purple Faux Leather"></span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-best">BESTSELLER</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-best">BESTSELLER</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/a45778c52a6b0c.jpg" loading="lazy" alt="Step-In Air Harness with Matching Trim"></a><button class="wish-btn" data-name="Step-In Air Harness with Matching Trim" data-price="14.99" data-img="assets/a45778c52a6b0c.jpg" data-rating="4.8" data-reviews="202" data-colors='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Air Harness with Matching Trim</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (202)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/a45778c52a6b0c.jpg)" data-img="assets/a45778c52a6b0c.jpg" data-name="Khaki" title="Khaki"></span><span class="swatch" style="background-image:url(assets/6f696d8d15e3ba.jpg)" data-img="assets/6f696d8d15e3ba.jpg" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/49b9ffeb2c3dc8.jpg)" data-img="assets/49b9ffeb2c3dc8.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/de56869d9ef5c5.jpg)" data-img="assets/de56869d9ef5c5.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/df83d7aa148518.jpg)" data-img="assets/df83d7aa148518.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (202)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/a45778c52a6b0c.jpg)" data-img="assets/a45778c52a6b0c.jpg" data-name="Khaki" title="Khaki"></span><span class="swatch" style="background-image:url(assets/6f696d8d15e3ba.jpg)" data-img="assets/6f696d8d15e3ba.jpg" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/49b9ffeb2c3dc8.jpg)" data-img="assets/49b9ffeb2c3dc8.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/de56869d9ef5c5.jpg)" data-img="assets/de56869d9ef5c5.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/df83d7aa148518.jpg)" data-img="assets/df83d7aa148518.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch-more">+3</span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
@@ -1044,10 +1054,10 @@ body.bar-hidden .scrolldown{bottom:18px}
    <div class="imgwrap"><a href="product.html"><img src="assets/fec86bbc92227a.jpg" loading="lazy" alt="Step-In Air Harness: Comfort &amp; Security"></a><button class="wish-btn" data-name="Step-In Air Harness: Comfort &amp; Security" data-price="14.99" data-img="assets/fec86bbc92227a.jpg" data-rating="4.7" data-reviews="138" data-colors='[[&quot;Pink&quot;, &quot;assets/f454e491580b83.jpg [&quot;Orange&quot;, &quot;assets/ccd0e749ca2c8c.jpg [&quot;Red&quot;, &quot;assets/16c1ee9b229075.jpg [&quot;Purple&quot;, &quot;assets/824470523c8daf.jpg [&quot;Lime Green&quot;, &quot;assets/bb78f28211aa55.jpg [&quot;Baby Blue&quot;, &quot;assets/33af0910900cf7.jpg [&quot;Royal Blue&quot;, &quot;assets/964eaa65802205.jpg [&quot;Black&quot;, &quot;assets/5d85249d18c413.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Air Harness: Comfort &amp; Security</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.7 (138)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/f454e491580b83.jpg [&quot;Orange&quot;, &quot;assets/ccd0e749ca2c8c.jpg [&quot;Red&quot;, &quot;assets/16c1ee9b229075.jpg [&quot;Purple&quot;, &quot;assets/824470523c8daf.jpg [&quot;Lime Green&quot;, &quot;assets/bb78f28211aa55.jpg [&quot;Baby Blue&quot;, &quot;assets/33af0910900cf7.jpg [&quot;Royal Blue&quot;, &quot;assets/964eaa65802205.jpg [&quot;Black&quot;, &quot;assets/5d85249d18c413.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/fec86bbc92227a.jpg)" data-img="assets/fec86bbc92227a.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/eb23a5aa26d1bb.jpg)" data-img="assets/eb23a5aa26d1bb.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/270bcea2494eaf.jpg)" data-img="assets/270bcea2494eaf.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/d15237e646a2b0.jpg)" data-img="assets/d15237e646a2b0.jpg" data-name="Purple" title="Purple"></span><span class="swatch" style="background-image:url(assets/dcecda782edb42.jpg)" data-img="assets/dcecda782edb42.jpg" data-name="Lime Green" title="Lime Green"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.7 (138)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/f454e491580b83.jpg [&quot;Orange&quot;, &quot;assets/ccd0e749ca2c8c.jpg [&quot;Red&quot;, &quot;assets/16c1ee9b229075.jpg [&quot;Purple&quot;, &quot;assets/824470523c8daf.jpg [&quot;Lime Green&quot;, &quot;assets/bb78f28211aa55.jpg [&quot;Baby Blue&quot;, &quot;assets/33af0910900cf7.jpg [&quot;Royal Blue&quot;, &quot;assets/964eaa65802205.jpg [&quot;Black&quot;, &quot;assets/5d85249d18c413.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/fec86bbc92227a.jpg)" data-img="assets/fec86bbc92227a.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/eb23a5aa26d1bb.jpg)" data-img="assets/eb23a5aa26d1bb.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/270bcea2494eaf.jpg)" data-img="assets/270bcea2494eaf.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/d15237e646a2b0.jpg)" data-img="assets/d15237e646a2b0.jpg" data-name="Purple" title="Purple"></span><span class="swatch" style="background-image:url(assets/dcecda782edb42.jpg)" data-img="assets/dcecda782edb42.jpg" data-name="Lime Green" title="Lime Green"></span><span class="swatch-more">+3</span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
@@ -1055,33 +1065,33 @@ body.bar-hidden .scrolldown{bottom:18px}
    <div class="imgwrap"><a href="product.html"><img src="assets/20ef3f390bad0a.jpg" loading="lazy" alt="Step-In Lock Pet Harness"></a><button class="wish-btn" data-name="Step-In Lock Pet Harness" data-price="13.99" data-img="assets/20ef3f390bad0a.jpg" data-rating="3.6" data-reviews="7" data-colors='[[&quot;Pink&quot;, &quot;assets/14d825729fbabe.jpg [&quot;Fuchsia&quot;, &quot;assets/863710b1f36c92.jpg [&quot;Red&quot;, &quot;assets/b08c9ca9fd248e.jpg [&quot;Orange&quot;, &quot;assets/1d982b2c36ff6e.jpg [&quot;Purple&quot;, &quot;assets/445abced4fa9a7.jpg [&quot;Lime Green&quot;, &quot;assets/a149888b5d6075.jpg [&quot;Baby Blue&quot;, &quot;assets/d5a80d3cce1b44.jpg [&quot;Turquoise&quot;, &quot;assets/d6452becdcf4b1.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Lock Pet Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★☆</span> <span>3.6 (7)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/14d825729fbabe.jpg [&quot;Fuchsia&quot;, &quot;assets/863710b1f36c92.jpg [&quot;Red&quot;, &quot;assets/b08c9ca9fd248e.jpg [&quot;Orange&quot;, &quot;assets/1d982b2c36ff6e.jpg [&quot;Purple&quot;, &quot;assets/445abced4fa9a7.jpg [&quot;Lime Green&quot;, &quot;assets/a149888b5d6075.jpg [&quot;Baby Blue&quot;, &quot;assets/d5a80d3cce1b44.jpg [&quot;Turquoise&quot;, &quot;assets/5af76fe1e47a5c.jpg [&quot;Royal Blue&quot;, &quot;assets/4ce7bfbefda277.jpg [&quot;Black&quot;, &quot;assets/cf25450f874efa.jpg [&quot;Camo&quot;, &quot;assets/904df4659eeb5b.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/20ef3f390bad0a.jpg)" data-img="assets/20ef3f390bad0a.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/a4518780bca5c6.jpg)" data-img="assets/a4518780bca5c6.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/5b393d05388586.jpg)" data-img="assets/5b393d05388586.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/dedbb8ce77cf95.jpg)" data-img="assets/dedbb8ce77cf95.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/0576d0d6c76347.jpg)" data-img="assets/0576d0d6c76347.jpg" data-name="Purple" title="Purple"></span><span class="swatch-more">+6</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★☆</span> <span>3.6 (7)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/14d825729fbabe.jpg [&quot;Fuchsia&quot;, &quot;assets/863710b1f36c92.jpg [&quot;Red&quot;, &quot;assets/b08c9ca9fd248e.jpg [&quot;Orange&quot;, &quot;assets/1d982b2c36ff6e.jpg [&quot;Purple&quot;, &quot;assets/445abced4fa9a7.jpg [&quot;Lime Green&quot;, &quot;assets/a149888b5d6075.jpg [&quot;Baby Blue&quot;, &quot;assets/d5a80d3cce1b44.jpg [&quot;Turquoise&quot;, &quot;assets/5af76fe1e47a5c.jpg [&quot;Royal Blue&quot;, &quot;assets/4ce7bfbefda277.jpg [&quot;Black&quot;, &quot;assets/cf25450f874efa.jpg [&quot;Camo&quot;, &quot;assets/904df4659eeb5b.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/20ef3f390bad0a.jpg)" data-img="assets/20ef3f390bad0a.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/a4518780bca5c6.jpg)" data-img="assets/a4518780bca5c6.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/5b393d05388586.jpg)" data-img="assets/5b393d05388586.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/dedbb8ce77cf95.jpg)" data-img="assets/dedbb8ce77cf95.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/0576d0d6c76347.jpg)" data-img="assets/0576d0d6c76347.jpg" data-name="Purple" title="Purple"></span><span class="swatch-more">+6</span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-best">BESTSELLER</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-best">BESTSELLER</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/a34423a6d20f8e.jpg" loading="lazy" alt="AeroLite Harness for Dogs"></a><button class="wish-btn" data-name="AeroLite Harness for Dogs" data-price="14.99" data-img="assets/a34423a6d20f8e.jpg" data-rating="5.0" data-reviews="9" data-colors='[[&quot;Beige&quot;, &quot;assets/6def9bfb7bfbe5.jpg [&quot;Black&quot;, &quot;assets/bcb5e7d866b6da.jpg [&quot;Blue&quot;, &quot;assets/a7a0560ff287bf.jpg [&quot;Fuchsia&quot;, &quot;assets/c6a180e142bc35.jpg [&quot;Pink&quot;, &quot;assets/76e03a9d01a9c7.jpg [&quot;Purple&quot;, &quot;assets/18cea63bb10643.jpg [&quot;Red&quot;, &quot;assets/a9ad17756627aa.jpg [&quot;Turquoise&quot;, &quot;assets/55f02d972398cc.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">AeroLite Harness for Dogs</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>5.0 (9)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Beige&quot;, &quot;assets/6def9bfb7bfbe5.jpg [&quot;Black&quot;, &quot;assets/bcb5e7d866b6da.jpg [&quot;Blue&quot;, &quot;assets/a7a0560ff287bf.jpg [&quot;Fuchsia&quot;, &quot;assets/c6a180e142bc35.jpg [&quot;Pink&quot;, &quot;assets/76e03a9d01a9c7.jpg [&quot;Purple&quot;, &quot;assets/18cea63bb10643.jpg [&quot;Red&quot;, &quot;assets/a9ad17756627aa.jpg [&quot;Turquoise&quot;, &quot;assets/55f02d972398cc.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/a34423a6d20f8e.jpg)" data-img="assets/a34423a6d20f8e.jpg" data-name="Beige" title="Beige"></span><span class="swatch" style="background-image:url(assets/7ca6f187cf9833.jpg)" data-img="assets/7ca6f187cf9833.jpg" data-name="Black" title="Black"></span><span class="swatch" style="background-image:url(assets/cd6b73ccf02acc.jpg)" data-img="assets/cd6b73ccf02acc.jpg" data-name="Blue" title="Blue"></span><span class="swatch" style="background-image:url(assets/c97897a254b372.jpg)" data-img="assets/c97897a254b372.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/7a79d3cfae35f9.jpg)" data-img="assets/7a79d3cfae35f9.jpg" data-name="Pink" title="Pink"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>5.0 (9)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Beige&quot;, &quot;assets/6def9bfb7bfbe5.jpg [&quot;Black&quot;, &quot;assets/bcb5e7d866b6da.jpg [&quot;Blue&quot;, &quot;assets/a7a0560ff287bf.jpg [&quot;Fuchsia&quot;, &quot;assets/c6a180e142bc35.jpg [&quot;Pink&quot;, &quot;assets/76e03a9d01a9c7.jpg [&quot;Purple&quot;, &quot;assets/18cea63bb10643.jpg [&quot;Red&quot;, &quot;assets/a9ad17756627aa.jpg [&quot;Turquoise&quot;, &quot;assets/55f02d972398cc.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/a34423a6d20f8e.jpg)" data-img="assets/a34423a6d20f8e.jpg" data-name="Beige" title="Beige"></span><span class="swatch" style="background-image:url(assets/7ca6f187cf9833.jpg)" data-img="assets/7ca6f187cf9833.jpg" data-name="Black" title="Black"></span><span class="swatch" style="background-image:url(assets/cd6b73ccf02acc.jpg)" data-img="assets/cd6b73ccf02acc.jpg" data-name="Blue" title="Blue"></span><span class="swatch" style="background-image:url(assets/c97897a254b372.jpg)" data-img="assets/c97897a254b372.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/7a79d3cfae35f9.jpg)" data-img="assets/7a79d3cfae35f9.jpg" data-name="Pink" title="Pink"></span><span class="swatch-more">+3</span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div></div><button class="bs-arrow r" onclick="bsScroll('bs-dogs',1)">&rsaquo;</button></div>
    <div class="bs-wrap" id="bs-cats-wrap" style="display:none"><button class="bs-arrow l" onclick="bsScroll('bs-cats',-1)">&lsaquo;</button><div class="bs-slider" id="bs-cats">
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-best">BESTSELLER</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-best">BESTSELLER</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/a45778c52a6b0c.jpg" loading="lazy" alt="Step-In Air Harness with Matching Trim"></a><button class="wish-btn" data-name="Step-In Air Harness with Matching Trim" data-price="14.99" data-img="assets/a45778c52a6b0c.jpg" data-rating="4.8" data-reviews="202" data-colors='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Air Harness with Matching Trim</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (202)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/a45778c52a6b0c.jpg)" data-img="assets/a45778c52a6b0c.jpg" data-name="Khaki" title="Khaki"></span><span class="swatch" style="background-image:url(assets/6f696d8d15e3ba.jpg)" data-img="assets/6f696d8d15e3ba.jpg" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/49b9ffeb2c3dc8.jpg)" data-img="assets/49b9ffeb2c3dc8.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/de56869d9ef5c5.jpg)" data-img="assets/de56869d9ef5c5.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/df83d7aa148518.jpg)" data-img="assets/df83d7aa148518.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (202)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Khaki&quot;, &quot;assets/5892013e4c2247.jpg [&quot;Lavender&quot;, &quot;assets/334a6b5cd465fc.jpg [&quot;Moss Green&quot;, &quot;assets/a7f41e3d15f091.jpg [&quot;Pink&quot;, &quot;assets/0a6542899fac15.jpg [&quot;Fuchsia&quot;, &quot;assets/a39ae4c6c6e88c.jpg [&quot;Red&quot;, &quot;assets/0e42c73db1e317.jpg [&quot;Orange&quot;, &quot;assets/1f75b920744187.jpg [&quot;Lime Green&quot;, &quot;assets/876d213806e272.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/a45778c52a6b0c.jpg)" data-img="assets/a45778c52a6b0c.jpg" data-name="Khaki" title="Khaki"></span><span class="swatch" style="background-image:url(assets/6f696d8d15e3ba.jpg)" data-img="assets/6f696d8d15e3ba.jpg" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/49b9ffeb2c3dc8.jpg)" data-img="assets/49b9ffeb2c3dc8.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/de56869d9ef5c5.jpg)" data-img="assets/de56869d9ef5c5.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/df83d7aa148518.jpg)" data-img="assets/df83d7aa148518.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch-more">+3</span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
@@ -1089,21 +1099,21 @@ body.bar-hidden .scrolldown{bottom:18px}
    <div class="imgwrap"><a href="product.html"><img src="assets/fec86bbc92227a.jpg" loading="lazy" alt="Step-In Air Harness: Comfort &amp; Security"></a><button class="wish-btn" data-name="Step-In Air Harness: Comfort &amp; Security" data-price="14.99" data-img="assets/fec86bbc92227a.jpg" data-rating="4.7" data-reviews="138" data-colors='[[&quot;Pink&quot;, &quot;assets/f454e491580b83.jpg [&quot;Orange&quot;, &quot;assets/ccd0e749ca2c8c.jpg [&quot;Red&quot;, &quot;assets/16c1ee9b229075.jpg [&quot;Purple&quot;, &quot;assets/824470523c8daf.jpg [&quot;Lime Green&quot;, &quot;assets/bb78f28211aa55.jpg [&quot;Baby Blue&quot;, &quot;assets/33af0910900cf7.jpg [&quot;Royal Blue&quot;, &quot;assets/964eaa65802205.jpg [&quot;Black&quot;, &quot;assets/5d85249d18c413.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Air Harness: Comfort &amp; Security</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.7 (138)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/f454e491580b83.jpg [&quot;Orange&quot;, &quot;assets/ccd0e749ca2c8c.jpg [&quot;Red&quot;, &quot;assets/16c1ee9b229075.jpg [&quot;Purple&quot;, &quot;assets/824470523c8daf.jpg [&quot;Lime Green&quot;, &quot;assets/bb78f28211aa55.jpg [&quot;Baby Blue&quot;, &quot;assets/33af0910900cf7.jpg [&quot;Royal Blue&quot;, &quot;assets/964eaa65802205.jpg [&quot;Black&quot;, &quot;assets/5d85249d18c413.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/fec86bbc92227a.jpg)" data-img="assets/fec86bbc92227a.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/eb23a5aa26d1bb.jpg)" data-img="assets/eb23a5aa26d1bb.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/270bcea2494eaf.jpg)" data-img="assets/270bcea2494eaf.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/d15237e646a2b0.jpg)" data-img="assets/d15237e646a2b0.jpg" data-name="Purple" title="Purple"></span><span class="swatch" style="background-image:url(assets/dcecda782edb42.jpg)" data-img="assets/dcecda782edb42.jpg" data-name="Lime Green" title="Lime Green"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.7 (138)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/f454e491580b83.jpg [&quot;Orange&quot;, &quot;assets/ccd0e749ca2c8c.jpg [&quot;Red&quot;, &quot;assets/16c1ee9b229075.jpg [&quot;Purple&quot;, &quot;assets/824470523c8daf.jpg [&quot;Lime Green&quot;, &quot;assets/bb78f28211aa55.jpg [&quot;Baby Blue&quot;, &quot;assets/33af0910900cf7.jpg [&quot;Royal Blue&quot;, &quot;assets/964eaa65802205.jpg [&quot;Black&quot;, &quot;assets/5d85249d18c413.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/fec86bbc92227a.jpg)" data-img="assets/fec86bbc92227a.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/eb23a5aa26d1bb.jpg)" data-img="assets/eb23a5aa26d1bb.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/270bcea2494eaf.jpg)" data-img="assets/270bcea2494eaf.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/d15237e646a2b0.jpg)" data-img="assets/d15237e646a2b0.jpg" data-name="Purple" title="Purple"></span><span class="swatch" style="background-image:url(assets/dcecda782edb42.jpg)" data-img="assets/dcecda782edb42.jpg" data-name="Lime Green" title="Lime Green"></span><span class="swatch-more">+3</span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/3daec91299229d.jpg" loading="lazy" alt="Step-In Air Black with Color Trim"></a><button class="wish-btn" data-name="Step-In Air Black with Color Trim" data-price="14.99" data-img="assets/3daec91299229d.jpg" data-rating="4.8" data-reviews="10" data-colors='[[&quot;Orange Trim&quot;, &quot;assets/96d98e72aa8a0e.jpg [&quot;Fuchsia Trim&quot;, &quot;assets/d7daae96d654f4.jpg [&quot;Red Trim&quot;, &quot;assets/4fe599d0dfe1d5.jpg [&quot;Blue Trim&quot;, &quot;assets/a0e22a776042d7.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Air Black with Color Trim</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (10)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Orange Trim&quot;, &quot;assets/96d98e72aa8a0e.jpg [&quot;Fuchsia Trim&quot;, &quot;assets/d7daae96d654f4.jpg [&quot;Red Trim&quot;, &quot;assets/4fe599d0dfe1d5.jpg [&quot;Blue Trim&quot;, &quot;assets/a0e22a776042d7.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/3daec91299229d.jpg)" data-img="assets/3daec91299229d.jpg" data-name="Orange Trim" title="Orange Trim"></span><span class="swatch" style="background-image:url(assets/1d17fe167952fa.jpg)" data-img="assets/1d17fe167952fa.jpg" data-name="Fuchsia Trim" title="Fuchsia Trim"></span><span class="swatch" style="background-image:url(assets/015bfee3f51da6.jpg)" data-img="assets/015bfee3f51da6.jpg" data-name="Red Trim" title="Red Trim"></span><span class="swatch" style="background-image:url(assets/12a2b9ed26e1c1.jpg)" data-img="assets/12a2b9ed26e1c1.jpg" data-name="Blue Trim" title="Blue Trim"></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (10)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Orange Trim&quot;, &quot;assets/96d98e72aa8a0e.jpg [&quot;Fuchsia Trim&quot;, &quot;assets/d7daae96d654f4.jpg [&quot;Red Trim&quot;, &quot;assets/4fe599d0dfe1d5.jpg [&quot;Blue Trim&quot;, &quot;assets/a0e22a776042d7.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/3daec91299229d.jpg)" data-img="assets/3daec91299229d.jpg" data-name="Orange Trim" title="Orange Trim"></span><span class="swatch" style="background-image:url(assets/1d17fe167952fa.jpg)" data-img="assets/1d17fe167952fa.jpg" data-name="Fuchsia Trim" title="Fuchsia Trim"></span><span class="swatch" style="background-image:url(assets/015bfee3f51da6.jpg)" data-img="assets/015bfee3f51da6.jpg" data-name="Red Trim" title="Red Trim"></span><span class="swatch" style="background-image:url(assets/12a2b9ed26e1c1.jpg)" data-img="assets/12a2b9ed26e1c1.jpg" data-name="Blue Trim" title="Blue Trim"></span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
@@ -1111,21 +1121,21 @@ body.bar-hidden .scrolldown{bottom:18px}
    <div class="imgwrap"><a href="product.html"><img src="assets/625f0f3f5c2242.jpg" loading="lazy" alt="Step-In Air Two-Tone Harness"></a><button class="wish-btn" data-name="Step-In Air Two-Tone Harness" data-price="14.99" data-img="assets/625f0f3f5c2242.jpg" data-rating="4.9" data-reviews="34" data-colors='[[&quot;Fuchsia&quot;, &quot;assets/ee6d2af5635a6a.jpg [&quot;Turquoise&quot;, &quot;assets/134b60ef820b5f.jpg [&quot;Lime Green&quot;, &quot;assets/23f75150f88b90.jpg [&quot;Gray&quot;, &quot;assets/9c2dbecf5e491f.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Air Two-Tone Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.9 (34)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Fuchsia&quot;, &quot;assets/ee6d2af5635a6a.jpg [&quot;Turquoise&quot;, &quot;assets/134b60ef820b5f.jpg [&quot;Lime Green&quot;, &quot;assets/23f75150f88b90.jpg [&quot;Gray&quot;, &quot;assets/9c2dbecf5e491f.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/625f0f3f5c2242.jpg)" data-img="assets/625f0f3f5c2242.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/d272ffc6c0a0b6.jpg)" data-img="assets/d272ffc6c0a0b6.jpg" data-name="Turquoise" title="Turquoise"></span><span class="swatch" style="background-image:url(assets/cefb05a0d63646.jpg)" data-img="assets/cefb05a0d63646.jpg" data-name="Lime Green" title="Lime Green"></span><span class="swatch" style="background-image:url(assets/abbb147f65f1ca.jpg)" data-img="assets/abbb147f65f1ca.jpg" data-name="Gray" title="Gray"></span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.9 (34)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Fuchsia&quot;, &quot;assets/ee6d2af5635a6a.jpg [&quot;Turquoise&quot;, &quot;assets/134b60ef820b5f.jpg [&quot;Lime Green&quot;, &quot;assets/23f75150f88b90.jpg [&quot;Gray&quot;, &quot;assets/9c2dbecf5e491f.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/625f0f3f5c2242.jpg)" data-img="assets/625f0f3f5c2242.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/d272ffc6c0a0b6.jpg)" data-img="assets/d272ffc6c0a0b6.jpg" data-name="Turquoise" title="Turquoise"></span><span class="swatch" style="background-image:url(assets/cefb05a0d63646.jpg)" data-img="assets/cefb05a0d63646.jpg" data-name="Lime Green" title="Lime Green"></span><span class="swatch" style="background-image:url(assets/abbb147f65f1ca.jpg)" data-img="assets/abbb147f65f1ca.jpg" data-name="Gray" title="Gray"></span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-new">NEW</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-new">NEW</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/442f102f16ebc4.jpg" loading="lazy" alt="Step-In Flex Dog Harness"></a><button class="wish-btn" data-name="Step-In Flex Dog Harness" data-price="15.99" data-img="assets/442f102f16ebc4.jpg" data-rating="4.8" data-reviews="43" data-colors='[[&quot;Moss Green&quot;, &quot;assets/009210de8e4d54.jpg [&quot;Lavender&quot;, &quot;assets/27ac0bc4c2515a.png [&quot;Pink&quot;, &quot;assets/dba8e962292823.jpg [&quot;Fuchsia&quot;, &quot;assets/e1c6d00fc2308c.jpg [&quot;Orange&quot;, &quot;assets/107b286d149c50.jpg [&quot;Red&quot;, &quot;assets/f796cd890bc671.jpg [&quot;Purple&quot;, &quot;assets/e7d0b151df6e86.jpg [&quot;Baby Blue&quot;, &quot;assets/0b3c038d6d1c13.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Flex Dog Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>4.8 (43)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Moss Green&quot;, &quot;assets/009210de8e4d54.jpg [&quot;Lavender&quot;, &quot;assets/27ac0bc4c2515a.png [&quot;Pink&quot;, &quot;assets/dba8e962292823.jpg [&quot;Fuchsia&quot;, &quot;assets/e1c6d00fc2308c.jpg [&quot;Orange&quot;, &quot;assets/107b286d149c50.jpg [&quot;Red&quot;, &quot;assets/f796cd890bc671.jpg [&quot;Purple&quot;, &quot;assets/e7d0b151df6e86.jpg [&quot;Baby Blue&quot;, &quot;assets/0b3c038d6d1c13.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/442f102f16ebc4.jpg)" data-img="assets/442f102f16ebc4.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/ac4ca64056c5c7.png)" data-img="assets/ac4ca64056c5c7.png" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/fa965fff2619a3.jpg)" data-img="assets/fa965fff2619a3.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/ee3fe81da5c6e0.jpg)" data-img="assets/ee3fe81da5c6e0.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/26188b2d42d536.jpg)" data-img="assets/26188b2d42d536.jpg" data-name="Orange" title="Orange"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>4.8 (43)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Moss Green&quot;, &quot;assets/009210de8e4d54.jpg [&quot;Lavender&quot;, &quot;assets/27ac0bc4c2515a.png [&quot;Pink&quot;, &quot;assets/dba8e962292823.jpg [&quot;Fuchsia&quot;, &quot;assets/e1c6d00fc2308c.jpg [&quot;Orange&quot;, &quot;assets/107b286d149c50.jpg [&quot;Red&quot;, &quot;assets/f796cd890bc671.jpg [&quot;Purple&quot;, &quot;assets/e7d0b151df6e86.jpg [&quot;Baby Blue&quot;, &quot;assets/0b3c038d6d1c13.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/442f102f16ebc4.jpg)" data-img="assets/442f102f16ebc4.jpg" data-name="Moss Green" title="Moss Green"></span><span class="swatch" style="background-image:url(assets/ac4ca64056c5c7.png)" data-img="assets/ac4ca64056c5c7.png" data-name="Lavender" title="Lavender"></span><span class="swatch" style="background-image:url(assets/fa965fff2619a3.jpg)" data-img="assets/fa965fff2619a3.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/ee3fe81da5c6e0.jpg)" data-img="assets/ee3fe81da5c6e0.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/26188b2d42d536.jpg)" data-img="assets/26188b2d42d536.jpg" data-name="Orange" title="Orange"></span><span class="swatch-more">+3</span></div>
      <div class="price">$15.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
@@ -1133,10 +1143,10 @@ body.bar-hidden .scrolldown{bottom:18px}
    <div class="imgwrap"><a href="product.html"><img src="assets/0a7a959a1fea98.jpg" loading="lazy" alt="Step-In Lock Harness with Air Mesh"></a><button class="wish-btn" data-name="Step-In Lock Harness with Air Mesh" data-price="13.99" data-img="assets/0a7a959a1fea98.jpg" data-rating="5.0" data-reviews="18" data-colors='[[&quot;Pink&quot;, &quot;assets/e7b25f2384b327.jpg [&quot;Fuchsia&quot;, &quot;assets/2666dd784b6b3f.jpg [&quot;Orange&quot;, &quot;assets/1303cd9d8a69ba.jpg [&quot;Red&quot;, &quot;assets/a28fbf133a7ce3.jpg [&quot;Purple&quot;, &quot;assets/3aeb695683dffe.jpg [&quot;Lime Green&quot;, &quot;assets/8a60941bb35373.jpg [&quot;Baby Blue&quot;, &quot;assets/6ee04941ab1468.jpg [&quot;Royal Blue&quot;, &quot;assets/a6d45e2d4b29bb.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Lock Harness with Air Mesh</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>5.0 (18)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/e7b25f2384b327.jpg [&quot;Fuchsia&quot;, &quot;assets/2666dd784b6b3f.jpg [&quot;Orange&quot;, &quot;assets/1303cd9d8a69ba.jpg [&quot;Red&quot;, &quot;assets/a28fbf133a7ce3.jpg [&quot;Purple&quot;, &quot;assets/3aeb695683dffe.jpg [&quot;Lime Green&quot;, &quot;assets/8a60941bb35373.jpg [&quot;Baby Blue&quot;, &quot;assets/6ee04941ab1468.jpg [&quot;Royal Blue&quot;, &quot;assets/a6d45e2d4b29bb.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/0a7a959a1fea98.jpg)" data-img="assets/0a7a959a1fea98.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/4e3f57f5f815cd.jpg)" data-img="assets/4e3f57f5f815cd.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/96a91b4913d143.jpg)" data-img="assets/96a91b4913d143.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/78fc41233b7c3c.jpg)" data-img="assets/78fc41233b7c3c.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/a17207b03cc7e7.jpg)" data-img="assets/a17207b03cc7e7.jpg" data-name="Purple" title="Purple"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>5.0 (18)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/e7b25f2384b327.jpg [&quot;Fuchsia&quot;, &quot;assets/2666dd784b6b3f.jpg [&quot;Orange&quot;, &quot;assets/1303cd9d8a69ba.jpg [&quot;Red&quot;, &quot;assets/a28fbf133a7ce3.jpg [&quot;Purple&quot;, &quot;assets/3aeb695683dffe.jpg [&quot;Lime Green&quot;, &quot;assets/8a60941bb35373.jpg [&quot;Baby Blue&quot;, &quot;assets/6ee04941ab1468.jpg [&quot;Royal Blue&quot;, &quot;assets/a6d45e2d4b29bb.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/0a7a959a1fea98.jpg)" data-img="assets/0a7a959a1fea98.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/4e3f57f5f815cd.jpg)" data-img="assets/4e3f57f5f815cd.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/96a91b4913d143.jpg)" data-img="assets/96a91b4913d143.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/78fc41233b7c3c.jpg)" data-img="assets/78fc41233b7c3c.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/a17207b03cc7e7.jpg)" data-img="assets/a17207b03cc7e7.jpg" data-name="Purple" title="Purple"></span><span class="swatch-more">+3</span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
@@ -1144,21 +1154,21 @@ body.bar-hidden .scrolldown{bottom:18px}
    <div class="imgwrap"><a href="product.html"><img src="assets/20ef3f390bad0a.jpg" loading="lazy" alt="Step-In Lock Pet Harness"></a><button class="wish-btn" data-name="Step-In Lock Pet Harness" data-price="13.99" data-img="assets/20ef3f390bad0a.jpg" data-rating="3.6" data-reviews="7" data-colors='[[&quot;Pink&quot;, &quot;assets/14d825729fbabe.jpg [&quot;Fuchsia&quot;, &quot;assets/863710b1f36c92.jpg [&quot;Red&quot;, &quot;assets/b08c9ca9fd248e.jpg [&quot;Orange&quot;, &quot;assets/1d982b2c36ff6e.jpg [&quot;Purple&quot;, &quot;assets/445abced4fa9a7.jpg [&quot;Lime Green&quot;, &quot;assets/a149888b5d6075.jpg [&quot;Baby Blue&quot;, &quot;assets/d5a80d3cce1b44.jpg [&quot;Turquoise&quot;, &quot;assets/d6452becdcf4b1.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">Step-In Lock Pet Harness</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★☆</span> <span>3.6 (7)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/14d825729fbabe.jpg [&quot;Fuchsia&quot;, &quot;assets/863710b1f36c92.jpg [&quot;Red&quot;, &quot;assets/b08c9ca9fd248e.jpg [&quot;Orange&quot;, &quot;assets/1d982b2c36ff6e.jpg [&quot;Purple&quot;, &quot;assets/445abced4fa9a7.jpg [&quot;Lime Green&quot;, &quot;assets/a149888b5d6075.jpg [&quot;Baby Blue&quot;, &quot;assets/d5a80d3cce1b44.jpg [&quot;Turquoise&quot;, &quot;assets/5af76fe1e47a5c.jpg [&quot;Royal Blue&quot;, &quot;assets/4ce7bfbefda277.jpg [&quot;Black&quot;, &quot;assets/cf25450f874efa.jpg [&quot;Camo&quot;, &quot;assets/904df4659eeb5b.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/20ef3f390bad0a.jpg)" data-img="assets/20ef3f390bad0a.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/a4518780bca5c6.jpg)" data-img="assets/a4518780bca5c6.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/5b393d05388586.jpg)" data-img="assets/5b393d05388586.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/dedbb8ce77cf95.jpg)" data-img="assets/dedbb8ce77cf95.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/0576d0d6c76347.jpg)" data-img="assets/0576d0d6c76347.jpg" data-name="Purple" title="Purple"></span><span class="swatch-more">+6</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★☆</span> <span>3.6 (7)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Pink&quot;, &quot;assets/14d825729fbabe.jpg [&quot;Fuchsia&quot;, &quot;assets/863710b1f36c92.jpg [&quot;Red&quot;, &quot;assets/b08c9ca9fd248e.jpg [&quot;Orange&quot;, &quot;assets/1d982b2c36ff6e.jpg [&quot;Purple&quot;, &quot;assets/445abced4fa9a7.jpg [&quot;Lime Green&quot;, &quot;assets/a149888b5d6075.jpg [&quot;Baby Blue&quot;, &quot;assets/d5a80d3cce1b44.jpg [&quot;Turquoise&quot;, &quot;assets/5af76fe1e47a5c.jpg [&quot;Royal Blue&quot;, &quot;assets/4ce7bfbefda277.jpg [&quot;Black&quot;, &quot;assets/cf25450f874efa.jpg [&quot;Camo&quot;, &quot;assets/904df4659eeb5b.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/20ef3f390bad0a.jpg)" data-img="assets/20ef3f390bad0a.jpg" data-name="Pink" title="Pink"></span><span class="swatch" style="background-image:url(assets/a4518780bca5c6.jpg)" data-img="assets/a4518780bca5c6.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/5b393d05388586.jpg)" data-img="assets/5b393d05388586.jpg" data-name="Red" title="Red"></span><span class="swatch" style="background-image:url(assets/dedbb8ce77cf95.jpg)" data-img="assets/dedbb8ce77cf95.jpg" data-name="Orange" title="Orange"></span><span class="swatch" style="background-image:url(assets/0576d0d6c76347.jpg)" data-img="assets/0576d0d6c76347.jpg" data-name="Purple" title="Purple"></span><span class="swatch-more">+6</span></div>
      <div class="price">$13.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div>
  <div class="card">
-   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="cro-num">9<span class="tip"></span></span><span class="pill b-best">BESTSELLER</span></div>
+   <div class="badges cro" data-note="<b>Marketing tags on PLP.</b> Bestseller / New / Sale badges help shoppers spot key products."><span class="pill b-best">BESTSELLER</span></div>
    <div class="imgwrap"><a href="product.html"><img src="assets/a34423a6d20f8e.jpg" loading="lazy" alt="AeroLite Harness for Dogs"></a><button class="wish-btn" data-name="AeroLite Harness for Dogs" data-price="14.99" data-img="assets/a34423a6d20f8e.jpg" data-rating="5.0" data-reviews="9" data-colors='[[&quot;Beige&quot;, &quot;assets/6def9bfb7bfbe5.jpg [&quot;Black&quot;, &quot;assets/bcb5e7d866b6da.jpg [&quot;Blue&quot;, &quot;assets/a7a0560ff287bf.jpg [&quot;Fuchsia&quot;, &quot;assets/c6a180e142bc35.jpg [&quot;Pink&quot;, &quot;assets/76e03a9d01a9c7.jpg [&quot;Purple&quot;, &quot;assets/18cea63bb10643.jpg [&quot;Red&quot;, &quot;assets/a9ad17756627aa.jpg [&quot;Turquoise&quot;, &quot;assets/55f02d972398cc.jpg' onclick="wlToggle(this)" aria-label="Add to wishlist">&#9829;</button></div>
    <div class="body">
      <h3><a href="product.html">AeroLite Harness for Dogs</a></h3>
-     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="cro-num">16<span class="tip"></span></span><span class="stars">★★★★★</span> <span>5.0 (9)</span></div>
-     <div class="swatches cro" data-sw='[[&quot;Beige&quot;, &quot;assets/6def9bfb7bfbe5.jpg [&quot;Black&quot;, &quot;assets/bcb5e7d866b6da.jpg [&quot;Blue&quot;, &quot;assets/a7a0560ff287bf.jpg [&quot;Fuchsia&quot;, &quot;assets/c6a180e142bc35.jpg [&quot;Pink&quot;, &quot;assets/76e03a9d01a9c7.jpg [&quot;Purple&quot;, &quot;assets/18cea63bb10643.jpg [&quot;Red&quot;, &quot;assets/a9ad17756627aa.jpg [&quot;Turquoise&quot;, &quot;assets/55f02d972398cc.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="cro-num">5<span class="tip"></span></span><span class="swatch on" style="background-image:url(assets/a34423a6d20f8e.jpg)" data-img="assets/a34423a6d20f8e.jpg" data-name="Beige" title="Beige"></span><span class="swatch" style="background-image:url(assets/7ca6f187cf9833.jpg)" data-img="assets/7ca6f187cf9833.jpg" data-name="Black" title="Black"></span><span class="swatch" style="background-image:url(assets/cd6b73ccf02acc.jpg)" data-img="assets/cd6b73ccf02acc.jpg" data-name="Blue" title="Blue"></span><span class="swatch" style="background-image:url(assets/c97897a254b372.jpg)" data-img="assets/c97897a254b372.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/7a79d3cfae35f9.jpg)" data-img="assets/7a79d3cfae35f9.jpg" data-name="Pink" title="Pink"></span><span class="swatch-more">+3</span></div>
+     <div class="rev cro" data-note="<b>Ratings on PLP.</b> Star rating + review count builds trust while browsing."><span class="stars">★★★★★</span> <span>5.0 (9)</span></div>
+     <div class="swatches cro" data-sw='[[&quot;Beige&quot;, &quot;assets/6def9bfb7bfbe5.jpg [&quot;Black&quot;, &quot;assets/bcb5e7d866b6da.jpg [&quot;Blue&quot;, &quot;assets/a7a0560ff287bf.jpg [&quot;Fuchsia&quot;, &quot;assets/c6a180e142bc35.jpg [&quot;Pink&quot;, &quot;assets/76e03a9d01a9c7.jpg [&quot;Purple&quot;, &quot;assets/18cea63bb10643.jpg [&quot;Red&quot;, &quot;assets/a9ad17756627aa.jpg [&quot;Turquoise&quot;, &quot;assets/55f02d972398cc.jpg' data-note="<b>Working colour swatches.</b> Clicking a swatch updates the tile image inline instead of only highlighting it."><span class="swatch on" style="background-image:url(assets/a34423a6d20f8e.jpg)" data-img="assets/a34423a6d20f8e.jpg" data-name="Beige" title="Beige"></span><span class="swatch" style="background-image:url(assets/7ca6f187cf9833.jpg)" data-img="assets/7ca6f187cf9833.jpg" data-name="Black" title="Black"></span><span class="swatch" style="background-image:url(assets/cd6b73ccf02acc.jpg)" data-img="assets/cd6b73ccf02acc.jpg" data-name="Blue" title="Blue"></span><span class="swatch" style="background-image:url(assets/c97897a254b372.jpg)" data-img="assets/c97897a254b372.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="swatch" style="background-image:url(assets/7a79d3cfae35f9.jpg)" data-img="assets/7a79d3cfae35f9.jpg" data-name="Pink" title="Pink"></span><span class="swatch-more">+3</span></div>
      <div class="price">$14.99</div>
-     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><span class="cro-num">18<span class="tip"></span></span><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
+     <div class="atc cro" data-note="<b>Inline Add to Cart on PLP.</b> Quick-add with a variant picker lets users buy without opening the PDP."><button class="btn block" onclick="openQuick(this)">Add to Cart</button></div>
    </div>
  </div></div><button class="bs-arrow r" onclick="bsScroll('bs-cats',1)">&rsaquo;</button></div>
    <div style="text-align:center;margin-top:26px"><a href="collection.html" class="btn outline" id="bs-viewall">View All Dog Bestsellers</a></div>
@@ -1170,7 +1180,7 @@ function bsScroll(id,dir){var sx=document.getElementById(id);if(sx)sx.scrollBy({
 
 <section id="size" class="sizew section">
  <div class="wrap">
-  <div class="row cro" data-note="<b>Find the Right Size section.</b> An interactive sizing tool on the homepage reduces wrong-size returns and links straight to matching products (Phase 1)."><span class="cro-num">12<span class="tip"></span></span>
+  <div class="row cro" data-note="<b>Find the Right Size section.</b> An interactive sizing tool on the homepage reduces wrong-size returns and links straight to matching products (Phase 1).">
    <div>
      <span class="eyebrow" style="color:#ffd2d7">No more guesswork</span>
      <h2>Find The Right Size</h2>
@@ -1233,7 +1243,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 <section class="ugc section">
  <div class="wrap">
-  <div class="cro" data-note="<b>Shoppable UGC video.</b> Customer videos with product tiles + Add-to-Cart build trust and engagement (Phase 1)."><span class="cro-num">10<span class="tip"></span></span>
+  <div class="cro" data-note="<b>Shoppable UGC video.</b> Customer videos with product tiles + Add-to-Cart build trust and engagement (Phase 1).">
    <h2>As Seen On Your Walks</h2>
    <p class="sub">Real pets, real adventures &mdash; straight from @voyager_harness on TikTok</p>
    <div class="row"><div class="v"><video src="assets/tt1.mp4" poster="assets/ttcover1.jpg" muted loop playsinline autoplay preload="metadata" onclick="ttMute(this)"></video><div class="tt-badge">&#9658; TikTok</div><button class="mute" onclick="ttMute(this)" aria-label="Toggle sound">&#128263;</button><div class="shop"><img src="assets/a45778c52a6b0c.jpg"><div class="n">Step-In Air Harness wi<br><b>$14.99</b></div><button onclick="openQuick(this)">Add</button></div></div><div class="v"><video src="assets/tt2.mp4" poster="assets/ttcover2.jpg" muted loop playsinline autoplay preload="metadata" onclick="ttMute(this)"></video><div class="tt-badge">&#9658; TikTok</div><button class="mute" onclick="ttMute(this)" aria-label="Toggle sound">&#128263;</button><div class="shop"><img src="assets/5d26b200acbfb0.jpg"><div class="n">Step-In Plush Suede Pe<br><b>$13.99</b></div><button onclick="openQuick(this)">Add</button></div></div><div class="v"><video src="assets/tt4.mp4" poster="assets/ttcover4.jpg" muted loop playsinline autoplay preload="metadata" onclick="ttMute(this)"></video><div class="tt-badge">&#9658; TikTok</div><button class="mute" onclick="ttMute(this)" aria-label="Toggle sound">&#128263;</button><div class="shop"><img src="assets/a34423a6d20f8e.jpg"><div class="n">AeroLite Harness for D<br><b>$14.99</b></div><button onclick="openQuick(this)">Add</button></div></div><div class="v"><video src="assets/tt5.mp4" poster="assets/ttcover5.jpg" muted loop playsinline autoplay preload="metadata" onclick="ttMute(this)"></video><div class="tt-badge">&#9658; TikTok</div><button class="mute" onclick="ttMute(this)" aria-label="Toggle sound">&#128263;</button><div class="shop"><img src="assets/442f102f16ebc4.jpg"><div class="n">Step-In Flex Dog Harne<br><b>$15.99</b></div><button onclick="openQuick(this)">Add</button></div></div></div>
@@ -1311,7 +1321,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 <section class="usp section">
  <div class="wrap">
-  <div class="row cro" data-note="<b>Brand USPs / Why Choose Voyager.</b> Differentiators above the fold establish credibility vs competitors (Phase 1)."><span class="cro-num">7<span class="tip"></span></span>
+  <div class="row cro" data-note="<b>Brand USPs / Why Choose Voyager.</b> Differentiators above the fold establish credibility vs competitors (Phase 1).">
    <div class="u"><div class="ic">🦮</div><h4>Step-In Comfort</h4><p>Fuss-free vest design — just step in, clip & go.</p></div>
    <div class="u"><div class="ic">🛡️</div><h4>3 Security Features</h4><p>Three security features &amp; two reflective bands keep pets safe.</p></div>
    <div class="u"><div class="ic">🧵</div><h4>Premium Materials</h4><p>Soft plush & breathable air mesh, built to last.</p></div>
@@ -1429,20 +1439,17 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeQuick
         <button class="mc-arrow r" onclick="mcRail(1)">&rsaquo;</button>
       </div>
     </div>
-    <div class="mc-coupon"><input id="mc-promo" placeholder="Promo code (try WELCOME20)"><button onclick="mcCoupon()">Apply</button></div>
-    <div class="mc-coupon-msg" id="mc-coupon-msg"></div>
     </div>
     <div class="mc-foot">
-      <div class="mc-srow disc" id="mc-disc-row" style="display:none"><span>Discount (WELCOME20)</span><span id="mc-disc">-$0.00</span></div>
-      <div class="mc-subtotal"><span class="lbl">Subtotal</span><span class="amt" id="mc-subamt">$0.00</span></div>
-      <button class="mc-checkout" onclick="alert('Proceeding to secure checkout (mockup).')">Checkout</button>
+      <div class="mc-coupon"><input id="mc-promo" placeholder="Promo code (try WELCOME20)"><button onclick="mcCoupon()">Apply</button></div>
+      <div class="mc-coupon-msg" id="mc-coupon-msg"></div>
+      <button class="mc-checkout" id="mc-checkout" onclick="alert('Proceeding to secure checkout (mockup).')">Checkout</button>
       <div class="mc-note">Taxes &amp; shipping calculated at checkout &middot; Orders processed in USD</div>
-      <a class="mc-view" href="cart.html">View full cart &rarr;</a>
     </div>
   </aside>
 </div>
 <script>
-var FREE_SHIP=49, COUPON=null;
+var FREE_SHIP=30, COUPON=null;
 var CART=[
  {id:1,name:'Step-In Plush Suede Pet Harness',sw:[["Latte Suede", "assets/5d26b200acbfb0.jpg"], ["Chocolate Suede", "assets/ed031f159b588f.jpg"]],_sel:0,color:'Latte Suede',size:'M',price:13.99,qty:1,img:'assets/5d26b200acbfb0.jpg'},
  {id:2,name:'Step-In Air Harness with Matching Trim',sw:[["Khaki", "assets/a45778c52a6b0c.jpg"], ["Lavender", "assets/6f696d8d15e3ba.jpg"], ["Moss Green", "assets/49b9ffeb2c3dc8.jpg"], ["Pink", "assets/de56869d9ef5c5.jpg"], ["Fuchsia", "assets/df83d7aa148518.jpg"], ["Red", "assets/dd534842909986.jpg"]],_sel:1,color:'Lavender',size:'S',price:14.99,qty:1,img:'assets/6f696d8d15e3ba.jpg'}
@@ -1477,7 +1484,7 @@ function renderCart(){
       +'<span class="mc-change" onclick="mcFlip('+it.id+')">Change</span>'
       +'<div class="mc-actions"><div class="mc-qty"><button onclick="mcQty('+it.id+',-1)">&minus;</button><span>'+it.qty+'</span><button onclick="mcQty('+it.id+',1)">+</button></div>'
       +'<a class="mc-save" onclick="mcSaveLater('+it.id+')">&#9825; Save for later</a></div></div>'
-      +'<div class="mc-fprice"><button class="mc-trash" onclick="mcRemove('+it.id+')" title="Remove">&#128465;</button><div class="mc-iprice">'+mcMoney(it.price*it.qty)+'</div></div>'
+      +'<div class="mc-fprice"><button class="mc-trash" onclick="mcRemove('+it.id+')" title="Remove">&#128465;</button></div>'
       +'</div>'
       +'<div class="mc-face mc-back">'
       +'<div class="mc-back-hd"><span>Edit options</span><span class="mc-back-x" onclick="mcFlip('+it.id+')">&times;</span></div>'
@@ -1488,9 +1495,7 @@ function renderCart(){
       +'</div></div>');
   });
   var disc=COUPON?sub*0.2:0;
-  document.getElementById('mc-disc-row').style.display=COUPON?'flex':'none';
-  document.getElementById('mc-disc').textContent='-'+mcMoney(disc);
-  document.getElementById('mc-subamt').textContent=mcMoney(sub-disc);
+  var ck=document.getElementById('mc-checkout'); if(ck) ck.textContent='Checkout @ '+mcMoney(sub-disc);
 }
 function openCart(){renderCart();document.getElementById('mc-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeCart(){document.getElementById('mc-overlay').classList.remove('open');document.body.style.overflow='';}
@@ -1520,7 +1525,7 @@ function confirmQuick(){
   openCart();
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCart();});
-function plpFixBar(){var b=document.getElementById('bar');var m=document.querySelector('.plp-mbar');if(b&&m){m.style.bottom=b.offsetHeight+'px';}}
+function plpFixBar(){var m=document.querySelector('.plp-mbar');if(m){m.style.bottom='0px';}}
 window.addEventListener('resize',plpFixBar);window.addEventListener('load',plpFixBar);setTimeout(plpFixBar,60);
 renderCart();
 </script>
@@ -1604,7 +1609,7 @@ setInterval(updTabBadges,1000);
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSearch();closeQuiz();}});
 document.addEventListener('click',function(e){var q=e.target.closest&&e.target.closest('#quiz-weights .quiz-opt');if(q)quizSize(q.getAttribute('data-sz'));});
 window.addEventListener('scroll',function(){var a=document.querySelector('.scrolldown');if(a)a.classList.toggle('hid',window.scrollY>40);},{passive:true});
-function placeCue(){var c=document.querySelector('.scrolldown');if(!c)return;var bar=document.getElementById('bar');var hidden=document.body.classList.contains('bar-hidden');var h=(bar&&!hidden)?bar.offsetHeight:0;c.style.bottom=(h+14)+'px';}
+function placeCue(){var c=document.querySelector('.scrolldown');if(!c)return;c.style.bottom='16px';}
 window.addEventListener('load',placeCue);window.addEventListener('resize',placeCue);
 var _bar=document.getElementById('bar');if(_bar)_bar.addEventListener('click',function(){setTimeout(placeCue,40);});
 var _bs=document.getElementById('barShow');if(_bs)_bs.addEventListener('click',function(){setTimeout(placeCue,40);});
@@ -1619,7 +1624,7 @@ setTimeout(placeCue,60);
    <button class="mtab" onclick="openSearch()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg><span class="mtab-l">Search</span></button>
    <button class="mtab quiz" onclick="openQuiz()"><span class="qwrap"><svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 6v3M9 6v4M14 6v3M19 6v4"/><path d="M4 14h16v4H4z"/></svg></span><span class="mtab-l">Find My Fit</span></button>
    <a class="mtab" href="wishlist.html" data-page="wishlist.html"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 7a3.5 3.5 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg><span class="mtb-badge" id="mtb-wish">0</span><span class="mtab-l">Wishlist</span></a>
-   <a class="mtab" href="cart.html" data-page="cart.html"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 3H2"/></svg><span class="mtb-badge show" id="mtb-cart">2</span><span class="mtab-l">Cart</span></a>
+   <button class="mtab" onclick="openCart()"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 3H2"/></svg><span class="mtb-badge show" id="mtb-cart">2</span><span class="mtab-l">Cart</span></button>
  </div>
 </nav>
 
@@ -1693,14 +1698,13 @@ function closeSizeChart(){var o=document.getElementById('sc-overlay');if(o){o.cl
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSizeChart();});
 </script>
 
-<button class="scrolldown" aria-label="Scroll for more" onclick="(document.querySelector('.voyager-banner')||document.body).scrollIntoView({behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 7 12 14 19 7"></polyline><polyline points="5 13 12 20 19 13"></polyline></svg></button>
+<button class="scrolldown" aria-label="Scroll for more" onclick="(document.querySelector('.corner')||document.body).scrollIntoView({behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 7 12 14 19 7"></polyline><polyline points="5 13 12 20 19 13"></polyline></svg></button>
 
 <div id="bar">
  <span class="tag">GROWISTO &times; VOYAGER &middot; CRO MOCKUP</span>
- <label><input type="checkbox" id="annTgl" checked> Show CRO changes</label>
  <div class="seg"><button id="dDesk" class="on">Desktop</button><button id="dMob">Mobile</button></div>
  <span class="spacer"></span>
- <span style="color:#888"><a class="home" href="index.html">Index</a> &middot; <a class="home" href="home.html">Home</a> &middot; <a class="home" href="collection.html">Collection</a> &middot; <a class="home" href="product.html">Product</a> &middot; <a class="home" href="cart.html">Cart</a> &middot; <a class="home" href="wishlist.html">Wishlist</a></span>
+ <span style="color:#888"><a class="home" href="index.html">Index</a> &middot; <a class="home" href="home.html">Home</a> &middot; <a class="home" href="collection.html">Collection</a> &middot; <a class="home" href="product.html">Product</a> &middot; <a class="home" href="wishlist.html">Wishlist</a></span>
  <button class="barhide" id="barHide" title="Hide preview toolbar">Hide &times;</button>
 </div>
 <button id="barShow" title="Show preview toolbar">&#9650; Show toolbar</button>
@@ -1708,11 +1712,17 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSizeCha
 const b=document.body;
 document.getElementById('barHide').addEventListener('click',()=>b.classList.add('bar-hidden'));
 document.getElementById('barShow').addEventListener('click',()=>b.classList.remove('bar-hidden'));
-function placeTabbar(){var t=document.querySelector('.mtabbar');if(!t)return;var bar=document.getElementById('bar');var hidden=b.classList.contains('bar-hidden');t.style.bottom=((bar&&!hidden)?bar.offsetHeight:0)+'px';var sh=(getComputedStyle(t).display!=='none')?(t.offsetHeight||0):0;document.documentElement.style.setProperty('--tabh',sh+'px');var ps=document.querySelector('.pdp-sticky');if(ps)ps.style.setProperty('--tabh',sh+'px');}
+function placeBar(){var bar=document.getElementById('bar');var hidden=b.classList.contains('bar-hidden');var h=(bar&&!hidden)?bar.offsetHeight:0;document.documentElement.style.setProperty('--barh',h+'px');}
+window.addEventListener('load',placeBar);window.addEventListener('resize',placeBar);
+document.getElementById('barHide').addEventListener('click',()=>setTimeout(placeBar,30));
+document.getElementById('barShow').addEventListener('click',()=>setTimeout(placeBar,30));
+document.getElementById('dDesk').addEventListener('click',()=>setTimeout(placeBar,40));
+document.getElementById('dMob').addEventListener('click',()=>setTimeout(placeBar,40));
+setTimeout(placeBar,30);
+function placeTabbar(){var t=document.querySelector('.mtabbar');if(!t)return;var bar=document.getElementById('bar');var hidden=b.classList.contains('bar-hidden');t.style.bottom='0px';var sh=(getComputedStyle(t).display!=='none')?(t.offsetHeight||0):0;document.documentElement.style.setProperty('--tabh',sh+'px');var ps=document.querySelector('.pdp-sticky');if(ps)ps.style.setProperty('--tabh',sh+'px');}
 window.addEventListener('load',placeTabbar);window.addEventListener('resize',placeTabbar);
 document.getElementById('barHide').addEventListener('click',()=>setTimeout(placeTabbar,30));
 document.getElementById('barShow').addEventListener('click',()=>setTimeout(placeTabbar,30));
-document.getElementById('annTgl').addEventListener('change',e=>b.classList.toggle('anns',e.target.checked));
 document.getElementById('dDesk').addEventListener('click',function(){b.classList.remove('mobile');this.classList.add('on');document.getElementById('dMob').classList.remove('on');setTimeout(placeTabbar,40);});
 document.getElementById('dMob').addEventListener('click',function(){b.classList.add('mobile');this.classList.add('on');document.getElementById('dDesk').classList.remove('on');setTimeout(placeTabbar,40);});
 setTimeout(placeTabbar,30);
