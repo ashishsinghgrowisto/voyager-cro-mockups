@@ -621,10 +621,22 @@ body.mobile .story-launch .sl-label{font-size:10px;padding:2px 10px}
 .ask a:hover{border-color:var(--ink)}
 .fbt{border:1px solid var(--line);padding:18px;margin:18px 0}
 .fbt h3{font-size:15px;text-transform:uppercase;margin-bottom:14px}
-.fbt-items{display:flex;flex-direction:column;gap:10px}
-.fbt-item{display:flex;align-items:center;gap:10px}
-.fbt-item img{width:50px;height:50px;object-fit:cover;border-radius:4px}.fbt-item .n{font-size:13px}
-.fbt-total{display:flex;justify-content:space-between;align-items:center;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+.fbt-items{display:flex;flex-direction:column;gap:14px}
+.fbt-item{display:flex;align-items:flex-start;gap:10px}
+.fbt-item img.fbt-img{width:54px;height:54px;object-fit:cover;border-radius:4px;flex:0 0 auto}
+.fbt-item .n{font-size:13px;font-weight:600;line-height:1.25}
+.fbt-item .fbt-chk{margin-top:4px;flex:0 0 auto}
+.fbt-meta{flex:1;min-width:0}
+.fbt-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:2px}
+.fbt-line .price{font-size:13px;font-weight:600}
+.fbt-sel{font-size:11.5px;color:#666}
+.fbt-opts{display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
+.fbt-swatches{display:flex;gap:5px;flex-wrap:wrap}
+.fbt-sw{width:22px;height:22px;border-radius:50%;border:1px solid #ddd;cursor:pointer;background-size:cover;background-position:center}
+.fbt-sw.on{box-shadow:0 0 0 2px var(--ink);border-color:#fff}
+.fbt-size{padding:5px 8px;border:1px solid var(--line);font-family:var(--font);font-size:12px;border-radius:4px;background:#fff;cursor:pointer}
+@media(max-width:600px){.fbt-opts{gap:8px}.fbt-sw{width:20px;height:20px}}
+.fbt-total{display:flex;justify-content:space-between;align-items:center;margin-top:16px;border-top:1px solid var(--line);padding-top:14px;gap:12px;flex-wrap:wrap}
 .acc{border-top:1px solid var(--line)}
 .acc .head{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.5px}
 .acc .panel{display:none;padding:0 0 16px;font-size:14.5px;color:#444}
@@ -765,8 +777,8 @@ body.mobile .story-launch .sl-label{font-size:10px;padding:2px 10px}
 
     <div class="fbt cro" data-note="<b>Bundle / Frequently Bought Together.</b> Relevant add-ons with a clear bundle discount lift AOV (Phase 2).">
       <h3>Frequently Bought Together · Save 15%</h3>
-      <div class="fbt-items"><div class="fbt-item"><input type="checkbox" checked><img src="assets/5d26b200acbfb0.jpg"><div><div class="n">Step-In Plush Suede Pet Harnes</div><div class="price">$13.99</div></div></div><div class="fbt-item"><input type="checkbox" checked><img src="assets/0a7a959a1fea98.jpg"><div><div class="n">Step-In Lock Harness with Air </div><div class="price">$13.99</div></div></div><div class="fbt-item"><input type="checkbox" checked><img src="assets/a45778c52a6b0c.jpg"><div><div class="n">Step-In Air Harness with Match</div><div class="price">$14.99</div></div></div></div>
-      <div class="fbt-total"><div><b>Bundle price: $38.66</b> <span class="was" style="color:#999;text-decoration:line-through">$45.97</span></div><button class="btn">Add Bundle</button></div>
+      <div class="fbt-items"><div class="fbt-item" data-idx="0"><input type="checkbox" class="fbt-chk" checked aria-label="Include in bundle"><img class="fbt-img" src="assets/5d26b200acbfb0.jpg" alt=""><div class="fbt-meta"><div class="n">Step-In Plush Suede Pet Harness</div><div class="fbt-line"><span class="price">$13.99</span> <span class="fbt-sel">Color: Latte Suede</span></div><div class="fbt-opts"><div class="fbt-swatches"><span class="fbt-sw on" style="background-image:url(assets/5d26b200acbfb0.jpg)" data-img="assets/5d26b200acbfb0.jpg" data-name="Latte Suede" title="Latte Suede"></span><span class="fbt-sw" style="background-image:url(assets/ed031f159b588f.jpg)" data-img="assets/ed031f159b588f.jpg" data-name="Chocolate Suede" title="Chocolate Suede"></span></div><select class="fbt-size" aria-label="Size"><option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option></select></div></div></div><div class="fbt-item" data-idx="1"><input type="checkbox" class="fbt-chk" checked aria-label="Include in bundle"><img class="fbt-img" src="assets/0a7a959a1fea98.jpg" alt=""><div class="fbt-meta"><div class="n">Step-In Lock Harness with Air Mesh</div><div class="fbt-line"><span class="price">$13.99</span> <span class="fbt-sel">Color: Pink</span></div><div class="fbt-opts"><div class="fbt-swatches"><span class="fbt-sw on" style="background-image:url(assets/0a7a959a1fea98.jpg)" data-img="assets/0a7a959a1fea98.jpg" data-name="Pink" title="Pink"></span><span class="fbt-sw" style="background-image:url(assets/4e3f57f5f815cd.jpg)" data-img="assets/4e3f57f5f815cd.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="fbt-sw" style="background-image:url(assets/96a91b4913d143.jpg)" data-img="assets/96a91b4913d143.jpg" data-name="Orange" title="Orange"></span><span class="fbt-sw" style="background-image:url(assets/78fc41233b7c3c.jpg)" data-img="assets/78fc41233b7c3c.jpg" data-name="Red" title="Red"></span><span class="fbt-sw" style="background-image:url(assets/a17207b03cc7e7.jpg)" data-img="assets/a17207b03cc7e7.jpg" data-name="Purple" title="Purple"></span></div><select class="fbt-size" aria-label="Size"><option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option></select></div></div></div><div class="fbt-item" data-idx="2"><input type="checkbox" class="fbt-chk" checked aria-label="Include in bundle"><img class="fbt-img" src="assets/a45778c52a6b0c.jpg" alt=""><div class="fbt-meta"><div class="n">Step-In Air Harness with Matching </div><div class="fbt-line"><span class="price">$14.99</span> <span class="fbt-sel">Color: Khaki</span></div><div class="fbt-opts"><div class="fbt-swatches"><span class="fbt-sw on" style="background-image:url(assets/a45778c52a6b0c.jpg)" data-img="assets/a45778c52a6b0c.jpg" data-name="Khaki" title="Khaki"></span><span class="fbt-sw" style="background-image:url(assets/6f696d8d15e3ba.jpg)" data-img="assets/6f696d8d15e3ba.jpg" data-name="Lavender" title="Lavender"></span><span class="fbt-sw" style="background-image:url(assets/49b9ffeb2c3dc8.jpg)" data-img="assets/49b9ffeb2c3dc8.jpg" data-name="Moss Green" title="Moss Green"></span><span class="fbt-sw" style="background-image:url(assets/de56869d9ef5c5.jpg)" data-img="assets/de56869d9ef5c5.jpg" data-name="Pink" title="Pink"></span><span class="fbt-sw" style="background-image:url(assets/df83d7aa148518.jpg)" data-img="assets/df83d7aa148518.jpg" data-name="Fuchsia" title="Fuchsia"></span><span class="fbt-sw" style="background-image:url(assets/dd534842909986.jpg)" data-img="assets/dd534842909986.jpg" data-name="Red" title="Red"></span></div><select class="fbt-size" aria-label="Size"><option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option></select></div></div></div></div>
+      <div class="fbt-total"><div><b>Bundle price: <span id="fbt-now">$36.53</span></b> <span class="was" style="color:#999;text-decoration:line-through" id="fbt-was">$42.97</span></div><button class="btn" onclick="addBundle()">Add Bundle</button></div>
     </div>
   </div>
  </div>
@@ -941,6 +953,38 @@ window.addEventListener('scroll',pdpNavScroll,{passive:true});
 window.addEventListener('resize',function(){positionPdpNav();pdpNavScroll();});
 window.addEventListener('load',function(){positionPdpNav();pdpNavScroll();});
 setTimeout(function(){positionPdpNav();pdpNavScroll();},120);
+/* ---- Frequently Bought Together: per-item colour + size ---- */
+document.addEventListener('click',function(e){
+  var sw=e.target.closest&&e.target.closest('.fbt-sw'); if(!sw) return;
+  var item=sw.closest('.fbt-item'); if(!item) return;
+  item.querySelectorAll('.fbt-sw').forEach(function(x){x.classList.remove('on');});
+  sw.classList.add('on');
+  var img=item.querySelector('.fbt-img'); if(img&&sw.dataset.img) img.src=sw.dataset.img;
+  var sel=item.querySelector('.fbt-sel'); if(sel&&sw.dataset.name) sel.textContent='Color: '+sw.dataset.name;
+});
+function fbtRecalc(){
+  var full=0;
+  document.querySelectorAll('.fbt-item').forEach(function(it){
+    var c=it.querySelector('.fbt-chk');
+    if(c&&c.checked){ var pr=it.querySelector('.price'); if(pr) full+=parseFloat(pr.textContent.replace(/[^0-9.]/g,''))||0; }
+  });
+  var now=full*0.85, w=document.getElementById('fbt-was'), n=document.getElementById('fbt-now');
+  if(w) w.textContent='$'+full.toFixed(2);
+  if(n) n.textContent='$'+now.toFixed(2);
+}
+document.addEventListener('change',function(e){ if(e.target.closest&&e.target.closest('.fbt-chk')) fbtRecalc(); });
+window.addEventListener('load',fbtRecalc);
+function addBundle(){
+  var n=0, parts=[];
+  document.querySelectorAll('.fbt-item').forEach(function(it){
+    var c=it.querySelector('.fbt-chk'); if(!c||!c.checked) return; n++;
+    var on=it.querySelector('.fbt-sw.on'), sz=it.querySelector('.fbt-size');
+    parts.push((on?on.dataset.name+' ':'')+'/ '+(sz?sz.value:'M'));
+  });
+  if(!n) return;
+  document.querySelectorAll('.nav .icons .cart .count').forEach(function(el){ el.textContent=(parseInt(el.textContent||'0',10)+n); });
+  var t=document.getElementById('qa-toast'); if(t){ t.textContent='Bundle added ('+n+' items) ✓'; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); t.textContent='Added to cart ✓'; },1900); }
+}
 </script>
 
 
